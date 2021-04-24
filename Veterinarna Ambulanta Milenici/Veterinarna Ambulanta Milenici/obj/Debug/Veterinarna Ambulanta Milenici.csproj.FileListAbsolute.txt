@@ -1,0 +1,10 @@
+C:\Users\letni\source\repos\Veterinarna Ambulanta Milenici\Veterinarna Ambulanta Milenici\bin\Debug\Veterinarna Ambulanta Milenici.exe.config
+C:\Users\letni\source\repos\Veterinarna Ambulanta Milenici\Veterinarna Ambulanta Milenici\bin\Debug\Veterinarna Ambulanta Milenici.exe
+C:\Users\letni\source\repos\Veterinarna Ambulanta Milenici\Veterinarna Ambulanta Milenici\bin\Debug\Veterinarna Ambulanta Milenici.pdb
+C:\Users\letni\source\repos\Veterinarna Ambulanta Milenici\Veterinarna Ambulanta Milenici\obj\Debug\Veterinarna Ambulanta Milenici.csprojAssemblyReference.cache
+C:\Users\letni\source\repos\Veterinarna Ambulanta Milenici\Veterinarna Ambulanta Milenici\obj\Debug\Veterinarna_Ambulanta_Milenici.Form1.resources
+C:\Users\letni\source\repos\Veterinarna Ambulanta Milenici\Veterinarna Ambulanta Milenici\obj\Debug\Veterinarna_Ambulanta_Milenici.Properties.Resources.resources
+C:\Users\letni\source\repos\Veterinarna Ambulanta Milenici\Veterinarna Ambulanta Milenici\obj\Debug\Veterinarna Ambulanta Milenici.csproj.GenerateResource.cache
+C:\Users\letni\source\repos\Veterinarna Ambulanta Milenici\Veterinarna Ambulanta Milenici\obj\Debug\Veterinarna Ambulanta Milenici.csproj.CoreCompileInputs.cache
+C:\Users\letni\source\repos\Veterinarna Ambulanta Milenici\Veterinarna Ambulanta Milenici\obj\Debug\Veterinarna Ambulanta Milenici.exe
+C:\Users\letni\source\repos\Veterinarna Ambulanta Milenici\Veterinarna Ambulanta Milenici\obj\Debug\Veterinarna Ambulanta Milenici.pdb
