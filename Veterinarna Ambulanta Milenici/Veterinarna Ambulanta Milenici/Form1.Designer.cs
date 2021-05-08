@@ -39,15 +39,6 @@ namespace Veterinarna_Ambulanta_Milenici
             this.tabVnesiMilenik = new System.Windows.Forms.TabPage();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dgvInfoTabela = new System.Windows.Forms.DataGridView();
-            this.colImeSopstvenik = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colPrezimeSopstvenik = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colKontakt = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colVidZivotno = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colRasaNaZivotno = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colImeNaZivotno = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colStarostNaZivotno = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colPolNaZivotno = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MikroCip = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnDodadi = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.gbPol = new System.Windows.Forms.GroupBox();
@@ -287,16 +278,6 @@ namespace Veterinarna_Ambulanta_Milenici
             // 
             this.dgvInfoTabela.BackgroundColor = System.Drawing.Color.PaleTurquoise;
             this.dgvInfoTabela.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvInfoTabela.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.colImeSopstvenik,
-            this.colPrezimeSopstvenik,
-            this.colKontakt,
-            this.colVidZivotno,
-            this.colRasaNaZivotno,
-            this.colImeNaZivotno,
-            this.colStarostNaZivotno,
-            this.colPolNaZivotno,
-            this.MikroCip});
             this.dgvInfoTabela.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvInfoTabela.Location = new System.Drawing.Point(4, 19);
             this.dgvInfoTabela.Margin = new System.Windows.Forms.Padding(4);
@@ -304,69 +285,6 @@ namespace Veterinarna_Ambulanta_Milenici
             this.dgvInfoTabela.RowHeadersWidth = 51;
             this.dgvInfoTabela.Size = new System.Drawing.Size(1257, 648);
             this.dgvInfoTabela.TabIndex = 0;
-            // 
-            // colImeSopstvenik
-            // 
-            this.colImeSopstvenik.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colImeSopstvenik.HeaderText = "Име Сопственик";
-            this.colImeSopstvenik.MinimumWidth = 6;
-            this.colImeSopstvenik.Name = "colImeSopstvenik";
-            // 
-            // colPrezimeSopstvenik
-            // 
-            this.colPrezimeSopstvenik.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colPrezimeSopstvenik.HeaderText = "Презиме Сопственик";
-            this.colPrezimeSopstvenik.MinimumWidth = 6;
-            this.colPrezimeSopstvenik.Name = "colPrezimeSopstvenik";
-            // 
-            // colKontakt
-            // 
-            this.colKontakt.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colKontakt.HeaderText = "Број за контакт";
-            this.colKontakt.MinimumWidth = 6;
-            this.colKontakt.Name = "colKontakt";
-            // 
-            // colVidZivotno
-            // 
-            this.colVidZivotno.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colVidZivotno.HeaderText = "Вид на животно";
-            this.colVidZivotno.MinimumWidth = 6;
-            this.colVidZivotno.Name = "colVidZivotno";
-            // 
-            // colRasaNaZivotno
-            // 
-            this.colRasaNaZivotno.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colRasaNaZivotno.HeaderText = "Раса на животно";
-            this.colRasaNaZivotno.MinimumWidth = 6;
-            this.colRasaNaZivotno.Name = "colRasaNaZivotno";
-            // 
-            // colImeNaZivotno
-            // 
-            this.colImeNaZivotno.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colImeNaZivotno.HeaderText = "Име на животно";
-            this.colImeNaZivotno.MinimumWidth = 6;
-            this.colImeNaZivotno.Name = "colImeNaZivotno";
-            // 
-            // colStarostNaZivotno
-            // 
-            this.colStarostNaZivotno.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colStarostNaZivotno.HeaderText = "Старост на животно";
-            this.colStarostNaZivotno.MinimumWidth = 6;
-            this.colStarostNaZivotno.Name = "colStarostNaZivotno";
-            // 
-            // colPolNaZivotno
-            // 
-            this.colPolNaZivotno.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colPolNaZivotno.HeaderText = "Пол на животно";
-            this.colPolNaZivotno.MinimumWidth = 6;
-            this.colPolNaZivotno.Name = "colPolNaZivotno";
-            // 
-            // MikroCip
-            // 
-            this.MikroCip.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.MikroCip.HeaderText = "Број на Микрочип";
-            this.MikroCip.MinimumWidth = 6;
-            this.MikroCip.Name = "MikroCip";
             // 
             // btnDodadi
             // 
@@ -1587,15 +1505,6 @@ namespace Veterinarna_Ambulanta_Milenici
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox tbMikroCip;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colImeSopstvenik;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colPrezimeSopstvenik;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colKontakt;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colVidZivotno;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colRasaNaZivotno;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colImeNaZivotno;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colStarostNaZivotno;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colPolNaZivotno;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MikroCip;
         private System.Windows.Forms.TabPage tabOsnovnaZdrastvenaZastita;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.GroupBox gbPrebaraj;
