@@ -14,12 +14,12 @@ namespace Veterinarna_Ambulanta_Milenici
         public int GodiniZivotno { get; set; }
         public string PolZivotno { get; set; }
         public string MikroCip { get; set; }
-        public string SopstvenikNaZivotno { get; set; }
+        public Sopstvenik SopstvenikNaZivotno { get; set; }
         public Milenik()
         {
 
         }
-        public Milenik(string TipZivotno, string RasaZivotno, string ImeZivotno, int GodiniZivotno, string PolZivotno, string MikroCip, string SopstvenikNaZivotno)
+        public Milenik(string TipZivotno, string RasaZivotno, string ImeZivotno, int GodiniZivotno, string PolZivotno, string MikroCip, Sopstvenik SopstvenikNaZivotno)
         {
             this.TipZivotno = TipZivotno;
             this.RasaZivotno = RasaZivotno;

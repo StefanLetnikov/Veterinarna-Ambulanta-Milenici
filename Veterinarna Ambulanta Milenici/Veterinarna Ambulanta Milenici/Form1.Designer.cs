@@ -29,6 +29,7 @@ namespace Veterinarna_Ambulanta_Milenici
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.mainLogo = new System.Windows.Forms.PictureBox();
             this.mainTabControll = new System.Windows.Forms.TabControl();
@@ -49,10 +50,11 @@ namespace Veterinarna_Ambulanta_Milenici
             this.MikroCip = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnDodadi = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.gbPol = new System.Windows.Forms.GroupBox();
+            this.rbZenskiPol = new System.Windows.Forms.RadioButton();
+            this.rbMaskiPol = new System.Windows.Forms.RadioButton();
             this.tbMikroCip = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.cbZenskiPol = new System.Windows.Forms.CheckBox();
-            this.cbMaskiPol = new System.Windows.Forms.CheckBox();
             this.tbImeZivotno = new System.Windows.Forms.TextBox();
             this.tbStarostZivotno = new System.Windows.Forms.TextBox();
             this.tbRasaZivotno = new System.Windows.Forms.TextBox();
@@ -140,6 +142,17 @@ namespace Veterinarna_Ambulanta_Milenici
             this.groupBox12 = new System.Windows.Forms.GroupBox();
             this.btnPrebarajMedicinskoDosie = new System.Windows.Forms.Button();
             this.tbPrebarajMedicinskoDosie = new System.Windows.Forms.TextBox();
+            this.error_ime = new System.Windows.Forms.ErrorProvider(this.components);
+            this.error_prezime = new System.Windows.Forms.ErrorProvider(this.components);
+            this.error_email = new System.Windows.Forms.ErrorProvider(this.components);
+            this.error_broj = new System.Windows.Forms.ErrorProvider(this.components);
+            this.error_vid = new System.Windows.Forms.ErrorProvider(this.components);
+            this.error_rasa = new System.Windows.Forms.ErrorProvider(this.components);
+            this.error_godini = new System.Windows.Forms.ErrorProvider(this.components);
+            this.error_ime_zivotno = new System.Windows.Forms.ErrorProvider(this.components);
+            this.error_pol = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.error_mikrocip = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.mainLogo)).BeginInit();
             this.mainTabControll.SuspendLayout();
             this.tabDoma.SuspendLayout();
@@ -147,6 +160,7 @@ namespace Veterinarna_Ambulanta_Milenici
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInfoTabela)).BeginInit();
             this.groupBox1.SuspendLayout();
+            this.gbPol.SuspendLayout();
             this.gbInfoSopstvenik.SuspendLayout();
             this.tabOsnovnaZdrastvenaZastita.SuspendLayout();
             this.groupBox5.SuspendLayout();
@@ -166,6 +180,17 @@ namespace Veterinarna_Ambulanta_Milenici
             this.groupBox13.SuspendLayout();
             this.groupBox11.SuspendLayout();
             this.groupBox12.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.error_ime)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.error_prezime)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.error_email)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.error_broj)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.error_vid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.error_rasa)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.error_godini)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.error_ime_zivotno)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.error_pol)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.error_mikrocip)).BeginInit();
             this.SuspendLayout();
             // 
             // mainLogo
@@ -173,8 +198,9 @@ namespace Veterinarna_Ambulanta_Milenici
             this.mainLogo.Dock = System.Windows.Forms.DockStyle.Top;
             this.mainLogo.Image = ((System.Drawing.Image)(resources.GetObject("mainLogo.Image")));
             this.mainLogo.Location = new System.Drawing.Point(0, 0);
+            this.mainLogo.Margin = new System.Windows.Forms.Padding(4);
             this.mainLogo.Name = "mainLogo";
-            this.mainLogo.Size = new System.Drawing.Size(1443, 205);
+            this.mainLogo.Size = new System.Drawing.Size(1924, 252);
             this.mainLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.mainLogo.TabIndex = 0;
             this.mainLogo.TabStop = false;
@@ -186,20 +212,22 @@ namespace Veterinarna_Ambulanta_Milenici
             this.mainTabControll.Controls.Add(this.tabOsnovnaZdrastvenaZastita);
             this.mainTabControll.Controls.Add(this.tabMedicinskoDosie);
             this.mainTabControll.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.mainTabControll.Location = new System.Drawing.Point(0, 205);
+            this.mainTabControll.Location = new System.Drawing.Point(0, 252);
+            this.mainTabControll.Margin = new System.Windows.Forms.Padding(4);
             this.mainTabControll.Name = "mainTabControll";
             this.mainTabControll.SelectedIndex = 0;
-            this.mainTabControll.Size = new System.Drawing.Size(1443, 770);
+            this.mainTabControll.Size = new System.Drawing.Size(1924, 803);
             this.mainTabControll.TabIndex = 1;
             // 
             // tabDoma
             // 
             this.tabDoma.Controls.Add(this.label18);
             this.tabDoma.Controls.Add(this.button1);
-            this.tabDoma.Location = new System.Drawing.Point(4, 22);
+            this.tabDoma.Location = new System.Drawing.Point(4, 25);
+            this.tabDoma.Margin = new System.Windows.Forms.Padding(4);
             this.tabDoma.Name = "tabDoma";
-            this.tabDoma.Padding = new System.Windows.Forms.Padding(3);
-            this.tabDoma.Size = new System.Drawing.Size(1435, 744);
+            this.tabDoma.Padding = new System.Windows.Forms.Padding(4);
+            this.tabDoma.Size = new System.Drawing.Size(1916, 774);
             this.tabDoma.TabIndex = 0;
             this.tabDoma.Text = "Дома";
             this.tabDoma.UseVisualStyleBackColor = true;
@@ -207,17 +235,19 @@ namespace Veterinarna_Ambulanta_Milenici
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(45, 420);
+            this.label18.Location = new System.Drawing.Point(60, 517);
+            this.label18.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(161, 13);
+            this.label18.Size = new System.Drawing.Size(207, 17);
             this.label18.TabIndex = 1;
             this.label18.Text = "Внеси нов термин за преглед:";
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(69, 453);
+            this.button1.Location = new System.Drawing.Point(92, 558);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(108, 23);
+            this.button1.Size = new System.Drawing.Size(144, 28);
             this.button1.TabIndex = 0;
             this.button1.Text = "Нов Термин";
             this.button1.UseVisualStyleBackColor = true;
@@ -228,10 +258,11 @@ namespace Veterinarna_Ambulanta_Milenici
             this.tabVnesiMilenik.Controls.Add(this.btnDodadi);
             this.tabVnesiMilenik.Controls.Add(this.groupBox1);
             this.tabVnesiMilenik.Controls.Add(this.gbInfoSopstvenik);
-            this.tabVnesiMilenik.Location = new System.Drawing.Point(4, 22);
+            this.tabVnesiMilenik.Location = new System.Drawing.Point(4, 25);
+            this.tabVnesiMilenik.Margin = new System.Windows.Forms.Padding(4);
             this.tabVnesiMilenik.Name = "tabVnesiMilenik";
-            this.tabVnesiMilenik.Padding = new System.Windows.Forms.Padding(3);
-            this.tabVnesiMilenik.Size = new System.Drawing.Size(1435, 744);
+            this.tabVnesiMilenik.Padding = new System.Windows.Forms.Padding(4);
+            this.tabVnesiMilenik.Size = new System.Drawing.Size(1916, 774);
             this.tabVnesiMilenik.TabIndex = 1;
             this.tabVnesiMilenik.Text = "Внеси Миленик";
             this.tabVnesiMilenik.UseVisualStyleBackColor = true;
@@ -243,9 +274,11 @@ namespace Veterinarna_Ambulanta_Milenici
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox2.AutoSize = true;
             this.groupBox2.Controls.Add(this.dgvInfoTabela);
-            this.groupBox2.Location = new System.Drawing.Point(526, 18);
+            this.groupBox2.Location = new System.Drawing.Point(701, 22);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(949, 663);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBox2.Size = new System.Drawing.Size(1265, 671);
             this.groupBox2.TabIndex = 4;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Ново-додадени миленици";
@@ -265,10 +298,11 @@ namespace Veterinarna_Ambulanta_Milenici
             this.colPolNaZivotno,
             this.MikroCip});
             this.dgvInfoTabela.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvInfoTabela.Location = new System.Drawing.Point(3, 16);
+            this.dgvInfoTabela.Location = new System.Drawing.Point(4, 19);
+            this.dgvInfoTabela.Margin = new System.Windows.Forms.Padding(4);
             this.dgvInfoTabela.Name = "dgvInfoTabela";
             this.dgvInfoTabela.RowHeadersWidth = 51;
-            this.dgvInfoTabela.Size = new System.Drawing.Size(943, 644);
+            this.dgvInfoTabela.Size = new System.Drawing.Size(1257, 648);
             this.dgvInfoTabela.TabIndex = 0;
             // 
             // colImeSopstvenik
@@ -340,10 +374,11 @@ namespace Veterinarna_Ambulanta_Milenici
             this.btnDodadi.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.btnDodadi.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDodadi.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnDodadi.Location = new System.Drawing.Point(50, 703);
+            this.btnDodadi.Location = new System.Drawing.Point(67, 720);
+            this.btnDodadi.Margin = new System.Windows.Forms.Padding(4);
             this.btnDodadi.Name = "btnDodadi";
-            this.btnDodadi.Size = new System.Drawing.Size(370, 33);
-            this.btnDodadi.TabIndex = 3;
+            this.btnDodadi.Size = new System.Drawing.Size(493, 41);
+            this.btnDodadi.TabIndex = 14;
             this.btnDodadi.Text = "Додади";
             this.btnDodadi.UseVisualStyleBackColor = false;
             this.btnDodadi.Click += new System.EventHandler(this.btnDodadi_Click);
@@ -355,10 +390,9 @@ namespace Veterinarna_Ambulanta_Milenici
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.AutoSize = true;
             this.groupBox1.BackColor = System.Drawing.Color.Azure;
+            this.groupBox1.Controls.Add(this.gbPol);
             this.groupBox1.Controls.Add(this.tbMikroCip);
             this.groupBox1.Controls.Add(this.label10);
-            this.groupBox1.Controls.Add(this.cbZenskiPol);
-            this.groupBox1.Controls.Add(this.cbMaskiPol);
             this.groupBox1.Controls.Add(this.tbImeZivotno);
             this.groupBox1.Controls.Add(this.tbStarostZivotno);
             this.groupBox1.Controls.Add(this.tbRasaZivotno);
@@ -368,120 +402,151 @@ namespace Veterinarna_Ambulanta_Milenici
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Location = new System.Drawing.Point(256, 18);
+            this.groupBox1.Location = new System.Drawing.Point(341, 22);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(224, 667);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBox1.Size = new System.Drawing.Size(299, 676);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Информации за Миленик";
             // 
+            // gbPol
+            // 
+            this.gbPol.Controls.Add(this.rbZenskiPol);
+            this.gbPol.Controls.Add(this.rbMaskiPol);
+            this.gbPol.Location = new System.Drawing.Point(139, 388);
+            this.gbPol.Name = "gbPol";
+            this.gbPol.Size = new System.Drawing.Size(107, 46);
+            this.gbPol.TabIndex = 20;
+            this.gbPol.TabStop = false;
+            this.gbPol.Validating += new System.ComponentModel.CancelEventHandler(this.gbPol_Validating);
+            // 
+            // rbZenskiPol
+            // 
+            this.rbZenskiPol.AutoSize = true;
+            this.rbZenskiPol.Location = new System.Drawing.Point(59, 12);
+            this.rbZenskiPol.Name = "rbZenskiPol";
+            this.rbZenskiPol.Size = new System.Drawing.Size(42, 21);
+            this.rbZenskiPol.TabIndex = 12;
+            this.rbZenskiPol.TabStop = true;
+            this.rbZenskiPol.Text = "Ж";
+            this.rbZenskiPol.UseVisualStyleBackColor = true;
+            // 
+            // rbMaskiPol
+            // 
+            this.rbMaskiPol.AutoSize = true;
+            this.rbMaskiPol.Location = new System.Drawing.Point(6, 12);
+            this.rbMaskiPol.Name = "rbMaskiPol";
+            this.rbMaskiPol.Size = new System.Drawing.Size(40, 21);
+            this.rbMaskiPol.TabIndex = 11;
+            this.rbMaskiPol.TabStop = true;
+            this.rbMaskiPol.Text = "М";
+            this.rbMaskiPol.UseVisualStyleBackColor = true;
+            // 
             // tbMikroCip
             // 
-            this.tbMikroCip.Location = new System.Drawing.Point(26, 399);
+            this.tbMikroCip.Location = new System.Drawing.Point(35, 491);
+            this.tbMikroCip.Margin = new System.Windows.Forms.Padding(4);
             this.tbMikroCip.Name = "tbMikroCip";
-            this.tbMikroCip.Size = new System.Drawing.Size(159, 20);
-            this.tbMikroCip.TabIndex = 19;
+            this.tbMikroCip.Size = new System.Drawing.Size(211, 22);
+            this.tbMikroCip.TabIndex = 13;
+            this.tbMikroCip.Validating += new System.ComponentModel.CancelEventHandler(this.tbMikroCip_Validating);
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(23, 368);
+            this.label10.Location = new System.Drawing.Point(31, 453);
+            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(96, 13);
+            this.label10.Size = new System.Drawing.Size(126, 17);
             this.label10.TabIndex = 18;
             this.label10.Text = "Број на Микрочип";
             // 
-            // cbZenskiPol
-            // 
-            this.cbZenskiPol.AutoSize = true;
-            this.cbZenskiPol.Location = new System.Drawing.Point(170, 324);
-            this.cbZenskiPol.Name = "cbZenskiPol";
-            this.cbZenskiPol.Size = new System.Drawing.Size(37, 17);
-            this.cbZenskiPol.TabIndex = 17;
-            this.cbZenskiPol.Text = "Ж";
-            this.cbZenskiPol.UseVisualStyleBackColor = true;
-            // 
-            // cbMaskiPol
-            // 
-            this.cbMaskiPol.AutoSize = true;
-            this.cbMaskiPol.Location = new System.Drawing.Point(129, 324);
-            this.cbMaskiPol.Name = "cbMaskiPol";
-            this.cbMaskiPol.Size = new System.Drawing.Size(35, 17);
-            this.cbMaskiPol.TabIndex = 16;
-            this.cbMaskiPol.Text = "М";
-            this.cbMaskiPol.UseVisualStyleBackColor = true;
-            // 
             // tbImeZivotno
             // 
-            this.tbImeZivotno.Location = new System.Drawing.Point(26, 278);
+            this.tbImeZivotno.Location = new System.Drawing.Point(35, 342);
+            this.tbImeZivotno.Margin = new System.Windows.Forms.Padding(4);
             this.tbImeZivotno.Name = "tbImeZivotno";
-            this.tbImeZivotno.Size = new System.Drawing.Size(159, 20);
-            this.tbImeZivotno.TabIndex = 15;
+            this.tbImeZivotno.Size = new System.Drawing.Size(211, 22);
+            this.tbImeZivotno.TabIndex = 10;
+            this.tbImeZivotno.Validating += new System.ComponentModel.CancelEventHandler(this.tbImeZivotno_Validating);
             // 
             // tbStarostZivotno
             // 
-            this.tbStarostZivotno.Location = new System.Drawing.Point(26, 211);
+            this.tbStarostZivotno.Location = new System.Drawing.Point(35, 260);
+            this.tbStarostZivotno.Margin = new System.Windows.Forms.Padding(4);
             this.tbStarostZivotno.Name = "tbStarostZivotno";
-            this.tbStarostZivotno.Size = new System.Drawing.Size(159, 20);
-            this.tbStarostZivotno.TabIndex = 14;
+            this.tbStarostZivotno.Size = new System.Drawing.Size(211, 22);
+            this.tbStarostZivotno.TabIndex = 9;
+            this.tbStarostZivotno.Validating += new System.ComponentModel.CancelEventHandler(this.tbStarostZivotno_Validating);
             // 
             // tbRasaZivotno
             // 
-            this.tbRasaZivotno.Location = new System.Drawing.Point(26, 139);
+            this.tbRasaZivotno.Location = new System.Drawing.Point(35, 171);
+            this.tbRasaZivotno.Margin = new System.Windows.Forms.Padding(4);
             this.tbRasaZivotno.Name = "tbRasaZivotno";
-            this.tbRasaZivotno.Size = new System.Drawing.Size(159, 20);
-            this.tbRasaZivotno.TabIndex = 13;
+            this.tbRasaZivotno.Size = new System.Drawing.Size(211, 22);
+            this.tbRasaZivotno.TabIndex = 8;
+            this.tbRasaZivotno.Validating += new System.ComponentModel.CancelEventHandler(this.tbRasaZivotno_Validating);
             // 
             // tbVidZivotno
             // 
-            this.tbVidZivotno.Location = new System.Drawing.Point(26, 62);
+            this.tbVidZivotno.Location = new System.Drawing.Point(35, 76);
+            this.tbVidZivotno.Margin = new System.Windows.Forms.Padding(4);
             this.tbVidZivotno.Name = "tbVidZivotno";
-            this.tbVidZivotno.Size = new System.Drawing.Size(159, 20);
-            this.tbVidZivotno.TabIndex = 12;
+            this.tbVidZivotno.Size = new System.Drawing.Size(211, 22);
+            this.tbVidZivotno.TabIndex = 7;
+            this.tbVidZivotno.Validating += new System.ComponentModel.CancelEventHandler(this.tbVidZivotno_Validating);
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(23, 325);
+            this.label9.Location = new System.Drawing.Point(31, 400);
+            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(88, 13);
-            this.label9.TabIndex = 11;
+            this.label9.Size = new System.Drawing.Size(113, 17);
+            this.label9.TabIndex = 23;
             this.label9.Text = "Пол на животно";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(23, 246);
+            this.label8.Location = new System.Drawing.Point(31, 303);
+            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(90, 13);
-            this.label8.TabIndex = 10;
+            this.label8.Size = new System.Drawing.Size(114, 17);
+            this.label8.TabIndex = 20;
             this.label8.Text = "Име на животно";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(23, 172);
+            this.label7.Location = new System.Drawing.Point(31, 212);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(109, 13);
-            this.label7.TabIndex = 9;
+            this.label7.Size = new System.Drawing.Size(141, 17);
+            this.label7.TabIndex = 21;
             this.label7.Text = "Старост на животно";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(23, 95);
+            this.label6.Location = new System.Drawing.Point(31, 117);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(93, 13);
-            this.label6.TabIndex = 8;
+            this.label6.Size = new System.Drawing.Size(119, 17);
+            this.label6.TabIndex = 22;
             this.label6.Text = "Раса на животно";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(23, 27);
+            this.label5.Location = new System.Drawing.Point(31, 33);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(87, 13);
-            this.label5.TabIndex = 7;
+            this.label5.Size = new System.Drawing.Size(112, 17);
+            this.label5.TabIndex = 23;
             this.label5.Text = "Вид на животно";
             // 
             // gbInfoSopstvenik
@@ -499,59 +564,71 @@ namespace Veterinarna_Ambulanta_Milenici
             this.gbInfoSopstvenik.Controls.Add(this.label3);
             this.gbInfoSopstvenik.Controls.Add(this.label2);
             this.gbInfoSopstvenik.Controls.Add(this.label1);
-            this.gbInfoSopstvenik.Location = new System.Drawing.Point(25, 18);
+            this.gbInfoSopstvenik.Location = new System.Drawing.Point(33, 22);
+            this.gbInfoSopstvenik.Margin = new System.Windows.Forms.Padding(4);
             this.gbInfoSopstvenik.Name = "gbInfoSopstvenik";
-            this.gbInfoSopstvenik.Size = new System.Drawing.Size(240, 663);
+            this.gbInfoSopstvenik.Padding = new System.Windows.Forms.Padding(4);
+            this.gbInfoSopstvenik.Size = new System.Drawing.Size(320, 671);
             this.gbInfoSopstvenik.TabIndex = 1;
             this.gbInfoSopstvenik.TabStop = false;
             this.gbInfoSopstvenik.Text = "Информации за Сопственик";
             // 
             // mtbKontakt
             // 
-            this.mtbKontakt.Location = new System.Drawing.Point(25, 361);
+            this.mtbKontakt.Location = new System.Drawing.Point(33, 444);
+            this.mtbKontakt.Margin = new System.Windows.Forms.Padding(4);
             this.mtbKontakt.Mask = "(999) 000-000";
             this.mtbKontakt.Name = "mtbKontakt";
-            this.mtbKontakt.Size = new System.Drawing.Size(114, 20);
+            this.mtbKontakt.Size = new System.Drawing.Size(151, 22);
             this.mtbKontakt.TabIndex = 6;
             this.mtbKontakt.Text = "07";
+            this.mtbKontakt.Validating += new System.ComponentModel.CancelEventHandler(this.mtbKontakt_Validating);
             // 
             // tbEmailSopstvenik
             // 
-            this.tbEmailSopstvenik.Location = new System.Drawing.Point(25, 278);
+            this.tbEmailSopstvenik.Location = new System.Drawing.Point(33, 342);
+            this.tbEmailSopstvenik.Margin = new System.Windows.Forms.Padding(4);
             this.tbEmailSopstvenik.Name = "tbEmailSopstvenik";
-            this.tbEmailSopstvenik.Size = new System.Drawing.Size(144, 20);
+            this.tbEmailSopstvenik.Size = new System.Drawing.Size(191, 22);
             this.tbEmailSopstvenik.TabIndex = 5;
+            this.tbEmailSopstvenik.Validating += new System.ComponentModel.CancelEventHandler(this.tbEmailSopstvenik_Validating);
             // 
             // tbPrezimeSopstvenik
             // 
-            this.tbPrezimeSopstvenik.Location = new System.Drawing.Point(25, 185);
+            this.tbPrezimeSopstvenik.Location = new System.Drawing.Point(33, 228);
+            this.tbPrezimeSopstvenik.Margin = new System.Windows.Forms.Padding(4);
             this.tbPrezimeSopstvenik.Name = "tbPrezimeSopstvenik";
-            this.tbPrezimeSopstvenik.Size = new System.Drawing.Size(144, 20);
+            this.tbPrezimeSopstvenik.Size = new System.Drawing.Size(191, 22);
             this.tbPrezimeSopstvenik.TabIndex = 4;
+            this.tbPrezimeSopstvenik.Validating += new System.ComponentModel.CancelEventHandler(this.tbPrezimeSopstvenik_Validating);
             // 
             // tbImeSopstvenik
             // 
-            this.tbImeSopstvenik.Location = new System.Drawing.Point(25, 92);
+            this.tbImeSopstvenik.Location = new System.Drawing.Point(33, 113);
+            this.tbImeSopstvenik.Margin = new System.Windows.Forms.Padding(4);
             this.tbImeSopstvenik.Name = "tbImeSopstvenik";
-            this.tbImeSopstvenik.Size = new System.Drawing.Size(144, 20);
+            this.tbImeSopstvenik.Size = new System.Drawing.Size(191, 22);
             this.tbImeSopstvenik.TabIndex = 3;
+            this.tbImeSopstvenik.Validating += new System.ComponentModel.CancelEventHandler(this.tbImeSopstvenik_Validating);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(22, 324);
+            this.label4.Location = new System.Drawing.Point(29, 399);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(86, 13);
-            this.label4.TabIndex = 2;
+            this.label4.Size = new System.Drawing.Size(111, 17);
+            this.label4.TabIndex = 24;
             this.label4.Text = "Број за контакт";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(22, 235);
+            this.label3.Location = new System.Drawing.Point(29, 289);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(162, 13);
-            this.label3.TabIndex = 1;
+            this.label3.Size = new System.Drawing.Size(212, 17);
+            this.label3.TabIndex = 25;
             this.label3.Text = "E-mail адреса на сопственикот";
             // 
             // label2
@@ -559,10 +636,11 @@ namespace Veterinarna_Ambulanta_Milenici
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(22, 142);
+            this.label2.Location = new System.Drawing.Point(29, 175);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(130, 13);
-            this.label2.TabIndex = 0;
+            this.label2.Size = new System.Drawing.Size(165, 17);
+            this.label2.TabIndex = 26;
             this.label2.Text = "Презиме на сопственик";
             // 
             // label1
@@ -570,10 +648,11 @@ namespace Veterinarna_Ambulanta_Milenici
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(22, 42);
+            this.label1.Location = new System.Drawing.Point(29, 52);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(117, 13);
-            this.label1.TabIndex = 0;
+            this.label1.Size = new System.Drawing.Size(149, 17);
+            this.label1.TabIndex = 27;
             this.label1.Text = "Име на сопственикот";
             // 
             // tabOsnovnaZdrastvenaZastita
@@ -582,10 +661,11 @@ namespace Veterinarna_Ambulanta_Milenici
             this.tabOsnovnaZdrastvenaZastita.Controls.Add(this.groupBox4);
             this.tabOsnovnaZdrastvenaZastita.Controls.Add(this.groupBox3);
             this.tabOsnovnaZdrastvenaZastita.Controls.Add(this.gbPrebaraj);
-            this.tabOsnovnaZdrastvenaZastita.Location = new System.Drawing.Point(4, 22);
+            this.tabOsnovnaZdrastvenaZastita.Location = new System.Drawing.Point(4, 25);
+            this.tabOsnovnaZdrastvenaZastita.Margin = new System.Windows.Forms.Padding(4);
             this.tabOsnovnaZdrastvenaZastita.Name = "tabOsnovnaZdrastvenaZastita";
-            this.tabOsnovnaZdrastvenaZastita.Padding = new System.Windows.Forms.Padding(3);
-            this.tabOsnovnaZdrastvenaZastita.Size = new System.Drawing.Size(1435, 744);
+            this.tabOsnovnaZdrastvenaZastita.Padding = new System.Windows.Forms.Padding(4);
+            this.tabOsnovnaZdrastvenaZastita.Size = new System.Drawing.Size(1916, 774);
             this.tabOsnovnaZdrastvenaZastita.TabIndex = 2;
             this.tabOsnovnaZdrastvenaZastita.Text = "Основна Здраствена Заштита";
             this.tabOsnovnaZdrastvenaZastita.UseVisualStyleBackColor = true;
@@ -608,9 +688,11 @@ namespace Veterinarna_Ambulanta_Milenici
             this.groupBox5.Controls.Add(this.label12);
             this.groupBox5.Controls.Add(this.lbImeOZZ);
             this.groupBox5.Controls.Add(this.label11);
-            this.groupBox5.Location = new System.Drawing.Point(22, 97);
+            this.groupBox5.Location = new System.Drawing.Point(29, 119);
+            this.groupBox5.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(1447, 52);
+            this.groupBox5.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBox5.Size = new System.Drawing.Size(1929, 64);
             this.groupBox5.TabIndex = 3;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Податоци за Миленик";
@@ -618,126 +700,140 @@ namespace Veterinarna_Ambulanta_Milenici
             // lbSopstvenikOZZ
             // 
             this.lbSopstvenikOZZ.AutoSize = true;
-            this.lbSopstvenikOZZ.Location = new System.Drawing.Point(1134, 20);
+            this.lbSopstvenikOZZ.Location = new System.Drawing.Point(1512, 25);
+            this.lbSopstvenikOZZ.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbSopstvenikOZZ.Name = "lbSopstvenikOZZ";
-            this.lbSopstvenikOZZ.Size = new System.Drawing.Size(41, 13);
+            this.lbSopstvenikOZZ.Size = new System.Drawing.Size(54, 17);
             this.lbSopstvenikOZZ.TabIndex = 13;
             this.lbSopstvenikOZZ.Text = "label18";
             // 
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(1058, 20);
+            this.label17.Location = new System.Drawing.Point(1411, 25);
+            this.label17.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(70, 13);
+            this.label17.Size = new System.Drawing.Size(89, 17);
             this.label17.TabIndex = 12;
             this.label17.Text = "Сопственик:";
             // 
             // MikroCipOZZ
             // 
             this.MikroCipOZZ.AutoSize = true;
-            this.MikroCipOZZ.Location = new System.Drawing.Point(941, 20);
+            this.MikroCipOZZ.Location = new System.Drawing.Point(1255, 25);
+            this.MikroCipOZZ.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.MikroCipOZZ.Name = "MikroCipOZZ";
-            this.MikroCipOZZ.Size = new System.Drawing.Size(41, 13);
+            this.MikroCipOZZ.Size = new System.Drawing.Size(54, 17);
             this.MikroCipOZZ.TabIndex = 11;
             this.MikroCipOZZ.Text = "label17";
             // 
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(835, 20);
+            this.label16.Location = new System.Drawing.Point(1113, 25);
+            this.label16.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(99, 13);
+            this.label16.Size = new System.Drawing.Size(130, 17);
             this.label16.TabIndex = 10;
             this.label16.Text = "Број на Микрочип:";
             // 
             // lbPolOZZ
             // 
             this.lbPolOZZ.AutoSize = true;
-            this.lbPolOZZ.Location = new System.Drawing.Point(729, 20);
+            this.lbPolOZZ.Location = new System.Drawing.Point(972, 25);
+            this.lbPolOZZ.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbPolOZZ.Name = "lbPolOZZ";
-            this.lbPolOZZ.Size = new System.Drawing.Size(41, 13);
+            this.lbPolOZZ.Size = new System.Drawing.Size(54, 17);
             this.lbPolOZZ.TabIndex = 9;
             this.lbPolOZZ.Text = "label16";
             // 
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(692, 20);
+            this.label15.Location = new System.Drawing.Point(923, 25);
+            this.label15.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(30, 13);
+            this.label15.Size = new System.Drawing.Size(38, 17);
             this.label15.TabIndex = 8;
             this.label15.Text = "Пол:";
             // 
             // lbStarostOZZ
             // 
             this.lbStarostOZZ.AutoSize = true;
-            this.lbStarostOZZ.Location = new System.Drawing.Point(581, 20);
+            this.lbStarostOZZ.Location = new System.Drawing.Point(775, 25);
+            this.lbStarostOZZ.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbStarostOZZ.Name = "lbStarostOZZ";
-            this.lbStarostOZZ.Size = new System.Drawing.Size(41, 13);
+            this.lbStarostOZZ.Size = new System.Drawing.Size(54, 17);
             this.lbStarostOZZ.TabIndex = 7;
             this.lbStarostOZZ.Text = "label15";
             // 
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(523, 20);
+            this.label14.Location = new System.Drawing.Point(697, 25);
+            this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(51, 13);
+            this.label14.Size = new System.Drawing.Size(66, 17);
             this.label14.TabIndex = 6;
             this.label14.Text = "Старост:";
             // 
             // lbRasaOZZ
             // 
             this.lbRasaOZZ.AutoSize = true;
-            this.lbRasaOZZ.Location = new System.Drawing.Point(382, 20);
+            this.lbRasaOZZ.Location = new System.Drawing.Point(509, 25);
+            this.lbRasaOZZ.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbRasaOZZ.Name = "lbRasaOZZ";
-            this.lbRasaOZZ.Size = new System.Drawing.Size(41, 13);
+            this.lbRasaOZZ.Size = new System.Drawing.Size(54, 17);
             this.lbRasaOZZ.TabIndex = 5;
             this.lbRasaOZZ.Text = "label14";
             // 
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(340, 20);
+            this.label13.Location = new System.Drawing.Point(453, 25);
+            this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(35, 13);
+            this.label13.Size = new System.Drawing.Size(44, 17);
             this.label13.TabIndex = 4;
             this.label13.Text = "Раса:";
             // 
             // lbVidZivotnoOZZ
             // 
             this.lbVidZivotnoOZZ.AutoSize = true;
-            this.lbVidZivotnoOZZ.Location = new System.Drawing.Point(208, 20);
+            this.lbVidZivotnoOZZ.Location = new System.Drawing.Point(277, 25);
+            this.lbVidZivotnoOZZ.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbVidZivotnoOZZ.Name = "lbVidZivotnoOZZ";
-            this.lbVidZivotnoOZZ.Size = new System.Drawing.Size(41, 13);
+            this.lbVidZivotnoOZZ.Size = new System.Drawing.Size(54, 17);
             this.lbVidZivotnoOZZ.TabIndex = 3;
             this.lbVidZivotnoOZZ.Text = "label13";
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(172, 20);
+            this.label12.Location = new System.Drawing.Point(229, 25);
+            this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(29, 13);
+            this.label12.Size = new System.Drawing.Size(37, 17);
             this.label12.TabIndex = 2;
             this.label12.Text = "Вид:";
             // 
             // lbImeOZZ
             // 
             this.lbImeOZZ.AutoSize = true;
-            this.lbImeOZZ.Location = new System.Drawing.Point(55, 20);
+            this.lbImeOZZ.Location = new System.Drawing.Point(73, 25);
+            this.lbImeOZZ.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbImeOZZ.Name = "lbImeOZZ";
-            this.lbImeOZZ.Size = new System.Drawing.Size(41, 13);
+            this.lbImeOZZ.Size = new System.Drawing.Size(54, 17);
             this.lbImeOZZ.TabIndex = 1;
             this.lbImeOZZ.Text = "label12";
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(16, 20);
+            this.label11.Location = new System.Drawing.Point(21, 25);
+            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(32, 13);
+            this.label11.Size = new System.Drawing.Size(39, 17);
             this.label11.TabIndex = 0;
             this.label11.Text = "Име:";
             // 
@@ -748,9 +844,11 @@ namespace Veterinarna_Ambulanta_Milenici
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox4.Controls.Add(this.groupBox7);
             this.groupBox4.Controls.Add(this.groupBox6);
-            this.groupBox4.Location = new System.Drawing.Point(948, 155);
+            this.groupBox4.Location = new System.Drawing.Point(1264, 191);
+            this.groupBox4.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(521, 566);
+            this.groupBox4.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBox4.Size = new System.Drawing.Size(695, 697);
             this.groupBox4.TabIndex = 2;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Дехементилзација";
@@ -762,9 +860,11 @@ namespace Veterinarna_Ambulanta_Milenici
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox7.BackColor = System.Drawing.Color.Transparent;
             this.groupBox7.Controls.Add(this.dgvVnatresni);
-            this.groupBox7.Location = new System.Drawing.Point(6, 289);
+            this.groupBox7.Location = new System.Drawing.Point(8, 356);
+            this.groupBox7.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(509, 273);
+            this.groupBox7.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBox7.Size = new System.Drawing.Size(679, 336);
             this.groupBox7.TabIndex = 1;
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "Внатрешни";
@@ -778,10 +878,11 @@ namespace Veterinarna_Ambulanta_Milenici
             this.Column7,
             this.Column8});
             this.dgvVnatresni.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvVnatresni.Location = new System.Drawing.Point(3, 16);
+            this.dgvVnatresni.Location = new System.Drawing.Point(4, 19);
+            this.dgvVnatresni.Margin = new System.Windows.Forms.Padding(4);
             this.dgvVnatresni.Name = "dgvVnatresni";
             this.dgvVnatresni.RowHeadersWidth = 51;
-            this.dgvVnatresni.Size = new System.Drawing.Size(503, 254);
+            this.dgvVnatresni.Size = new System.Drawing.Size(671, 313);
             this.dgvVnatresni.TabIndex = 1;
             // 
             // DatumVnatresni
@@ -811,9 +912,11 @@ namespace Veterinarna_Ambulanta_Milenici
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox6.Controls.Add(this.dgvNadvoresni);
-            this.groupBox6.Location = new System.Drawing.Point(6, 19);
+            this.groupBox6.Location = new System.Drawing.Point(8, 23);
+            this.groupBox6.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(509, 489);
+            this.groupBox6.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBox6.Size = new System.Drawing.Size(679, 602);
             this.groupBox6.TabIndex = 0;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Надворешни";
@@ -829,10 +932,11 @@ namespace Veterinarna_Ambulanta_Milenici
             this.Column5,
             this.Column6});
             this.dgvNadvoresni.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvNadvoresni.Location = new System.Drawing.Point(3, 16);
+            this.dgvNadvoresni.Location = new System.Drawing.Point(4, 19);
+            this.dgvNadvoresni.Margin = new System.Windows.Forms.Padding(4);
             this.dgvNadvoresni.Name = "dgvNadvoresni";
             this.dgvNadvoresni.RowHeadersWidth = 51;
-            this.dgvNadvoresni.Size = new System.Drawing.Size(503, 470);
+            this.dgvNadvoresni.Size = new System.Drawing.Size(671, 579);
             this.dgvNadvoresni.TabIndex = 0;
             // 
             // DatumNadvoresni
@@ -876,9 +980,11 @@ namespace Veterinarna_Ambulanta_Milenici
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox3.Controls.Add(this.dataGridView1);
-            this.groupBox3.Location = new System.Drawing.Point(22, 155);
+            this.groupBox3.Location = new System.Drawing.Point(29, 191);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(750, 566);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBox3.Size = new System.Drawing.Size(1000, 697);
             this.groupBox3.TabIndex = 1;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Вакцинација";
@@ -894,10 +1000,11 @@ namespace Veterinarna_Ambulanta_Milenici
             this.Column1,
             this.Column2});
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 16);
+            this.dataGridView1.Location = new System.Drawing.Point(4, 19);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.Size = new System.Drawing.Size(744, 547);
+            this.dataGridView1.Size = new System.Drawing.Size(992, 674);
             this.dataGridView1.TabIndex = 0;
             // 
             // Datum
@@ -941,9 +1048,11 @@ namespace Veterinarna_Ambulanta_Milenici
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gbPrebaraj.Controls.Add(this.btnPrebaraj);
             this.gbPrebaraj.Controls.Add(this.tbPrebaraj);
-            this.gbPrebaraj.Location = new System.Drawing.Point(22, 16);
+            this.gbPrebaraj.Location = new System.Drawing.Point(29, 20);
+            this.gbPrebaraj.Margin = new System.Windows.Forms.Padding(4);
             this.gbPrebaraj.Name = "gbPrebaraj";
-            this.gbPrebaraj.Size = new System.Drawing.Size(1447, 62);
+            this.gbPrebaraj.Padding = new System.Windows.Forms.Padding(4);
+            this.gbPrebaraj.Size = new System.Drawing.Size(1929, 76);
             this.gbPrebaraj.TabIndex = 0;
             this.gbPrebaraj.TabStop = false;
             this.gbPrebaraj.Text = "Пребарај";
@@ -951,9 +1060,10 @@ namespace Veterinarna_Ambulanta_Milenici
             // btnPrebaraj
             // 
             this.btnPrebaraj.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnPrebaraj.Location = new System.Drawing.Point(238, 17);
+            this.btnPrebaraj.Location = new System.Drawing.Point(317, 21);
+            this.btnPrebaraj.Margin = new System.Windows.Forms.Padding(4);
             this.btnPrebaraj.Name = "btnPrebaraj";
-            this.btnPrebaraj.Size = new System.Drawing.Size(75, 23);
+            this.btnPrebaraj.Size = new System.Drawing.Size(100, 28);
             this.btnPrebaraj.TabIndex = 1;
             this.btnPrebaraj.Text = "Пребарај";
             this.btnPrebaraj.UseVisualStyleBackColor = true;
@@ -962,9 +1072,10 @@ namespace Veterinarna_Ambulanta_Milenici
             // 
             this.tbPrebaraj.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbPrebaraj.Location = new System.Drawing.Point(16, 19);
+            this.tbPrebaraj.Location = new System.Drawing.Point(21, 23);
+            this.tbPrebaraj.Margin = new System.Windows.Forms.Padding(4);
             this.tbPrebaraj.Name = "tbPrebaraj";
-            this.tbPrebaraj.Size = new System.Drawing.Size(206, 20);
+            this.tbPrebaraj.Size = new System.Drawing.Size(273, 22);
             this.tbPrebaraj.TabIndex = 0;
             // 
             // tabMedicinskoDosie
@@ -973,10 +1084,11 @@ namespace Veterinarna_Ambulanta_Milenici
             this.tabMedicinskoDosie.Controls.Add(this.groupBox13);
             this.tabMedicinskoDosie.Controls.Add(this.groupBox11);
             this.tabMedicinskoDosie.Controls.Add(this.groupBox12);
-            this.tabMedicinskoDosie.Location = new System.Drawing.Point(4, 22);
+            this.tabMedicinskoDosie.Location = new System.Drawing.Point(4, 25);
+            this.tabMedicinskoDosie.Margin = new System.Windows.Forms.Padding(4);
             this.tabMedicinskoDosie.Name = "tabMedicinskoDosie";
-            this.tabMedicinskoDosie.Padding = new System.Windows.Forms.Padding(3);
-            this.tabMedicinskoDosie.Size = new System.Drawing.Size(1435, 744);
+            this.tabMedicinskoDosie.Padding = new System.Windows.Forms.Padding(4);
+            this.tabMedicinskoDosie.Size = new System.Drawing.Size(1916, 774);
             this.tabMedicinskoDosie.TabIndex = 3;
             this.tabMedicinskoDosie.Text = "Медицинско Досие";
             this.tabMedicinskoDosie.UseVisualStyleBackColor = true;
@@ -989,9 +1101,11 @@ namespace Veterinarna_Ambulanta_Milenici
             this.groupBox14.Controls.Add(this.groupBox10);
             this.groupBox14.Controls.Add(this.groupBox9);
             this.groupBox14.Controls.Add(this.groupBox8);
-            this.groupBox14.Location = new System.Drawing.Point(19, 333);
+            this.groupBox14.Location = new System.Drawing.Point(25, 410);
+            this.groupBox14.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox14.Name = "groupBox14";
-            this.groupBox14.Size = new System.Drawing.Size(1408, 396);
+            this.groupBox14.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBox14.Size = new System.Drawing.Size(1877, 487);
             this.groupBox14.TabIndex = 7;
             this.groupBox14.TabStop = false;
             this.groupBox14.Text = "Досие:";
@@ -1003,9 +1117,11 @@ namespace Veterinarna_Ambulanta_Milenici
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox10.BackColor = System.Drawing.Color.Transparent;
             this.groupBox10.Controls.Add(this.rtbTerapija);
-            this.groupBox10.Location = new System.Drawing.Point(1172, 19);
+            this.groupBox10.Location = new System.Drawing.Point(1563, 23);
+            this.groupBox10.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox10.Name = "groupBox10";
-            this.groupBox10.Size = new System.Drawing.Size(332, 371);
+            this.groupBox10.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBox10.Size = new System.Drawing.Size(443, 457);
             this.groupBox10.TabIndex = 5;
             this.groupBox10.TabStop = false;
             this.groupBox10.Text = "Терапија";
@@ -1014,10 +1130,11 @@ namespace Veterinarna_Ambulanta_Milenici
             // 
             this.rtbTerapija.BackColor = System.Drawing.Color.PaleTurquoise;
             this.rtbTerapija.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.rtbTerapija.Location = new System.Drawing.Point(3, 16);
+            this.rtbTerapija.Location = new System.Drawing.Point(4, 19);
+            this.rtbTerapija.Margin = new System.Windows.Forms.Padding(4);
             this.rtbTerapija.Name = "rtbTerapija";
             this.rtbTerapija.ReadOnly = true;
-            this.rtbTerapija.Size = new System.Drawing.Size(326, 352);
+            this.rtbTerapija.Size = new System.Drawing.Size(435, 434);
             this.rtbTerapija.TabIndex = 1;
             this.rtbTerapija.Text = "";
             // 
@@ -1028,9 +1145,11 @@ namespace Veterinarna_Ambulanta_Milenici
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox9.BackColor = System.Drawing.Color.Transparent;
             this.groupBox9.Controls.Add(this.rtbDijagnostickiMetodi);
-            this.groupBox9.Location = new System.Drawing.Point(574, 19);
+            this.groupBox9.Location = new System.Drawing.Point(765, 23);
+            this.groupBox9.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox9.Name = "groupBox9";
-            this.groupBox9.Size = new System.Drawing.Size(312, 371);
+            this.groupBox9.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBox9.Size = new System.Drawing.Size(416, 457);
             this.groupBox9.TabIndex = 4;
             this.groupBox9.TabStop = false;
             this.groupBox9.Text = "Дијагностички методи";
@@ -1039,10 +1158,11 @@ namespace Veterinarna_Ambulanta_Milenici
             // 
             this.rtbDijagnostickiMetodi.BackColor = System.Drawing.Color.SeaShell;
             this.rtbDijagnostickiMetodi.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.rtbDijagnostickiMetodi.Location = new System.Drawing.Point(3, 16);
+            this.rtbDijagnostickiMetodi.Location = new System.Drawing.Point(4, 19);
+            this.rtbDijagnostickiMetodi.Margin = new System.Windows.Forms.Padding(4);
             this.rtbDijagnostickiMetodi.Name = "rtbDijagnostickiMetodi";
             this.rtbDijagnostickiMetodi.ReadOnly = true;
-            this.rtbDijagnostickiMetodi.Size = new System.Drawing.Size(306, 352);
+            this.rtbDijagnostickiMetodi.Size = new System.Drawing.Size(408, 434);
             this.rtbDijagnostickiMetodi.TabIndex = 1;
             this.rtbDijagnostickiMetodi.Text = "";
             // 
@@ -1053,9 +1173,11 @@ namespace Veterinarna_Ambulanta_Milenici
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox8.BackColor = System.Drawing.Color.Transparent;
             this.groupBox8.Controls.Add(this.rtbAnamneza);
-            this.groupBox8.Location = new System.Drawing.Point(-96, 19);
+            this.groupBox8.Location = new System.Drawing.Point(-128, 23);
+            this.groupBox8.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox8.Name = "groupBox8";
-            this.groupBox8.Size = new System.Drawing.Size(320, 371);
+            this.groupBox8.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBox8.Size = new System.Drawing.Size(427, 457);
             this.groupBox8.TabIndex = 3;
             this.groupBox8.TabStop = false;
             this.groupBox8.Text = "Анамнеза";
@@ -1064,10 +1186,11 @@ namespace Veterinarna_Ambulanta_Milenici
             // 
             this.rtbAnamneza.BackColor = System.Drawing.Color.PaleTurquoise;
             this.rtbAnamneza.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.rtbAnamneza.Location = new System.Drawing.Point(3, 16);
+            this.rtbAnamneza.Location = new System.Drawing.Point(4, 19);
+            this.rtbAnamneza.Margin = new System.Windows.Forms.Padding(4);
             this.rtbAnamneza.Name = "rtbAnamneza";
             this.rtbAnamneza.ReadOnly = true;
-            this.rtbAnamneza.Size = new System.Drawing.Size(314, 352);
+            this.rtbAnamneza.Size = new System.Drawing.Size(419, 434);
             this.rtbAnamneza.TabIndex = 0;
             this.rtbAnamneza.Text = "";
             // 
@@ -1078,18 +1201,21 @@ namespace Veterinarna_Ambulanta_Milenici
             this.groupBox13.Controls.Add(this.btnVnesiDiagnoza);
             this.groupBox13.Controls.Add(this.comboBox1);
             this.groupBox13.Controls.Add(this.richTextBox1);
-            this.groupBox13.Location = new System.Drawing.Point(19, 150);
+            this.groupBox13.Location = new System.Drawing.Point(25, 185);
+            this.groupBox13.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox13.Name = "groupBox13";
-            this.groupBox13.Size = new System.Drawing.Size(1413, 167);
+            this.groupBox13.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBox13.Size = new System.Drawing.Size(1884, 206);
             this.groupBox13.TabIndex = 6;
             this.groupBox13.TabStop = false;
             this.groupBox13.Text = "Внеси Дијагноза";
             // 
             // btnVnesiDiagnoza
             // 
-            this.btnVnesiDiagnoza.Location = new System.Drawing.Point(156, 17);
+            this.btnVnesiDiagnoza.Location = new System.Drawing.Point(208, 21);
+            this.btnVnesiDiagnoza.Margin = new System.Windows.Forms.Padding(4);
             this.btnVnesiDiagnoza.Name = "btnVnesiDiagnoza";
-            this.btnVnesiDiagnoza.Size = new System.Drawing.Size(113, 23);
+            this.btnVnesiDiagnoza.Size = new System.Drawing.Size(151, 28);
             this.btnVnesiDiagnoza.TabIndex = 2;
             this.btnVnesiDiagnoza.Text = "Внеси Диагноза";
             this.btnVnesiDiagnoza.UseVisualStyleBackColor = true;
@@ -1101,9 +1227,10 @@ namespace Veterinarna_Ambulanta_Milenici
             "Анамнеза",
             "Дијагностички методи",
             "Терапија"});
-            this.comboBox1.Location = new System.Drawing.Point(10, 19);
+            this.comboBox1.Location = new System.Drawing.Point(13, 23);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
+            this.comboBox1.Size = new System.Drawing.Size(160, 24);
             this.comboBox1.TabIndex = 1;
             // 
             // richTextBox1
@@ -1112,9 +1239,10 @@ namespace Veterinarna_Ambulanta_Milenici
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.richTextBox1.BackColor = System.Drawing.Color.PaleTurquoise;
-            this.richTextBox1.Location = new System.Drawing.Point(10, 46);
+            this.richTextBox1.Location = new System.Drawing.Point(13, 57);
+            this.richTextBox1.Margin = new System.Windows.Forms.Padding(4);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(586, 105);
+            this.richTextBox1.Size = new System.Drawing.Size(780, 128);
             this.richTextBox1.TabIndex = 0;
             this.richTextBox1.Text = "";
             // 
@@ -1136,9 +1264,11 @@ namespace Veterinarna_Ambulanta_Milenici
             this.groupBox11.Controls.Add(this.label30);
             this.groupBox11.Controls.Add(this.label31);
             this.groupBox11.Controls.Add(this.label32);
-            this.groupBox11.Location = new System.Drawing.Point(19, 87);
+            this.groupBox11.Location = new System.Drawing.Point(25, 107);
+            this.groupBox11.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox11.Name = "groupBox11";
-            this.groupBox11.Size = new System.Drawing.Size(1447, 52);
+            this.groupBox11.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBox11.Size = new System.Drawing.Size(1929, 64);
             this.groupBox11.TabIndex = 5;
             this.groupBox11.TabStop = false;
             this.groupBox11.Text = "Податоци за Миленик";
@@ -1146,126 +1276,140 @@ namespace Veterinarna_Ambulanta_Milenici
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(1134, 20);
+            this.label19.Location = new System.Drawing.Point(1512, 25);
+            this.label19.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(41, 13);
+            this.label19.Size = new System.Drawing.Size(54, 17);
             this.label19.TabIndex = 13;
             this.label19.Text = "label18";
             // 
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(1058, 20);
+            this.label20.Location = new System.Drawing.Point(1411, 25);
+            this.label20.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(70, 13);
+            this.label20.Size = new System.Drawing.Size(89, 17);
             this.label20.TabIndex = 12;
             this.label20.Text = "Сопственик:";
             // 
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(941, 20);
+            this.label21.Location = new System.Drawing.Point(1255, 25);
+            this.label21.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(41, 13);
+            this.label21.Size = new System.Drawing.Size(54, 17);
             this.label21.TabIndex = 11;
             this.label21.Text = "label17";
             // 
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(835, 20);
+            this.label22.Location = new System.Drawing.Point(1113, 25);
+            this.label22.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(99, 13);
+            this.label22.Size = new System.Drawing.Size(130, 17);
             this.label22.TabIndex = 10;
             this.label22.Text = "Број на Микрочип:";
             // 
             // label23
             // 
             this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(729, 20);
+            this.label23.Location = new System.Drawing.Point(972, 25);
+            this.label23.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(41, 13);
+            this.label23.Size = new System.Drawing.Size(54, 17);
             this.label23.TabIndex = 9;
             this.label23.Text = "label16";
             // 
             // label24
             // 
             this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(692, 20);
+            this.label24.Location = new System.Drawing.Point(923, 25);
+            this.label24.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(30, 13);
+            this.label24.Size = new System.Drawing.Size(38, 17);
             this.label24.TabIndex = 8;
             this.label24.Text = "Пол:";
             // 
             // label25
             // 
             this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(581, 20);
+            this.label25.Location = new System.Drawing.Point(775, 25);
+            this.label25.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(41, 13);
+            this.label25.Size = new System.Drawing.Size(54, 17);
             this.label25.TabIndex = 7;
             this.label25.Text = "label15";
             // 
             // label26
             // 
             this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(523, 20);
+            this.label26.Location = new System.Drawing.Point(697, 25);
+            this.label26.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(51, 13);
+            this.label26.Size = new System.Drawing.Size(66, 17);
             this.label26.TabIndex = 6;
             this.label26.Text = "Старост:";
             // 
             // label27
             // 
             this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(382, 20);
+            this.label27.Location = new System.Drawing.Point(509, 25);
+            this.label27.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(41, 13);
+            this.label27.Size = new System.Drawing.Size(54, 17);
             this.label27.TabIndex = 5;
             this.label27.Text = "label14";
             // 
             // label28
             // 
             this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(340, 20);
+            this.label28.Location = new System.Drawing.Point(453, 25);
+            this.label28.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(35, 13);
+            this.label28.Size = new System.Drawing.Size(44, 17);
             this.label28.TabIndex = 4;
             this.label28.Text = "Раса:";
             // 
             // label29
             // 
             this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(208, 20);
+            this.label29.Location = new System.Drawing.Point(277, 25);
+            this.label29.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(41, 13);
+            this.label29.Size = new System.Drawing.Size(54, 17);
             this.label29.TabIndex = 3;
             this.label29.Text = "label13";
             // 
             // label30
             // 
             this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(172, 20);
+            this.label30.Location = new System.Drawing.Point(229, 25);
+            this.label30.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(29, 13);
+            this.label30.Size = new System.Drawing.Size(37, 17);
             this.label30.TabIndex = 2;
             this.label30.Text = "Вид:";
             // 
             // label31
             // 
             this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(55, 20);
+            this.label31.Location = new System.Drawing.Point(73, 25);
+            this.label31.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(41, 13);
+            this.label31.Size = new System.Drawing.Size(54, 17);
             this.label31.TabIndex = 1;
             this.label31.Text = "label12";
             // 
             // label32
             // 
             this.label32.AutoSize = true;
-            this.label32.Location = new System.Drawing.Point(16, 20);
+            this.label32.Location = new System.Drawing.Point(21, 25);
+            this.label32.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(32, 13);
+            this.label32.Size = new System.Drawing.Size(39, 17);
             this.label32.TabIndex = 0;
             this.label32.Text = "Име:";
             // 
@@ -1275,9 +1419,11 @@ namespace Veterinarna_Ambulanta_Milenici
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox12.Controls.Add(this.btnPrebarajMedicinskoDosie);
             this.groupBox12.Controls.Add(this.tbPrebarajMedicinskoDosie);
-            this.groupBox12.Location = new System.Drawing.Point(19, 6);
+            this.groupBox12.Location = new System.Drawing.Point(25, 7);
+            this.groupBox12.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox12.Name = "groupBox12";
-            this.groupBox12.Size = new System.Drawing.Size(1447, 62);
+            this.groupBox12.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBox12.Size = new System.Drawing.Size(1929, 76);
             this.groupBox12.TabIndex = 4;
             this.groupBox12.TabStop = false;
             this.groupBox12.Text = "Пребарај";
@@ -1285,9 +1431,10 @@ namespace Veterinarna_Ambulanta_Milenici
             // btnPrebarajMedicinskoDosie
             // 
             this.btnPrebarajMedicinskoDosie.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnPrebarajMedicinskoDosie.Location = new System.Drawing.Point(238, 17);
+            this.btnPrebarajMedicinskoDosie.Location = new System.Drawing.Point(317, 21);
+            this.btnPrebarajMedicinskoDosie.Margin = new System.Windows.Forms.Padding(4);
             this.btnPrebarajMedicinskoDosie.Name = "btnPrebarajMedicinskoDosie";
-            this.btnPrebarajMedicinskoDosie.Size = new System.Drawing.Size(75, 23);
+            this.btnPrebarajMedicinskoDosie.Size = new System.Drawing.Size(100, 28);
             this.btnPrebarajMedicinskoDosie.TabIndex = 1;
             this.btnPrebarajMedicinskoDosie.Text = "Пребарај";
             this.btnPrebarajMedicinskoDosie.UseVisualStyleBackColor = true;
@@ -1296,19 +1443,65 @@ namespace Veterinarna_Ambulanta_Milenici
             // 
             this.tbPrebarajMedicinskoDosie.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbPrebarajMedicinskoDosie.Location = new System.Drawing.Point(16, 19);
+            this.tbPrebarajMedicinskoDosie.Location = new System.Drawing.Point(21, 23);
+            this.tbPrebarajMedicinskoDosie.Margin = new System.Windows.Forms.Padding(4);
             this.tbPrebarajMedicinskoDosie.Name = "tbPrebarajMedicinskoDosie";
-            this.tbPrebarajMedicinskoDosie.Size = new System.Drawing.Size(206, 20);
+            this.tbPrebarajMedicinskoDosie.Size = new System.Drawing.Size(273, 22);
             this.tbPrebarajMedicinskoDosie.TabIndex = 0;
+            // 
+            // error_ime
+            // 
+            this.error_ime.ContainerControl = this;
+            // 
+            // error_prezime
+            // 
+            this.error_prezime.ContainerControl = this;
+            // 
+            // error_email
+            // 
+            this.error_email.ContainerControl = this;
+            // 
+            // error_broj
+            // 
+            this.error_broj.ContainerControl = this;
+            // 
+            // error_vid
+            // 
+            this.error_vid.ContainerControl = this;
+            // 
+            // error_rasa
+            // 
+            this.error_rasa.ContainerControl = this;
+            // 
+            // error_godini
+            // 
+            this.error_godini.ContainerControl = this;
+            // 
+            // error_ime_zivotno
+            // 
+            this.error_ime_zivotno.ContainerControl = this;
+            // 
+            // error_pol
+            // 
+            this.error_pol.ContainerControl = this;
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
+            // error_mikrocip
+            // 
+            this.error_mikrocip.ContainerControl = this;
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MediumTurquoise;
-            this.ClientSize = new System.Drawing.Size(1443, 975);
+            this.ClientSize = new System.Drawing.Size(1924, 1055);
             this.Controls.Add(this.mainTabControll);
             this.Controls.Add(this.mainLogo);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
@@ -1323,6 +1516,8 @@ namespace Veterinarna_Ambulanta_Milenici
             ((System.ComponentModel.ISupportInitialize)(this.dgvInfoTabela)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.gbPol.ResumeLayout(false);
+            this.gbPol.PerformLayout();
             this.gbInfoSopstvenik.ResumeLayout(false);
             this.gbInfoSopstvenik.PerformLayout();
             this.tabOsnovnaZdrastvenaZastita.ResumeLayout(false);
@@ -1347,6 +1542,17 @@ namespace Veterinarna_Ambulanta_Milenici
             this.groupBox11.PerformLayout();
             this.groupBox12.ResumeLayout(false);
             this.groupBox12.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.error_ime)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.error_prezime)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.error_email)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.error_broj)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.error_vid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.error_rasa)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.error_godini)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.error_ime_zivotno)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.error_pol)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.error_mikrocip)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1363,8 +1569,6 @@ namespace Veterinarna_Ambulanta_Milenici
         private System.Windows.Forms.DataGridView dgvInfoTabela;
         private System.Windows.Forms.Button btnDodadi;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.CheckBox cbZenskiPol;
-        private System.Windows.Forms.CheckBox cbMaskiPol;
         private System.Windows.Forms.TextBox tbImeZivotno;
         private System.Windows.Forms.TextBox tbStarostZivotno;
         private System.Windows.Forms.TextBox tbRasaZivotno;
@@ -1463,6 +1667,20 @@ namespace Veterinarna_Ambulanta_Milenici
         private System.Windows.Forms.RichTextBox rtbDijagnostickiMetodi;
         private System.Windows.Forms.GroupBox groupBox8;
         private System.Windows.Forms.RichTextBox rtbAnamneza;
+        private System.Windows.Forms.GroupBox gbPol;
+        private System.Windows.Forms.RadioButton rbZenskiPol;
+        private System.Windows.Forms.RadioButton rbMaskiPol;
+        private System.Windows.Forms.ErrorProvider error_ime;
+        private System.Windows.Forms.ErrorProvider error_prezime;
+        private System.Windows.Forms.ErrorProvider error_email;
+        private System.Windows.Forms.ErrorProvider error_broj;
+        private System.Windows.Forms.ErrorProvider error_vid;
+        private System.Windows.Forms.ErrorProvider error_rasa;
+        private System.Windows.Forms.ErrorProvider error_godini;
+        private System.Windows.Forms.ErrorProvider error_ime_zivotno;
+        private System.Windows.Forms.ErrorProvider error_pol;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.ErrorProvider error_mikrocip;
     }
 }
 
