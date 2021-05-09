@@ -113,9 +113,12 @@ namespace Veterinarna_Ambulanta_Milenici
             this.groupBox8 = new System.Windows.Forms.GroupBox();
             this.rtbAnamneza = new System.Windows.Forms.RichTextBox();
             this.groupBox13 = new System.Windows.Forms.GroupBox();
-            this.btnVnesiDiagnoza = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.dgvDijagnostickiMetodi = new System.Windows.Forms.DataGridView();
+            this.dgvTerapija = new System.Windows.Forms.DataGridView();
+            this.dgvAnamneza = new System.Windows.Forms.DataGridView();
+            this.btnVnesiDijagnoza = new System.Windows.Forms.Button();
+            this.cbDijagnoza = new System.Windows.Forms.ComboBox();
+            this.rtbDijagnoza = new System.Windows.Forms.RichTextBox();
             this.groupBox11 = new System.Windows.Forms.GroupBox();
             this.lbSopstvenikMD = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
@@ -146,6 +149,7 @@ namespace Veterinarna_Ambulanta_Milenici
             this.error_pol = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.error_mikrocip = new System.Windows.Forms.ErrorProvider(this.components);
+            this.llbClear = new System.Windows.Forms.LinkLabel();
             ((System.ComponentModel.ISupportInitialize)(this.mainLogo)).BeginInit();
             this.mainTabControll.SuspendLayout();
             this.tabDoma.SuspendLayout();
@@ -173,6 +177,9 @@ namespace Veterinarna_Ambulanta_Milenici
             this.groupBox9.SuspendLayout();
             this.groupBox8.SuspendLayout();
             this.groupBox13.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDijagnostickiMetodi)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTerapija)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAnamneza)).BeginInit();
             this.groupBox11.SuspendLayout();
             this.groupBox12.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -214,6 +221,7 @@ namespace Veterinarna_Ambulanta_Milenici
             this.mainTabControll.SelectedIndex = 0;
             this.mainTabControll.Size = new System.Drawing.Size(1924, 803);
             this.mainTabControll.TabIndex = 1;
+            this.mainTabControll.SelectedIndexChanged += new System.EventHandler(this.mainTabControll_SelectedIndexChanged);
             // 
             // tabDoma
             // 
@@ -1122,9 +1130,12 @@ namespace Veterinarna_Ambulanta_Milenici
             // 
             this.groupBox13.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox13.Controls.Add(this.btnVnesiDiagnoza);
-            this.groupBox13.Controls.Add(this.comboBox1);
-            this.groupBox13.Controls.Add(this.richTextBox1);
+            this.groupBox13.Controls.Add(this.dgvDijagnostickiMetodi);
+            this.groupBox13.Controls.Add(this.dgvTerapija);
+            this.groupBox13.Controls.Add(this.dgvAnamneza);
+            this.groupBox13.Controls.Add(this.btnVnesiDijagnoza);
+            this.groupBox13.Controls.Add(this.cbDijagnoza);
+            this.groupBox13.Controls.Add(this.rtbDijagnoza);
             this.groupBox13.Location = new System.Drawing.Point(29, 185);
             this.groupBox13.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox13.Name = "groupBox13";
@@ -1134,41 +1145,78 @@ namespace Veterinarna_Ambulanta_Milenici
             this.groupBox13.TabStop = false;
             this.groupBox13.Text = "Внеси Дијагноза";
             // 
-            // btnVnesiDiagnoza
+            // dgvDijagnostickiMetodi
             // 
-            this.btnVnesiDiagnoza.Location = new System.Drawing.Point(208, 21);
-            this.btnVnesiDiagnoza.Margin = new System.Windows.Forms.Padding(4);
-            this.btnVnesiDiagnoza.Name = "btnVnesiDiagnoza";
-            this.btnVnesiDiagnoza.Size = new System.Drawing.Size(151, 28);
-            this.btnVnesiDiagnoza.TabIndex = 2;
-            this.btnVnesiDiagnoza.Text = "Внеси Диагноза";
-            this.btnVnesiDiagnoza.UseVisualStyleBackColor = true;
+            this.dgvDijagnostickiMetodi.BackgroundColor = System.Drawing.Color.PaleTurquoise;
+            this.dgvDijagnostickiMetodi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDijagnostickiMetodi.Location = new System.Drawing.Point(1258, 57);
+            this.dgvDijagnostickiMetodi.Name = "dgvDijagnostickiMetodi";
+            this.dgvDijagnostickiMetodi.RowHeadersWidth = 51;
+            this.dgvDijagnostickiMetodi.RowTemplate.Height = 24;
+            this.dgvDijagnostickiMetodi.Size = new System.Drawing.Size(262, 129);
+            this.dgvDijagnostickiMetodi.TabIndex = 8;
+            this.dgvDijagnostickiMetodi.SelectionChanged += new System.EventHandler(this.dgvDijagnostickiMetodi_SelectionChanged);
             // 
-            // comboBox1
+            // dgvTerapija
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.dgvTerapija.BackgroundColor = System.Drawing.Color.PaleTurquoise;
+            this.dgvTerapija.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvTerapija.Location = new System.Drawing.Point(1573, 57);
+            this.dgvTerapija.Name = "dgvTerapija";
+            this.dgvTerapija.RowHeadersWidth = 51;
+            this.dgvTerapija.RowTemplate.Height = 24;
+            this.dgvTerapija.Size = new System.Drawing.Size(289, 129);
+            this.dgvTerapija.TabIndex = 7;
+            this.dgvTerapija.SelectionChanged += new System.EventHandler(this.dgvTerapija_SelectionChanged);
+            // 
+            // dgvAnamneza
+            // 
+            this.dgvAnamneza.BackgroundColor = System.Drawing.Color.PaleTurquoise;
+            this.dgvAnamneza.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvAnamneza.Location = new System.Drawing.Point(951, 56);
+            this.dgvAnamneza.Name = "dgvAnamneza";
+            this.dgvAnamneza.RowHeadersWidth = 51;
+            this.dgvAnamneza.RowTemplate.Height = 24;
+            this.dgvAnamneza.Size = new System.Drawing.Size(258, 129);
+            this.dgvAnamneza.TabIndex = 6;
+            this.dgvAnamneza.SelectionChanged += new System.EventHandler(this.dgvAnamneza_SelectionChanged);
+            // 
+            // btnVnesiDijagnoza
+            // 
+            this.btnVnesiDijagnoza.Location = new System.Drawing.Point(232, 21);
+            this.btnVnesiDijagnoza.Margin = new System.Windows.Forms.Padding(4);
+            this.btnVnesiDijagnoza.Name = "btnVnesiDijagnoza";
+            this.btnVnesiDijagnoza.Size = new System.Drawing.Size(151, 28);
+            this.btnVnesiDijagnoza.TabIndex = 2;
+            this.btnVnesiDijagnoza.Text = "Внеси Дијагноза";
+            this.btnVnesiDijagnoza.UseVisualStyleBackColor = true;
+            this.btnVnesiDijagnoza.Click += new System.EventHandler(this.btnVnesiDijagnoza_Click);
+            // 
+            // cbDijagnoza
+            // 
+            this.cbDijagnoza.FormattingEnabled = true;
+            this.cbDijagnoza.Items.AddRange(new object[] {
             "Анамнеза",
             "Дијагностички методи",
             "Терапија"});
-            this.comboBox1.Location = new System.Drawing.Point(13, 23);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(160, 24);
-            this.comboBox1.TabIndex = 1;
+            this.cbDijagnoza.Location = new System.Drawing.Point(13, 23);
+            this.cbDijagnoza.Margin = new System.Windows.Forms.Padding(4);
+            this.cbDijagnoza.Name = "cbDijagnoza";
+            this.cbDijagnoza.Size = new System.Drawing.Size(193, 24);
+            this.cbDijagnoza.TabIndex = 1;
             // 
-            // richTextBox1
+            // rtbDijagnoza
             // 
-            this.richTextBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.rtbDijagnoza.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.richTextBox1.BackColor = System.Drawing.Color.PaleTurquoise;
-            this.richTextBox1.Location = new System.Drawing.Point(13, 57);
-            this.richTextBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(780, 128);
-            this.richTextBox1.TabIndex = 0;
-            this.richTextBox1.Text = "";
+            this.rtbDijagnoza.BackColor = System.Drawing.Color.PaleTurquoise;
+            this.rtbDijagnoza.Location = new System.Drawing.Point(13, 57);
+            this.rtbDijagnoza.Margin = new System.Windows.Forms.Padding(4);
+            this.rtbDijagnoza.Name = "rtbDijagnoza";
+            this.rtbDijagnoza.Size = new System.Drawing.Size(780, 128);
+            this.rtbDijagnoza.TabIndex = 0;
+            this.rtbDijagnoza.Text = "";
             // 
             // groupBox11
             // 
@@ -1334,6 +1382,7 @@ namespace Veterinarna_Ambulanta_Milenici
             // 
             this.groupBox12.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox12.Controls.Add(this.llbClear);
             this.groupBox12.Controls.Add(this.cbPrebarajMD);
             this.groupBox12.Controls.Add(this.pictureBox2);
             this.groupBox12.Controls.Add(this.tbPrebarajMD);
@@ -1349,9 +1398,9 @@ namespace Veterinarna_Ambulanta_Milenici
             // cbPrebarajMD
             // 
             this.cbPrebarajMD.FormattingEnabled = true;
-            this.cbPrebarajMD.Location = new System.Drawing.Point(835, 33);
+            this.cbPrebarajMD.Location = new System.Drawing.Point(734, 33);
             this.cbPrebarajMD.Name = "cbPrebarajMD";
-            this.cbPrebarajMD.Size = new System.Drawing.Size(1027, 24);
+            this.cbPrebarajMD.Size = new System.Drawing.Size(948, 24);
             this.cbPrebarajMD.TabIndex = 3;
             this.cbPrebarajMD.SelectedIndexChanged += new System.EventHandler(this.cbPrebarajMD_SelectedIndexChanged);
             // 
@@ -1420,6 +1469,17 @@ namespace Veterinarna_Ambulanta_Milenici
             // 
             this.error_mikrocip.ContainerControl = this;
             // 
+            // llbClear
+            // 
+            this.llbClear.AutoSize = true;
+            this.llbClear.Location = new System.Drawing.Point(1748, 36);
+            this.llbClear.Name = "llbClear";
+            this.llbClear.Size = new System.Drawing.Size(41, 17);
+            this.llbClear.TabIndex = 4;
+            this.llbClear.TabStop = true;
+            this.llbClear.Text = "Clear";
+            this.llbClear.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llbClear_LinkClicked);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1467,6 +1527,9 @@ namespace Veterinarna_Ambulanta_Milenici
             this.groupBox9.ResumeLayout(false);
             this.groupBox8.ResumeLayout(false);
             this.groupBox13.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDijagnostickiMetodi)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTerapija)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAnamneza)).EndInit();
             this.groupBox11.ResumeLayout(false);
             this.groupBox11.PerformLayout();
             this.groupBox12.ResumeLayout(false);
@@ -1558,8 +1621,8 @@ namespace Veterinarna_Ambulanta_Milenici
         private System.Windows.Forms.DataGridViewCheckBoxColumn Column2;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.GroupBox groupBox13;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.ComboBox cbDijagnoza;
+        private System.Windows.Forms.RichTextBox rtbDijagnoza;
         private System.Windows.Forms.GroupBox groupBox11;
         private System.Windows.Forms.Label lbSopstvenikMD;
         private System.Windows.Forms.Label label20;
@@ -1577,7 +1640,7 @@ namespace Veterinarna_Ambulanta_Milenici
         private System.Windows.Forms.Label label32;
         private System.Windows.Forms.GroupBox groupBox12;
         private System.Windows.Forms.TextBox tbPrebarajMD;
-        private System.Windows.Forms.Button btnVnesiDiagnoza;
+        private System.Windows.Forms.Button btnVnesiDijagnoza;
         private System.Windows.Forms.GroupBox groupBox14;
         private System.Windows.Forms.GroupBox groupBox10;
         private System.Windows.Forms.RichTextBox rtbTerapija;
@@ -1604,6 +1667,10 @@ namespace Veterinarna_Ambulanta_Milenici
         private System.Windows.Forms.NumericUpDown nudStarostZivotno;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.ComboBox cbPrebarajMD;
+        private System.Windows.Forms.DataGridView dgvAnamneza;
+        private System.Windows.Forms.DataGridView dgvDijagnostickiMetodi;
+        private System.Windows.Forms.DataGridView dgvTerapija;
+        private System.Windows.Forms.LinkLabel llbClear;
     }
 }
 

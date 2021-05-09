@@ -13,41 +13,33 @@ namespace Veterinarna_Ambulanta_Milenici
 {
     public partial class Form1 : Form
     {
-        static readonly string SELECTALLMILENICI = "SELECT * FROM Milenici"; //ми е потребно како query string за да ги добијам сите миленици од датабазата
-        static readonly string SELECTTOP1 = "SELECT TOP 1 * FROM Milenici WHERE id=";
+        private int milenikId;
 
         public Form1()
         {
             InitializeComponent();
-            displayDataAnimals(SELECTALLMILENICI); 
-            displayDataSearch(SELECTALLMILENICI, 0);
-            displayDataSearch(SELECTALLMILENICI, 1);
+            btnVnesiDijagnoza.Enabled = false;
         }
 
-        //Приказ на податоци во Нов Миленик
-        private void displayDataAnimals(string selectQuery)
+        //При промена на таб лоадирај ги информациите од датабазата ********ова некако како бавна да ми ја прај аликацијата
+        private void mainTabControll_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //прочитај ги информациите од датабазата во data view grid
-            DataTable dtPatients = new DataTable();
-            using (SqlConnection connection = new SqlConnection())
+            switch (mainTabControll.SelectedIndex)
             {
-                connection.ConnectionString = DBHelper.ConnVal();
-                using (SqlCommand cmd = new SqlCommand(selectQuery, connection))
-                {
-                    connection.Open();
-                    SqlDataReader reader = cmd.ExecuteReader();
-                    dtPatients.Load(reader);
-                    connection.Close();
-                }
+                case 1:
+                    displayDataMilenici(DBHelper.SELECTALLMILENICI); //Нов Миленик
+                    ClearTextBoxesMilenici();
+                    break;
+                case 2:
+                    displayDataSearch(DBHelper.SELECTALLMILENICI, 0); //ООЗ
+                    break;
+                case 3:
+                    displayDataSearch(DBHelper.SELECTALLMILENICI, 1); //МД
+                    break;
             }
-
-            dgvInfoTabela.AutoGenerateColumns = true;
-            dgvInfoTabela.DataSource = dtPatients;
-            setColumnNamesAnimals();
-            //dgvInfoTabela.Sort(dgvInfoTabela.Columns[0], ListSortDirection.Ascending);
         }
 
-        //Приказ на податоци во ООЗ Пребарувај comboBox
+        //Приказ на податоци co Пребарувај
         private void displayDataSearch(string selectQuery, int tab)
         {
             //прочитај ги информациите од датабазата во data view grid
@@ -91,65 +83,38 @@ namespace Veterinarna_Ambulanta_Milenici
             }
         }
 
-        //Приказ на податоци во ООЗ одбран миленик
-        private void displayDataAnimalOOZ(string selectQuery)
+
+
+
+
+
+        //*************************************НОВ МИЛЕНИК**************************************************
+
+        //Приказ на податоци во Нов Миленик
+        private void displayDataMilenici(string selectQuery)
         {
             //прочитај ги информациите од датабазата во data view grid
-            SqlDataAdapter sda;
-            DataSet ds = new DataSet();
+            DataTable dtPatients = new DataTable();
             using (SqlConnection connection = new SqlConnection())
             {
-
                 connection.ConnectionString = DBHelper.ConnVal();
                 using (SqlCommand cmd = new SqlCommand(selectQuery, connection))
                 {
                     connection.Open();
-                    sda = new SqlDataAdapter(cmd);
-                    sda.Fill(ds);
-                    int s = ds.Tables[0].Rows.Count;
-                    //додади ги потребните колони во comboBox
-                        lbImeOZZ.Text = ds.Tables[0] .Rows[0][7].ToString(); //име животно
-                        lbVidZivotnoOZZ.Text = ds.Tables[0].Rows[0][5].ToString(); //вид животно
-                        lbRasaOZZ.Text = ds.Tables[0].Rows[0][6].ToString(); //раса животнo
-                        lbStarostOZZ.Text = ds.Tables[0].Rows[0][8].ToString(); //име животно
-                        lbPolOZZ.Text = ds.Tables[0].Rows[0][9].ToString(); //пол
-                        lbMikroCipOZZ.Text = ds.Tables[0].Rows[0][10].ToString(); //микрочип
-                        lbSopstvenikOZZ.Text = ds.Tables[0].Rows[0][1].ToString() + " " + ds.Tables[0].Rows[0][2].ToString(); //сопственик
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    dtPatients.Load(reader);
+                    connection.Close();
                 }
-                connection.Close();
             }
+
+            dgvInfoTabela.AutoGenerateColumns = true;
+            dgvInfoTabela.DataSource = dtPatients;
+            setColumnNamesMilenici();
+            //dgvInfoTabela.Sort(dgvInfoTabela.Columns[0], ListSortDirection.Ascending);
         }
 
-        //Приказ на податоци во МД одбран миленик
-        private void displayDataAnimalMD(string selectQuery)
-        {
-            //прочитај ги информациите од датабазата во data view grid
-            SqlDataAdapter sda;
-            DataSet ds = new DataSet();
-            using (SqlConnection connection = new SqlConnection())
-            {
-
-                connection.ConnectionString = DBHelper.ConnVal();
-                using (SqlCommand cmd = new SqlCommand(selectQuery, connection))
-                {
-                    connection.Open();
-                    sda = new SqlDataAdapter(cmd);
-                    sda.Fill(ds);
-                    int s = ds.Tables[0].Rows.Count;
-                    //додади ги потребните колони во comboBox
-                    lbImeMD.Text = ds.Tables[0].Rows[0][7].ToString(); //име животно
-                    lbVidZivotnoMD.Text = ds.Tables[0].Rows[0][5].ToString(); //вид животно
-                    lbRasaZivotnoMD.Text = ds.Tables[0].Rows[0][6].ToString(); //раса животнo
-                    lbStarostMD.Text = ds.Tables[0].Rows[0][8].ToString(); //име животно
-                    lbPolMD.Text = ds.Tables[0].Rows[0][9].ToString(); //пол
-                    lbMikrocipMD.Text = ds.Tables[0].Rows[0][10].ToString(); //микрочип
-                    lbSopstvenikMD.Text = ds.Tables[0].Rows[0][1].ToString() + " " + ds.Tables[0].Rows[0][2].ToString(); //сопственик
-                }
-                connection.Close();
-            }
-        }
         //Смени ги имињата на колоните во Нов Миленик dataViewGrid
-        private void setColumnNamesAnimals()
+        private void setColumnNamesMilenici()
         {
             dgvInfoTabela.Columns[0].Visible = false;
             dgvInfoTabela.Columns[1].HeaderText = "Име Сопственик";
@@ -165,32 +130,24 @@ namespace Veterinarna_Ambulanta_Milenici
             dgvInfoTabela.Columns[11].HeaderText = "Датум на креирање";
         }
 
-        //Смени ги имињата на колоните за вакници во ООЗ
-        private void setColumnNamesVaccines()
-        {
-            dgvInfoTabela.Columns[0].Visible = false;
-            dgvInfoTabela.Columns[1].HeaderText = "Вакцина";
-            dgvInfoTabela.Columns[2].HeaderText = "Датум на примање";
-        }
-
         //Додади нов миленик во dataViewGrid
         private void btnDodadi_Click(object sender, EventArgs e)
         {
             //Повторна валидација доколку се кликне Додади Пациент без прво да се посетат задолжителните полињa
             if (ValidateIme() && ValidatePrezime() && ValidateKontakt() && ValidateEmail() && ValidateVidZivotno() &&
-                ValidateRasaZivotno() &&  ValidateImeZivotno() && ValidatePol() && ValidateMikrocip())
+                ValidateRasaZivotno() && ValidateImeZivotno() && ValidatePol() && ValidateMikrocip())
             {
-                string pol = gbPol.Controls.OfType<RadioButton>().First(rb => rb.Checked).Text.ToString() ;
+                string pol = gbPol.Controls.OfType<RadioButton>().First(rb => rb.Checked).Text.ToString();
 
                 Sopstvenik novSopstvenik = new Sopstvenik(tbImeSopstvenik.Text, tbPrezimeSopstvenik.Text, tbEmailSopstvenik.Text, mtbKontakt.Text);
                 Milenik novMilenik = new Milenik(tbVidZivotno.Text, tbRasaZivotno.Text, tbImeZivotno.Text, Convert.ToInt32(nudStarostZivotno.Text), pol, tbMikroCip.Text, novSopstvenik);
-                
+
                 novSopstvenik.addMilenik(novMilenik);
 
                 addNewAnimalToDatabase(pol);
-                displayDataAnimals(SELECTALLMILENICI);
+                displayDataMilenici(DBHelper.SELECTALLMILENICI);
 
-                ClearTextBoxes();
+                ClearTextBoxesMilenici();
             }
         }
 
@@ -225,14 +182,14 @@ namespace Veterinarna_Ambulanta_Milenici
 
                 //пробај да ја извршиш командата, доколку е не е успешно прикажи порака
                 if (cmd.ExecuteNonQuery() == 0)
-                    MessageBox.Show("Додавањето на нов пациент во датабазата е неуспешно! Пробајте повторно.");
+                    MessageBox.Show("Додавањето на нов миленик во датабазата е неуспешно! Пробајте повторно.");
             }
             //Затвори ја конекцијата
             connection.Close();
         }
 
-        //Постави default вредности на textBoxes за додавање на нов миленик
-        private void ClearTextBoxes()
+        //Постави default вредности на textBoxes после додавање на нов миленик и на отварање на табот
+        private void ClearTextBoxesMilenici()
         {
             tbImeSopstvenik.Text = "\\";
             tbPrezimeSopstvenik.Text = "\\";
@@ -244,6 +201,55 @@ namespace Veterinarna_Ambulanta_Milenici
             tbMikroCip.Text = "\\";
             rbMaskiPol.Checked = false;
             rbZenskiPol.Checked = false;
+        }
+
+
+
+
+
+
+        //****************************************ООЗ********************************************************
+
+
+        //Приказ на податоци во ООЗ одбран миленик
+        private void displayDataAnimalOOZ(string selectQuery)
+        {
+            //прочитај ги информациите од датабазата во data view grid
+            SqlDataAdapter sda;
+            DataSet ds = new DataSet();
+            using (SqlConnection connection = new SqlConnection())
+            {
+
+                connection.ConnectionString = DBHelper.ConnVal();
+                using (SqlCommand cmd = new SqlCommand(selectQuery, connection))
+                {
+                    connection.Open();
+                    sda = new SqlDataAdapter(cmd);
+                    sda.Fill(ds);
+                    int s = ds.Tables[0].Rows.Count;
+                    //додади ги потребните колони во comboBox
+                    lbImeOZZ.Text = ds.Tables[0].Rows[0][7].ToString(); //име животно
+                    lbVidZivotnoOZZ.Text = ds.Tables[0].Rows[0][5].ToString(); //вид животно
+                    lbRasaOZZ.Text = ds.Tables[0].Rows[0][6].ToString(); //раса животнo
+                    lbStarostOZZ.Text = ds.Tables[0].Rows[0][8].ToString(); //име животно
+                    lbPolOZZ.Text = ds.Tables[0].Rows[0][9].ToString(); //пол
+                    lbMikroCipOZZ.Text = ds.Tables[0].Rows[0][10].ToString(); //микрочип
+                    lbSopstvenikOZZ.Text = ds.Tables[0].Rows[0][1].ToString() + " " + ds.Tables[0].Rows[0][2].ToString(); //сопственик
+
+                    milenikId = Convert.ToInt32(ds.Tables[0].Rows[0][0].ToString());
+                    //displayDataVakcini(id);
+                    //displayDataAmpuli(id);
+                }
+                connection.Close();
+            }
+        }
+
+        //Смени ги имињата на колоните за вакници во ООЗ
+        private void setColumnNamesVaccines()
+        {
+            dgvInfoTabela.Columns[0].Visible = false;
+            dgvInfoTabela.Columns[1].HeaderText = "Вакцина";
+            dgvInfoTabela.Columns[2].HeaderText = "Датум на примање";
         }
 
         //При внес на текст во ООЗ Пребарај textBox да се прикажат соодветните миленици
@@ -258,8 +264,8 @@ namespace Veterinarna_Ambulanta_Milenici
             //селектирај ги сите редови каде некои колони личат на влезот од „пребарај“
             string selectQuery = "SELECT * FROM Milenici WHERE imeSopstvenik LIKE '%" + KEYWORD + "%' OR prezimeSopstvenik LIKE '%" + KEYWORD + "%' OR kontakt LIKE '%" + KEYWORD + "%' OR vidZivotno LIKE '%" + KEYWORD + "%' OR rasaZivotno LIKE '%" + KEYWORD + "%' OR imeZivotno LIKE '%" + KEYWORD + "%'";
             displayDataSearch(selectQuery, 0); //0 за ООЗ
-            
-         }
+
+        }
 
         //При селектирање на миленик во ООЗ од comboBox да се прикажат соодветните информации за тој миленик
         private void cbPrebaraj_SelectedIndexChanged(object sender, EventArgs e)
@@ -268,11 +274,65 @@ namespace Veterinarna_Ambulanta_Milenici
             {
                 ComboBoxItem selectedItem = cbPrebarajOOZ.SelectedItem as ComboBoxItem;
                 int id = (int)selectedItem.Value;
-                string query = SELECTTOP1 + id.ToString();
+                string query = DBHelper.SELECTTOP1 + id.ToString();
                 displayDataAnimalOOZ(query);
             }
             else
+            {
                 cbPrebarajOOZ.Text = "Одберете миленик";
+                ClearLabelsOOZ();
+            }
+        }
+
+        private void ClearLabelsOOZ()
+        {
+            lbImeOZZ.Text = "";
+            lbVidZivotnoOZZ.Text = "";
+            lbRasaOZZ.Text = "";
+            lbStarostOZZ.Text = "";
+            lbPolOZZ.Text = "";
+            lbMikroCipOZZ.Text = "";
+            lbSopstvenikOZZ.Text = "";
+        }
+
+
+
+
+
+
+        //****************************************МД********************************************************
+        //Приказ на податоци во МД одбран миленик
+        private void displayDataAnimalMD(string selectQuery)
+        {
+            //прочитај ги информациите од датабазата во data view grid
+            SqlDataAdapter sda;
+            DataSet ds = new DataSet();
+            using (SqlConnection connection = new SqlConnection())
+            {
+                connection.ConnectionString = DBHelper.ConnVal();
+                using (SqlCommand cmd = new SqlCommand(selectQuery, connection))
+                {
+                    connection.Open();
+                    sda = new SqlDataAdapter(cmd);
+                    sda.Fill(ds);
+                    int s = ds.Tables[0].Rows.Count;
+                    //додади ги потребните колони во comboBox
+                    lbImeMD.Text = ds.Tables[0].Rows[0][7].ToString(); //име животно
+                    lbVidZivotnoMD.Text = ds.Tables[0].Rows[0][5].ToString(); //вид животно
+                    lbRasaZivotnoMD.Text = ds.Tables[0].Rows[0][6].ToString(); //раса животнo
+                    lbStarostMD.Text = ds.Tables[0].Rows[0][8].ToString(); //име животно
+                    lbPolMD.Text = ds.Tables[0].Rows[0][9].ToString(); //пол
+                    lbMikrocipMD.Text = ds.Tables[0].Rows[0][10].ToString(); //микрочип
+                    lbSopstvenikMD.Text = ds.Tables[0].Rows[0][1].ToString() + " " + ds.Tables[0].Rows[0][2].ToString(); //сопственик
+
+                    milenikId = Convert.ToInt32(ds.Tables[0].Rows[0][0].ToString());
+                    //displayDataDosie();
+                    //displayDataDijagnostickiMetodi();
+                    //displayDataTerapija();
+
+                }
+                connection.Close();
+            }
         }
 
         //При внес на текст во МД Пребарај textBox да се прикажат соодветните миленици
@@ -281,7 +341,10 @@ namespace Veterinarna_Ambulanta_Milenici
             //при секое ново пребарување бриши ги старите информации во comboBox
             cbPrebarajMD.Items.Clear();
             if (tbPrebarajMD.Text.Trim().Length == 0)
+            {
                 cbPrebarajMD.Items.Clear();
+                cbPrebarajMD.Text = "Одберете миленик";
+            }
 
             string KEYWORD = tbPrebarajMD.Text;
             //селектирај ги сите редови каде некои колони личат на влезот од „пребарај“
@@ -289,24 +352,274 @@ namespace Veterinarna_Ambulanta_Milenici
             displayDataSearch(selectQuery, 1); //1 за МД
         }
 
+
         //При селектирање на миленик во МД од comboBox да се прикажат соодветните информации за тој миленик
         private void cbPrebarajMD_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(cbPrebarajMD.SelectedIndex != -1)
+            if (cbPrebarajMD.SelectedIndex != -1)
             {
                 ComboBoxItem selectedItem = cbPrebarajMD.SelectedItem as ComboBoxItem;
                 int id = (int)selectedItem.Value;
-                string query = SELECTTOP1 + id.ToString();
+                string query = DBHelper.SELECTTOP1 + id.ToString();
+                
                 displayDataAnimalMD(query);
+                displayDataAnamneza(); 
+                displayDataDijagnostickiMetodi(); 
+                displayDataTerapija();
+                
+                btnVnesiDijagnoza.Enabled = true;
             }
             else
+            {
                 cbPrebarajMD.Text = "Одберете миленик";
+                ClearLabelsMD();
+                btnVnesiDijagnoza.Enabled = false;
+            }
+        }
+
+        private void ClearLabelsMD()
+        {
+            lbImeMD.Text = "";
+            lbVidZivotnoMD.Text = "";
+            lbRasaZivotnoMD.Text = "";
+            lbStarostMD.Text = "";
+            lbPolMD.Text = "";
+            lbMikrocipMD.Text = "";
+            lbSopstvenikMD.Text = "";
+        }
+
+        private void llbClear_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            dgvAnamneza.DataSource = null;
+            dgvAnamneza.Rows.Clear();
+            dgvDijagnostickiMetodi.DataSource = null;
+            dgvDijagnostickiMetodi.Rows.Clear();
+            dgvTerapija.DataSource = null;
+            dgvTerapija.Rows.Clear();
+
+            rtbAnamneza.Clear();
+            rtbDijagnostickiMetodi.Clear();
+            rtbTerapija.Clear();
+
+            cbPrebarajMD.Items.Clear();
+            cbPrebarajMD.Text = "Одберете миленик";
+            btnVnesiDijagnoza.Enabled = false;
+            ClearLabelsMD();
+        }
+
+        //Внес на нова дијагноза
+        private void btnVnesiDijagnoza_Click(object sender, EventArgs e)
+        {
+            switch (cbDijagnoza.SelectedIndex)
+            {
+                case -1:
+                    MessageBox.Show("Одберете вид на дијагноза!", "", MessageBoxButtons.OK);
+                    break;
+                case 0:
+                    addNewDiagnoseToDatabase(DBHelper.INSERTANAMNEZA, "anamneza"); //внеси нова анамнеза во датабазата
+                    displayDataAnamneza(); //рефреширај dataGridView
+                    break;
+                case 1:
+                    addNewDiagnoseToDatabase(DBHelper.INSERTDIJAGNOSTICKIMETODI, "dijagnostickiMetodi"); //внеси нова дијагностичка метода во датабазата
+                    displayDataDijagnostickiMetodi(); //рефреширај dataGridView
+                    break;
+                case 2:
+                    addNewDiagnoseToDatabase(DBHelper.INSERTTERAPIJA, "terapija"); //внеси нова терапија во датабазата
+                    displayDataTerapija(); //рефреширај dataGridView
+                    break;
+            }
+        }
+
+        private void addNewDiagnoseToDatabase(string queryString, string diagnose)
+        {
+            if (rtbDijagnoza.Text.Trim().Length != 0)
+            {
+                //Отворање на конекција со датабазата co string за конекција од помошната класа DBHelper
+                SqlConnection connection = new SqlConnection();
+                connection.ConnectionString = DBHelper.ConnVal();
+                connection.Open();
+
+                //sql query за додавање во табела
+                string sql = queryString;
+
+                //додавање вредности во командата (од sql query и конекцијата) која се извршува за додавање на нов ред во табелата
+                using (SqlCommand cmd = new SqlCommand(sql, connection))
+                {
+                    cmd.Parameters.AddWithValue("@milenikId", milenikId);
+                    cmd.Parameters.AddWithValue("@"+ diagnose, rtbDijagnoza.Text);
+
+                    cmd.CommandType = CommandType.Text;
+
+                    //пробај да ја извршиш командата, доколку е не е успешно прикажи порака
+                    if (cmd.ExecuteNonQuery() == 0)
+                        MessageBox.Show("Додавањето е неуспешно! Пробајте повторно.");
+                }
+                //Затвори ја конекцијата
+                connection.Close();
+            }
         }
 
 
 
 
-        //Валидација на сите полиња за додавање на нов пациент
+        //-------------------------------------АНАМНЕЗА-------------------------------------------------------
+
+        //Приказ на аманмеза за одбраниот миленик
+        private void displayDataAnamneza()
+        {
+            //прочитај ги информациите од датабазата во data view grid
+            DataTable dtAnamneza = new DataTable();
+
+            string selectQuery = DBHelper.SELECTALLANAMNEZA + milenikId;
+
+            using (SqlConnection connection = new SqlConnection())
+            {
+                connection.ConnectionString = DBHelper.ConnVal();
+                using (SqlCommand cmd = new SqlCommand(selectQuery, connection))
+                {
+                    connection.Open();
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    dtAnamneza.Load(reader);
+                    connection.Close();
+                }
+            }
+
+            dgvAnamneza.AutoGenerateColumns = true;
+            dgvAnamneza.DataSource = dtAnamneza;
+            setColumnNamesAnamneza();
+        }
+
+        private void setColumnNamesAnamneza()
+        {
+            dgvAnamneza.Columns[0].Visible = false;
+            dgvAnamneza.Columns[1].Visible = false;
+            dgvAnamneza.Columns[2].HeaderText = "Анамнеза";
+            dgvAnamneza.Columns[3].HeaderText = "Датум";
+        }
+
+        //Доколку се одбере некоја анамнеза од dataGridView да се прикаже целиот текст во richBoxText за анамнеза
+        private void dgvAnamneza_SelectionChanged(object sender, EventArgs e)
+        {
+            DataGridView dgv = sender as DataGridView;
+            if (dgv != null && dgv.SelectedRows.Count > 0)
+            {
+                DataGridViewRow row = dgv.SelectedRows[0];
+                if (row != null)
+                    rtbAnamneza.Text = row.Cells[2].Value.ToString();
+            }
+        }
+
+
+
+
+
+
+
+
+        //-------------------------------------ДИЈАГНОСТИЧКИ МЕТОДИ-------------------------------------
+
+        //Приказ на досиеја за одбраниот миленик
+        private void displayDataDijagnostickiMetodi()
+        {
+            //прочитај ги информациите од датабазата во data view grid
+            DataTable dtDijagnostickiMetodi = new DataTable();
+
+            string selectQuery = DBHelper.SELECTALLDIJAGNOSTICKIMETODI + milenikId;
+
+            using (SqlConnection connection = new SqlConnection())
+            {
+                connection.ConnectionString = DBHelper.ConnVal();
+                using (SqlCommand cmd = new SqlCommand(selectQuery, connection))
+                {
+                    connection.Open();
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    dtDijagnostickiMetodi.Load(reader);
+                    connection.Close();
+                }
+            }
+
+            dgvDijagnostickiMetodi.AutoGenerateColumns = true;
+            dgvDijagnostickiMetodi.DataSource = dtDijagnostickiMetodi;
+            setColumnNamesDijagnostickiMetodi();
+        }
+        private void setColumnNamesDijagnostickiMetodi()
+        {
+            dgvDijagnostickiMetodi.Columns[0].Visible = false;
+            dgvDijagnostickiMetodi.Columns[1].Visible = false;
+            dgvDijagnostickiMetodi.Columns[2].HeaderText = "Дијагностички методи";
+            dgvDijagnostickiMetodi.Columns[3].HeaderText = "Датум";
+        }
+
+        private void dgvDijagnostickiMetodi_SelectionChanged(object sender, EventArgs e)
+        {
+            DataGridView dgv = sender as DataGridView;
+            if (dgv != null && dgv.SelectedRows.Count > 0)
+            {
+                DataGridViewRow row = dgv.SelectedRows[0];
+                if (row != null)
+                    rtbDijagnostickiMetodi.Text = row.Cells[2].Value.ToString();
+            }
+        }
+
+        
+
+
+
+
+
+
+        //-------------------------------------ТЕРАПИЈА-------------------------------------
+
+        private void displayDataTerapija()
+        {
+            //прочитај ги информациите од датабазата во data view grid
+            DataTable dtTerapija = new DataTable();
+
+            string selectQuery = DBHelper.SELECTALLTERAPIJA + milenikId;
+
+            using (SqlConnection connection = new SqlConnection())
+            {
+                connection.ConnectionString = DBHelper.ConnVal();
+                using (SqlCommand cmd = new SqlCommand(selectQuery, connection))
+                {
+                    connection.Open();
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    dtTerapija.Load(reader);
+                    connection.Close();
+                }
+            }
+
+            dgvTerapija.AutoGenerateColumns = true;
+            dgvTerapija.DataSource = dtTerapija;
+            setColumnNamesTerapija();
+        }
+
+        private void setColumnNamesTerapija()
+        {
+            dgvTerapija.Columns[0].Visible = false;
+            dgvTerapija.Columns[1].Visible = false;
+            dgvTerapija.Columns[2].HeaderText = "Терапија";
+            dgvTerapija.Columns[3].HeaderText = "Датум";
+        }
+
+        private void dgvTerapija_SelectionChanged(object sender, EventArgs e)
+        {
+            DataGridView dgv = sender as DataGridView;
+            if (dgv != null && dgv.SelectedRows.Count > 0)
+            {
+                DataGridViewRow row = dgv.SelectedRows[0];
+                if (row != null)
+                    rtbTerapija.Text = row.Cells[2].Value.ToString();
+            }
+        }
+
+
+
+
+
+
+
+        //**********************************Валидација на сите полиња за додавање на нов пациент*********************************
 
         private void tbImeSopstvenik_Validating(object sender, CancelEventArgs e)
         {
@@ -482,7 +795,10 @@ namespace Veterinarna_Ambulanta_Milenici
             }
         }
 
-        
+     
+
+
+
 
 
 
