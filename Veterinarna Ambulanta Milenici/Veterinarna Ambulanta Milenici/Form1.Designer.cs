@@ -41,6 +41,7 @@ namespace Veterinarna_Ambulanta_Milenici
             this.dgvInfoTabela = new System.Windows.Forms.DataGridView();
             this.btnDodadi = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.nudStarostZivotno = new System.Windows.Forms.NumericUpDown();
             this.gbPol = new System.Windows.Forms.GroupBox();
             this.rbZenskiPol = new System.Windows.Forms.RadioButton();
             this.rbMaskiPol = new System.Windows.Forms.RadioButton();
@@ -116,21 +117,23 @@ namespace Veterinarna_Ambulanta_Milenici
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.groupBox11 = new System.Windows.Forms.GroupBox();
-            this.label19 = new System.Windows.Forms.Label();
+            this.lbSopstvenikMD = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
+            this.lbMikrocipMD = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
+            this.lbPolMD = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
-            this.label25 = new System.Windows.Forms.Label();
+            this.lbStarostMD = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
-            this.label27 = new System.Windows.Forms.Label();
+            this.lbRasaZivotnoMD = new System.Windows.Forms.Label();
             this.label28 = new System.Windows.Forms.Label();
-            this.label29 = new System.Windows.Forms.Label();
+            this.lbVidZivotnoMD = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
-            this.label31 = new System.Windows.Forms.Label();
+            this.lbImeMD = new System.Windows.Forms.Label();
             this.label32 = new System.Windows.Forms.Label();
             this.groupBox12 = new System.Windows.Forms.GroupBox();
+            this.cbPrebarajMD = new System.Windows.Forms.ComboBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.tbPrebarajMD = new System.Windows.Forms.TextBox();
             this.error_ime = new System.Windows.Forms.ErrorProvider(this.components);
             this.error_prezime = new System.Windows.Forms.ErrorProvider(this.components);
@@ -143,9 +146,6 @@ namespace Veterinarna_Ambulanta_Milenici
             this.error_pol = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.error_mikrocip = new System.Windows.Forms.ErrorProvider(this.components);
-            this.nudStarostZivotno = new System.Windows.Forms.NumericUpDown();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.cbPrebarajMD = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.mainLogo)).BeginInit();
             this.mainTabControll.SuspendLayout();
             this.tabDoma.SuspendLayout();
@@ -153,6 +153,7 @@ namespace Veterinarna_Ambulanta_Milenici
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInfoTabela)).BeginInit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudStarostZivotno)).BeginInit();
             this.gbPol.SuspendLayout();
             this.gbInfoSopstvenik.SuspendLayout();
             this.tabOsnovnaZdrastvenaZastita.SuspendLayout();
@@ -174,6 +175,7 @@ namespace Veterinarna_Ambulanta_Milenici
             this.groupBox13.SuspendLayout();
             this.groupBox11.SuspendLayout();
             this.groupBox12.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.error_ime)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.error_prezime)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.error_email)).BeginInit();
@@ -185,8 +187,6 @@ namespace Veterinarna_Ambulanta_Milenici
             ((System.ComponentModel.ISupportInitialize)(this.error_pol)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.error_mikrocip)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudStarostZivotno)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // mainLogo
@@ -333,6 +333,13 @@ namespace Veterinarna_Ambulanta_Milenici
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Информации за Миленик";
+            // 
+            // nudStarostZivotno
+            // 
+            this.nudStarostZivotno.Location = new System.Drawing.Point(35, 260);
+            this.nudStarostZivotno.Name = "nudStarostZivotno";
+            this.nudStarostZivotno.Size = new System.Drawing.Size(211, 22);
+            this.nudStarostZivotno.TabIndex = 24;
             // 
             // gbPol
             // 
@@ -1167,19 +1174,19 @@ namespace Veterinarna_Ambulanta_Milenici
             // 
             this.groupBox11.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox11.Controls.Add(this.label19);
+            this.groupBox11.Controls.Add(this.lbSopstvenikMD);
             this.groupBox11.Controls.Add(this.label20);
-            this.groupBox11.Controls.Add(this.label21);
+            this.groupBox11.Controls.Add(this.lbMikrocipMD);
             this.groupBox11.Controls.Add(this.label22);
-            this.groupBox11.Controls.Add(this.label23);
+            this.groupBox11.Controls.Add(this.lbPolMD);
             this.groupBox11.Controls.Add(this.label24);
-            this.groupBox11.Controls.Add(this.label25);
+            this.groupBox11.Controls.Add(this.lbStarostMD);
             this.groupBox11.Controls.Add(this.label26);
-            this.groupBox11.Controls.Add(this.label27);
+            this.groupBox11.Controls.Add(this.lbRasaZivotnoMD);
             this.groupBox11.Controls.Add(this.label28);
-            this.groupBox11.Controls.Add(this.label29);
+            this.groupBox11.Controls.Add(this.lbVidZivotnoMD);
             this.groupBox11.Controls.Add(this.label30);
-            this.groupBox11.Controls.Add(this.label31);
+            this.groupBox11.Controls.Add(this.lbImeMD);
             this.groupBox11.Controls.Add(this.label32);
             this.groupBox11.Location = new System.Drawing.Point(29, 107);
             this.groupBox11.Margin = new System.Windows.Forms.Padding(4);
@@ -1190,15 +1197,14 @@ namespace Veterinarna_Ambulanta_Milenici
             this.groupBox11.TabStop = false;
             this.groupBox11.Text = "Податоци за Миленик";
             // 
-            // label19
+            // lbSopstvenikMD
             // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(1512, 25);
-            this.label19.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(54, 17);
-            this.label19.TabIndex = 13;
-            this.label19.Text = "label18";
+            this.lbSopstvenikMD.AutoSize = true;
+            this.lbSopstvenikMD.Location = new System.Drawing.Point(1512, 25);
+            this.lbSopstvenikMD.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbSopstvenikMD.Name = "lbSopstvenikMD";
+            this.lbSopstvenikMD.Size = new System.Drawing.Size(0, 17);
+            this.lbSopstvenikMD.TabIndex = 13;
             // 
             // label20
             // 
@@ -1210,15 +1216,14 @@ namespace Veterinarna_Ambulanta_Milenici
             this.label20.TabIndex = 12;
             this.label20.Text = "Сопственик:";
             // 
-            // label21
+            // lbMikrocipMD
             // 
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(1255, 25);
-            this.label21.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(54, 17);
-            this.label21.TabIndex = 11;
-            this.label21.Text = "label17";
+            this.lbMikrocipMD.AutoSize = true;
+            this.lbMikrocipMD.Location = new System.Drawing.Point(1255, 25);
+            this.lbMikrocipMD.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbMikrocipMD.Name = "lbMikrocipMD";
+            this.lbMikrocipMD.Size = new System.Drawing.Size(0, 17);
+            this.lbMikrocipMD.TabIndex = 11;
             // 
             // label22
             // 
@@ -1230,15 +1235,14 @@ namespace Veterinarna_Ambulanta_Milenici
             this.label22.TabIndex = 10;
             this.label22.Text = "Број на Микрочип:";
             // 
-            // label23
+            // lbPolMD
             // 
-            this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(972, 25);
-            this.label23.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(54, 17);
-            this.label23.TabIndex = 9;
-            this.label23.Text = "label16";
+            this.lbPolMD.AutoSize = true;
+            this.lbPolMD.Location = new System.Drawing.Point(972, 25);
+            this.lbPolMD.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbPolMD.Name = "lbPolMD";
+            this.lbPolMD.Size = new System.Drawing.Size(0, 17);
+            this.lbPolMD.TabIndex = 9;
             // 
             // label24
             // 
@@ -1250,15 +1254,14 @@ namespace Veterinarna_Ambulanta_Milenici
             this.label24.TabIndex = 8;
             this.label24.Text = "Пол:";
             // 
-            // label25
+            // lbStarostMD
             // 
-            this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(775, 25);
-            this.label25.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(54, 17);
-            this.label25.TabIndex = 7;
-            this.label25.Text = "label15";
+            this.lbStarostMD.AutoSize = true;
+            this.lbStarostMD.Location = new System.Drawing.Point(775, 25);
+            this.lbStarostMD.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbStarostMD.Name = "lbStarostMD";
+            this.lbStarostMD.Size = new System.Drawing.Size(0, 17);
+            this.lbStarostMD.TabIndex = 7;
             // 
             // label26
             // 
@@ -1270,15 +1273,14 @@ namespace Veterinarna_Ambulanta_Milenici
             this.label26.TabIndex = 6;
             this.label26.Text = "Старост:";
             // 
-            // label27
+            // lbRasaZivotnoMD
             // 
-            this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(509, 25);
-            this.label27.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(54, 17);
-            this.label27.TabIndex = 5;
-            this.label27.Text = "label14";
+            this.lbRasaZivotnoMD.AutoSize = true;
+            this.lbRasaZivotnoMD.Location = new System.Drawing.Point(509, 25);
+            this.lbRasaZivotnoMD.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbRasaZivotnoMD.Name = "lbRasaZivotnoMD";
+            this.lbRasaZivotnoMD.Size = new System.Drawing.Size(0, 17);
+            this.lbRasaZivotnoMD.TabIndex = 5;
             // 
             // label28
             // 
@@ -1290,15 +1292,14 @@ namespace Veterinarna_Ambulanta_Milenici
             this.label28.TabIndex = 4;
             this.label28.Text = "Раса:";
             // 
-            // label29
+            // lbVidZivotnoMD
             // 
-            this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(277, 25);
-            this.label29.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(54, 17);
-            this.label29.TabIndex = 3;
-            this.label29.Text = "label13";
+            this.lbVidZivotnoMD.AutoSize = true;
+            this.lbVidZivotnoMD.Location = new System.Drawing.Point(277, 25);
+            this.lbVidZivotnoMD.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbVidZivotnoMD.Name = "lbVidZivotnoMD";
+            this.lbVidZivotnoMD.Size = new System.Drawing.Size(0, 17);
+            this.lbVidZivotnoMD.TabIndex = 3;
             // 
             // label30
             // 
@@ -1310,15 +1311,14 @@ namespace Veterinarna_Ambulanta_Milenici
             this.label30.TabIndex = 2;
             this.label30.Text = "Вид:";
             // 
-            // label31
+            // lbImeMD
             // 
-            this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(73, 25);
-            this.label31.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(54, 17);
-            this.label31.TabIndex = 1;
-            this.label31.Text = "label12";
+            this.lbImeMD.AutoSize = true;
+            this.lbImeMD.Location = new System.Drawing.Point(73, 25);
+            this.lbImeMD.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbImeMD.Name = "lbImeMD";
+            this.lbImeMD.Size = new System.Drawing.Size(0, 17);
+            this.lbImeMD.TabIndex = 1;
             // 
             // label32
             // 
@@ -1346,6 +1346,25 @@ namespace Veterinarna_Ambulanta_Milenici
             this.groupBox12.TabStop = false;
             this.groupBox12.Text = "Пребарај";
             // 
+            // cbPrebarajMD
+            // 
+            this.cbPrebarajMD.FormattingEnabled = true;
+            this.cbPrebarajMD.Location = new System.Drawing.Point(835, 33);
+            this.cbPrebarajMD.Name = "cbPrebarajMD";
+            this.cbPrebarajMD.Size = new System.Drawing.Size(1027, 24);
+            this.cbPrebarajMD.TabIndex = 3;
+            this.cbPrebarajMD.SelectedIndexChanged += new System.EventHandler(this.cbPrebarajMD_SelectedIndexChanged);
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::Veterinarna_Ambulanta_Milenici.Properties.Resources.search;
+            this.pictureBox2.Location = new System.Drawing.Point(30, 33);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(20, 20);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 1;
+            this.pictureBox2.TabStop = false;
+            // 
             // tbPrebarajMD
             // 
             this.tbPrebarajMD.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -1355,6 +1374,7 @@ namespace Veterinarna_Ambulanta_Milenici
             this.tbPrebarajMD.Name = "tbPrebarajMD";
             this.tbPrebarajMD.Size = new System.Drawing.Size(273, 22);
             this.tbPrebarajMD.TabIndex = 0;
+            this.tbPrebarajMD.TextChanged += new System.EventHandler(this.tbPrebarajMD_TextChanged);
             // 
             // error_ime
             // 
@@ -1400,31 +1420,6 @@ namespace Veterinarna_Ambulanta_Milenici
             // 
             this.error_mikrocip.ContainerControl = this;
             // 
-            // nudStarostZivotno
-            // 
-            this.nudStarostZivotno.Location = new System.Drawing.Point(35, 260);
-            this.nudStarostZivotno.Name = "nudStarostZivotno";
-            this.nudStarostZivotno.Size = new System.Drawing.Size(211, 22);
-            this.nudStarostZivotno.TabIndex = 24;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::Veterinarna_Ambulanta_Milenici.Properties.Resources.search;
-            this.pictureBox2.Location = new System.Drawing.Point(30, 33);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(20, 20);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 1;
-            this.pictureBox2.TabStop = false;
-            // 
-            // cbPrebarajMD
-            // 
-            this.cbPrebarajMD.FormattingEnabled = true;
-            this.cbPrebarajMD.Location = new System.Drawing.Point(835, 33);
-            this.cbPrebarajMD.Name = "cbPrebarajMD";
-            this.cbPrebarajMD.Size = new System.Drawing.Size(1027, 24);
-            this.cbPrebarajMD.TabIndex = 3;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1448,6 +1443,7 @@ namespace Veterinarna_Ambulanta_Milenici
             ((System.ComponentModel.ISupportInitialize)(this.dgvInfoTabela)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudStarostZivotno)).EndInit();
             this.gbPol.ResumeLayout(false);
             this.gbPol.PerformLayout();
             this.gbInfoSopstvenik.ResumeLayout(false);
@@ -1475,6 +1471,7 @@ namespace Veterinarna_Ambulanta_Milenici
             this.groupBox11.PerformLayout();
             this.groupBox12.ResumeLayout(false);
             this.groupBox12.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.error_ime)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.error_prezime)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.error_email)).EndInit();
@@ -1486,8 +1483,6 @@ namespace Veterinarna_Ambulanta_Milenici
             ((System.ComponentModel.ISupportInitialize)(this.error_pol)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.error_mikrocip)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudStarostZivotno)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1566,19 +1561,19 @@ namespace Veterinarna_Ambulanta_Milenici
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.GroupBox groupBox11;
-        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label lbSopstvenikMD;
         private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Label lbMikrocipMD;
         private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Label lbPolMD;
         private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.Label lbStarostMD;
         private System.Windows.Forms.Label label26;
-        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.Label lbRasaZivotnoMD;
         private System.Windows.Forms.Label label28;
-        private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.Label lbVidZivotnoMD;
         private System.Windows.Forms.Label label30;
-        private System.Windows.Forms.Label label31;
+        private System.Windows.Forms.Label lbImeMD;
         private System.Windows.Forms.Label label32;
         private System.Windows.Forms.GroupBox groupBox12;
         private System.Windows.Forms.TextBox tbPrebarajMD;
