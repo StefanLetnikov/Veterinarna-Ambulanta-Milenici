@@ -841,7 +841,22 @@ namespace Veterinarna_Ambulanta_Milenici
             }
          }
 
-     
+        private void dgvNadvoresni_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void groupBox6_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox3_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+
 
 
 
