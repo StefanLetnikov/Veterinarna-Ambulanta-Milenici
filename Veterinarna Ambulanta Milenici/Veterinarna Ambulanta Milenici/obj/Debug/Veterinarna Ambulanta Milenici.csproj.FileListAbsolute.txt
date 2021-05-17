@@ -63,3 +63,14 @@ C:\Users\letni\Source\Repos\Veterinarna-Ambulanta-Milenici5\Veterinarna Ambulant
 C:\Users\letni\Source\Repos\Veterinarna-Ambulanta-Milenici5\Veterinarna Ambulanta Milenici\Veterinarna Ambulanta Milenici\obj\Debug\Veterinarna Ambulanta Milenici.csproj.CoreCompileInputs.cache
 C:\Users\letni\Source\Repos\Veterinarna-Ambulanta-Milenici5\Veterinarna Ambulanta Milenici\Veterinarna Ambulanta Milenici\obj\Debug\Veterinarna Ambulanta Milenici.exe
 C:\Users\letni\Source\Repos\Veterinarna-Ambulanta-Milenici5\Veterinarna Ambulanta Milenici\Veterinarna Ambulanta Milenici\obj\Debug\Veterinarna Ambulanta Milenici.pdb
+C:\Users\milos\Desktop\milenici v.14\Veterinarna Ambulanta Milenici\Veterinarna Ambulanta Milenici\bin\Debug\Veterinarna Ambulanta Milenici.exe.config
+C:\Users\milos\Desktop\milenici v.14\Veterinarna Ambulanta Milenici\Veterinarna Ambulanta Milenici\bin\Debug\Veterinarna Ambulanta Milenici.exe
+C:\Users\milos\Desktop\milenici v.14\Veterinarna Ambulanta Milenici\Veterinarna Ambulanta Milenici\bin\Debug\Veterinarna Ambulanta Milenici.pdb
+C:\Users\milos\Desktop\milenici v.14\Veterinarna Ambulanta Milenici\Veterinarna Ambulanta Milenici\obj\Debug\Veterinarna Ambulanta Milenici.csprojAssemblyReference.cache
+C:\Users\milos\Desktop\milenici v.14\Veterinarna Ambulanta Milenici\Veterinarna Ambulanta Milenici\obj\Debug\Veterinarna_Ambulanta_Milenici.Form1.resources
+C:\Users\milos\Desktop\milenici v.14\Veterinarna Ambulanta Milenici\Veterinarna Ambulanta Milenici\obj\Debug\Veterinarna_Ambulanta_Milenici.Properties.Resources.resources
+C:\Users\milos\Desktop\milenici v.14\Veterinarna Ambulanta Milenici\Veterinarna Ambulanta Milenici\obj\Debug\Veterinarna_Ambulanta_Milenici.Termin.resources
+C:\Users\milos\Desktop\milenici v.14\Veterinarna Ambulanta Milenici\Veterinarna Ambulanta Milenici\obj\Debug\Veterinarna Ambulanta Milenici.csproj.GenerateResource.cache
+C:\Users\milos\Desktop\milenici v.14\Veterinarna Ambulanta Milenici\Veterinarna Ambulanta Milenici\obj\Debug\Veterinarna Ambulanta Milenici.csproj.CoreCompileInputs.cache
+C:\Users\milos\Desktop\milenici v.14\Veterinarna Ambulanta Milenici\Veterinarna Ambulanta Milenici\obj\Debug\Veterinarna Ambulanta Milenici.exe
+C:\Users\milos\Desktop\milenici v.14\Veterinarna Ambulanta Milenici\Veterinarna Ambulanta Milenici\obj\Debug\Veterinarna Ambulanta Milenici.pdb

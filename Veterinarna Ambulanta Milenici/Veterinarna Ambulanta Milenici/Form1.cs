@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 
@@ -20,8 +16,12 @@ namespace Veterinarna_Ambulanta_Milenici
             InitializeComponent();
             btnVnesiDijagnoza.Enabled = false;
         }
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            displayAppointments(DBHelper.getDate());
+        }
 
-        //При промена на таб лоадирај ги информациите од датабазата ********ова некако како бавна да ми ја прај аликацијата
+        //При промена на таб лоадирај ги информациите од датабазата
         private void mainTabControll_SelectedIndexChanged(object sender, EventArgs e)
         {
             switch (mainTabControll.SelectedIndex)
@@ -32,16 +32,29 @@ namespace Veterinarna_Ambulanta_Milenici
                     break;
                 case 2:
                     displayDataSearch(DBHelper.SELECTALLMILENICI, 0); //ООЗ
+                    if (cbPrebarajOOZ.SelectedIndex == -1)
+                        disableButtonsOOZ();
                     break;
                 case 3:
                     displayDataSearch(DBHelper.SELECTALLMILENICI, 1); //МД
+                    if (cbPrebarajMD.SelectedIndex == -1)
+                        btnVnesiDijagnoza.Enabled = false;
                     break;
             }
+        }
+
+        private void disableButtonsOOZ()
+        {
+            btnVnesiVakciniOZZ.Enabled = false;
+            btnVnesiUsluga.Enabled = false;
+            btnVnesiTableti.Enabled = false;
         }
 
         //Приказ на податоци co Пребарувај
         private void displayDataSearch(string selectQuery, int tab)
         {
+            cbPrebarajOOZ.Items.Clear();
+            cbPrebarajMD.Items.Clear();
             //прочитај ги информациите од датабазата во data view grid
             SqlDataAdapter sda;
             DataSet ds = new DataSet();
@@ -84,8 +97,47 @@ namespace Veterinarna_Ambulanta_Milenici
         }
 
 
+        //**************************************ТЕРМИНИ*****************************************************
+        private void btnVnesiTermin_Click(object sender, EventArgs e)
+        {
+            Termin newTermin = new Termin();
+            DialogResult rezultat = newTermin.ShowDialog();
+            if (rezultat == DialogResult.OK)
+            {
+                displayAppointments(DBHelper.getDate());
+                MessageBox.Show("Терминот е успешно внесен!");
+            }
+        }
 
+       
+        private void displayAppointments(string selectQuery)
+        {
+            //прочитај ги информациите од датабазата во data view grid
+            DataTable dtTermini = new DataTable();
+            using (SqlConnection connection = new SqlConnection())
+            {
+                connection.ConnectionString = DBHelper.ConnVal();
+                using (SqlCommand cmd = new SqlCommand(selectQuery, connection))
+                {
+                    connection.Open();
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    dtTermini.Load(reader);
+                    connection.Close();
+                }
+            }
+            //dgvTermini == dataViewGridTermini
+            dgvTermini.AutoGenerateColumns = true;
+            dgvTermini.DataSource = dtTermini;
+            setColumnNamesTermini();
+        }
 
+        private void setColumnNamesTermini()
+        {
+            dgvTermini.Columns[0].Visible = false;
+            dgvTermini.Columns[1].HeaderText = "Датум";
+            dgvTermini.Columns[2].HeaderText = "Час";
+            dgvTermini.Columns[3].HeaderText = "Име";
+        }
 
 
         //*************************************НОВ МИЛЕНИК**************************************************
@@ -110,7 +162,7 @@ namespace Veterinarna_Ambulanta_Milenici
             dgvInfoTabela.AutoGenerateColumns = true;
             dgvInfoTabela.DataSource = dtPatients;
             setColumnNamesMilenici();
-            //dgvInfoTabela.Sort(dgvInfoTabela.Columns[0], ListSortDirection.Ascending);
+            
         }
 
         //Смени ги имињата на колоните во Нов Миленик dataViewGrid
@@ -119,8 +171,8 @@ namespace Veterinarna_Ambulanta_Milenici
             dgvInfoTabela.Columns[0].Visible = false;
             dgvInfoTabela.Columns[1].HeaderText = "Име Сопственик";
             dgvInfoTabela.Columns[2].HeaderText = "Презиме Сопственик";
-            dgvInfoTabela.Columns[3].HeaderText = "Број за контакт";
-            dgvInfoTabela.Columns[4].HeaderText = "Емаил";
+            dgvInfoTabela.Columns[3].HeaderText = "Емаил";
+            dgvInfoTabela.Columns[4].HeaderText = "Број за контакт";
             dgvInfoTabela.Columns[5].HeaderText = "Вид на животно";
             dgvInfoTabela.Columns[6].HeaderText = "Раса на животно";
             dgvInfoTabela.Columns[7].HeaderText = "Име на животно";
@@ -160,9 +212,7 @@ namespace Veterinarna_Ambulanta_Milenici
             connection.Open();
 
             //sql query за додавање во табела
-            string sql = "INSERT INTO Milenici" +
-                "(ImeSopstvenik,PrezimeSopstvenik,Email,Kontakt,VidZivotno,RasaZivotno,ImeZivotno,StarostZivotno,Pol,Mikrocip) " +
-                "VALUES(@imeSopstvenik,@prezimeSopstvenik,@email,@kontakt,@vidZivotno,@rasaZivotno,@imeZivotno,@starostZivotno,@pol,@mikrocip)";
+            string sql = DBHelper.INSERTMILENIK;
 
             //додавање вредности во командата (од sql query и конекцијата) која се извршува за додавање на нов ред во табелата
             using (SqlCommand cmd = new SqlCommand(sql, connection))
@@ -237,34 +287,38 @@ namespace Veterinarna_Ambulanta_Milenici
                     lbSopstvenikOZZ.Text = ds.Tables[0].Rows[0][1].ToString() + " " + ds.Tables[0].Rows[0][2].ToString(); //сопственик
 
                     milenikId = Convert.ToInt32(ds.Tables[0].Rows[0][0].ToString());
-                    //displayDataVakcini(id);
-                    //displayDataAmpuli(id);
+                    
                 }
                 connection.Close();
             }
+            displayVakcini();
+            displayUslugi();
+            displayTableti();
         }
 
-        //Смени ги имињата на колоните за вакници во ООЗ
-        private void setColumnNamesVaccines()
-        {
-            dgvInfoTabela.Columns[0].Visible = false;
-            dgvInfoTabela.Columns[1].HeaderText = "Вакцина";
-            dgvInfoTabela.Columns[2].HeaderText = "Датум на примање";
-        }
 
         //При внес на текст во ООЗ Пребарај textBox да се прикажат соодветните миленици
         private void tbPrebaraj_TextChanged(object sender, EventArgs e)
         {
+            string KEYWORD = tbPrebarajOOZ.Text;
+            //селектирај ги сите редови каде некои колони личат на влезот од „пребарај“
+            string query = "SELECT * FROM Milenici WHERE imeSopstvenik LIKE '%" + KEYWORD + "%' OR prezimeSopstvenik LIKE '%" + KEYWORD + "%' OR kontakt LIKE '%" + KEYWORD + "%' OR vidZivotno LIKE '%" + KEYWORD + "%' OR rasaZivotno LIKE '%" + KEYWORD + "%' OR imeZivotno LIKE '%" + KEYWORD + "%'";
+
+            cbPrebarajOOZ.Items.Clear();
+            displayDataSearchOOZ(query);
+        }
+
+        private void displayDataSearchOOZ(string query)
+        {
             //при секое ново пребарување бриши ги старите информации во comboBox
             cbPrebarajOOZ.Items.Clear();
             if (tbPrebarajOOZ.Text.Trim().Length == 0)
+            {
                 cbPrebarajOOZ.Items.Clear();
+                cbPrebarajOOZ.Text = "Одберете миленик";
+            }
 
-            string KEYWORD = tbPrebarajOOZ.Text;
-            //селектирај ги сите редови каде некои колони личат на влезот од „пребарај“
-            string selectQuery = "SELECT * FROM Milenici WHERE imeSopstvenik LIKE '%" + KEYWORD + "%' OR prezimeSopstvenik LIKE '%" + KEYWORD + "%' OR kontakt LIKE '%" + KEYWORD + "%' OR vidZivotno LIKE '%" + KEYWORD + "%' OR rasaZivotno LIKE '%" + KEYWORD + "%' OR imeZivotno LIKE '%" + KEYWORD + "%'";
-            displayDataSearch(selectQuery, 0); //0 за ООЗ
-
+            displayDataSearch(query, 0); //0 за ООЗ
         }
 
         //При селектирање на миленик во ООЗ од comboBox да се прикажат соодветните информации за тој миленик
@@ -276,11 +330,17 @@ namespace Veterinarna_Ambulanta_Milenici
                 int id = (int)selectedItem.Value;
                 string query = DBHelper.SELECTTOP1 + id.ToString();
                 displayDataAnimalOOZ(query);
+
+                btnVnesiVakciniOZZ.Enabled = true;
+                btnVnesiUsluga.Enabled = true;
+                btnVnesiTableti.Enabled = true;
             }
             else
             {
                 cbPrebarajOOZ.Text = "Одберете миленик";
                 ClearLabelsOOZ();
+                disableButtonsOOZ();
+
             }
         }
 
@@ -295,6 +355,256 @@ namespace Veterinarna_Ambulanta_Milenici
             lbSopstvenikOZZ.Text = "";
         }
 
+        private void llClearOOZ_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            dgvVakcini.DataSource = null;
+            dgvVakcini.Rows.Clear();
+            dgvUslugi.DataSource = null;
+            dgvUslugi.Rows.Clear();
+            dgvTableti.DataSource = null;
+            dgvTableti.Rows.Clear();
+
+            cbPrebarajOOZ.Items.Clear();
+            displayDataSearchOOZ(DBHelper.SELECTALLMILENICI);
+            cbPrebarajOOZ.Text = "Одберете миленик";
+            btnVnesiVakciniOZZ.Enabled = false;
+            btnVnesiUsluga.Enabled = false;
+            btnVnesiTableti.Enabled = false;
+            ClearLabelsMD();
+        }
+
+
+
+
+        //----------------------------------------------ВАКЦИНИ---------------------------------------------
+        //Приказ на вакцини за одбраниот миленик
+        private void displayVakcini()
+        {
+            //прочитај ги информациите од датабазата во data view grid
+            DataTable dtVakcini = new DataTable();
+
+            string selectQuery = DBHelper.SELECTALLVAKCINI + milenikId;
+
+            using (SqlConnection connection = new SqlConnection())
+            {
+                connection.ConnectionString = DBHelper.ConnVal();
+                using (SqlCommand cmd = new SqlCommand(selectQuery, connection))
+                {
+                    connection.Open();
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    dtVakcini.Load(reader);
+                    connection.Close();
+                }
+            }
+
+            dgvVakcini.AutoGenerateColumns = true;
+            dgvVakcini.DataSource = dtVakcini;
+            setColumnNamesVakcini();
+        }
+
+        private void setColumnNamesVakcini()
+        {
+            dgvVakcini.Columns[0].Visible = false;
+            dgvVakcini.Columns[1].HeaderText = "Датум";
+            dgvVakcini.Columns[2].HeaderText = "Вакцина";
+            dgvVakcini.Columns[3].Visible = false;
+
+            dgvVakcini.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dgvVakcini.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+        }
+
+        private void addVakcinaToDatabase()
+        {
+            //Отворање на конекција со датабазата co string за конекција од помошната класа DBHelper
+            SqlConnection connection = new SqlConnection();
+            connection.ConnectionString = DBHelper.ConnVal();
+            connection.Open();
+
+            //sql query за додавање во табела
+            string sql = DBHelper.INSERTVAKCINA;
+
+            //додавање вредности во командата (од sql query и конекцијата) која се извршува за додавање на нов ред во табелата
+            using (SqlCommand cmd = new SqlCommand(sql, connection))
+            {
+                cmd.Parameters.AddWithValue("@datum", DateTime.Now.Date.ToString("dd/MM/yyyy"));
+                cmd.Parameters.AddWithValue("@vakcina", cbVakcini.SelectedItem.ToString());
+                cmd.Parameters.AddWithValue("@milenikId", milenikId);
+
+                cmd.CommandType = CommandType.Text;
+
+                //пробај да ја извршиш командата, доколку е не е успешно прикажи порака
+                if (cmd.ExecuteNonQuery() == 0)
+                    MessageBox.Show("Додавањето на нов миленик во датабазата е неуспешно! Пробајте повторно.");
+            }
+            //Затвори ја конекцијата
+            connection.Close();
+        }
+
+
+        private void btnVnesiVakciniOZZ_Click(object sender, EventArgs e)
+        {
+            if (cbVakcini.SelectedIndex == -1)
+                MessageBox.Show("Одберете Вакцина");
+            else
+            {
+                addVakcinaToDatabase();
+                displayVakcini();
+            }
+        }
+
+
+
+
+        //----------------------------------------------УСЛУГИ---------------------------------------------
+        //Приказ на аманмеза за одбраниот миленик
+        private void displayUslugi()
+        {
+            //прочитај ги информациите од датабазата во data view grid
+            DataTable dtUslugi = new DataTable();
+
+            string selectQuery = DBHelper.SELECTALLUSLUGI + milenikId;
+
+            using (SqlConnection connection = new SqlConnection())
+            {
+                connection.ConnectionString = DBHelper.ConnVal();
+                using (SqlCommand cmd = new SqlCommand(selectQuery, connection))
+                {
+                    connection.Open();
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    dtUslugi.Load(reader);
+                    connection.Close();
+                }
+            }
+
+            dgvUslugi.AutoGenerateColumns = true;
+            dgvUslugi.DataSource = dtUslugi;
+            setColumnNamesUslugi();
+        }
+
+        private void setColumnNamesUslugi()
+        {
+            dgvUslugi.Columns[0].Visible = false;
+            dgvUslugi.Columns[1].HeaderText = "Датум";
+            dgvUslugi.Columns[2].HeaderText = "Услуга";
+            dgvUslugi.Columns[3].Visible = false;
+
+            dgvUslugi.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dgvUslugi.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+        }
+
+        private void addUslugaToDatabase()
+        {
+            //Отворање на конекција со датабазата co string за конекција од помошната класа DBHelper
+            SqlConnection connection = new SqlConnection();
+            connection.ConnectionString = DBHelper.ConnVal();
+            connection.Open();
+
+            //sql query за додавање во табела
+            string sql = DBHelper.INSERTUSLUGA;
+
+            //додавање вредности во командата (од sql query и конекцијата) која се извршува за додавање на нов ред во табелата
+            using (SqlCommand cmd = new SqlCommand(sql, connection))
+            {
+                cmd.Parameters.AddWithValue("@datum", DateTime.Now.Date.ToString("dd/MM/yyyy"));
+                cmd.Parameters.AddWithValue("@usluga", cbUslugi.SelectedItem.ToString());
+                cmd.Parameters.AddWithValue("@milenikId", milenikId);
+
+                cmd.CommandType = CommandType.Text;
+
+                //пробај да ја извршиш командата, доколку е не е успешно прикажи порака
+                if (cmd.ExecuteNonQuery() == 0)
+                    MessageBox.Show("Додавањето на нов миленик во датабазата е неуспешно! Пробајте повторно.");
+            }
+            //Затвори ја конекцијата
+            connection.Close();
+        }
+
+        private void btnVnesiUsluga_Click(object sender, EventArgs e)
+        {
+            if (cbVakcini.SelectedIndex == -1)
+                MessageBox.Show("Одберете Услуга");
+            else
+            {
+                addUslugaToDatabase();
+                displayUslugi();
+            }
+        }
+
+
+        //----------------------------------------------ТАБЛЕТИ---------------------------------------------
+        //Приказ на аманмеза за одбраниот миленик
+        private void displayTableti()
+        {
+            //прочитај ги информациите од датабазата во data view grid
+            DataTable dtTableti = new DataTable();
+
+            string selectQuery = DBHelper.SELECTALLTABLETI + milenikId;
+
+            using (SqlConnection connection = new SqlConnection())
+            {
+                connection.ConnectionString = DBHelper.ConnVal();
+                using (SqlCommand cmd = new SqlCommand(selectQuery, connection))
+                {
+                    connection.Open();
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    dtTableti.Load(reader);
+                    connection.Close();
+                }
+            }
+
+            dgvTableti.AutoGenerateColumns = true;
+            dgvTableti.DataSource = dtTableti;
+            setColumnNamesTableti();
+        }
+
+        private void setColumnNamesTableti()
+        {
+            dgvTableti.Columns[0].Visible = false;
+            dgvTableti.Columns[1].HeaderText = "Датум";
+            dgvTableti.Columns[2].HeaderText = "Таблета";
+            dgvTableti.Columns[3].Visible = false;
+
+            dgvTableti.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dgvTableti.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+        }
+
+        private void addTabletaToDatabase()
+        {
+            //Отворање на конекција со датабазата co string за конекција од помошната класа DBHelper
+            SqlConnection connection = new SqlConnection();
+            connection.ConnectionString = DBHelper.ConnVal();
+            connection.Open();
+
+            //sql query за додавање во табела
+            string sql = DBHelper.INSERTABLETA;
+
+            //додавање вредности во командата (од sql query и конекцијата) која се извршува за додавање на нов ред во табелата
+            using (SqlCommand cmd = new SqlCommand(sql, connection))
+            {
+                cmd.Parameters.AddWithValue("@datum", DateTime.Now.Date.ToString("dd/MM/yyyy"));
+                cmd.Parameters.AddWithValue("@tableta", tbTabletiVnatresni.Text);
+                cmd.Parameters.AddWithValue("@milenikId", milenikId);
+
+                cmd.CommandType = CommandType.Text;
+
+                //пробај да ја извршиш командата, доколку е не е успешно прикажи порака
+                if (cmd.ExecuteNonQuery() == 0)
+                    MessageBox.Show("Додавањето на нов миленик во датабазата е неуспешно! Пробајте повторно.");
+            }
+            //Затвори ја конекцијата
+            connection.Close();
+        }
+
+        private void btnVnesiTableti_Click(object sender, EventArgs e)
+        {
+            if (cbVakcini.SelectedIndex == -1)
+                MessageBox.Show("Внесете Таблета");
+            else
+            {
+                addTabletaToDatabase();
+                displayTableti();
+            }
+        }
 
 
 
@@ -338,6 +648,16 @@ namespace Veterinarna_Ambulanta_Milenici
         //При внес на текст во МД Пребарај textBox да се прикажат соодветните миленици
         private void tbPrebarajMD_TextChanged(object sender, EventArgs e)
         {
+            //селектирај ги сите редови каде некои колони личат на влезот од „пребарај“
+            string KEYWORD = tbPrebarajMD.Text;
+            string query = "SELECT * FROM Milenici WHERE imeSopstvenik LIKE '%" + KEYWORD + "%' OR prezimeSopstvenik LIKE '%" + KEYWORD + "%' OR kontakt LIKE '%" + KEYWORD + "%' OR vidZivotno LIKE '%" + KEYWORD + "%' OR rasaZivotno LIKE '%" + KEYWORD + "%' OR imeZivotno LIKE '%" + KEYWORD + "%'";
+
+            cbPrebarajMD.Items.Clear();
+            displayDataSearchMD(query);
+        }
+
+        private void displayDataSearchMD(string query)
+        {
             //при секое ново пребарување бриши ги старите информации во comboBox
             cbPrebarajMD.Items.Clear();
             if (tbPrebarajMD.Text.Trim().Length == 0)
@@ -345,11 +665,7 @@ namespace Veterinarna_Ambulanta_Milenici
                 cbPrebarajMD.Items.Clear();
                 cbPrebarajMD.Text = "Одберете миленик";
             }
-
-            string KEYWORD = tbPrebarajMD.Text;
-            //селектирај ги сите редови каде некои колони личат на влезот од „пребарај“
-            string selectQuery = "SELECT * FROM Milenici WHERE imeSopstvenik LIKE '%" + KEYWORD + "%' OR prezimeSopstvenik LIKE '%" + KEYWORD + "%' OR kontakt LIKE '%" + KEYWORD + "%' OR vidZivotno LIKE '%" + KEYWORD + "%' OR rasaZivotno LIKE '%" + KEYWORD + "%' OR imeZivotno LIKE '%" + KEYWORD + "%'";
-            displayDataSearch(selectQuery, 1); //1 за МД
+            displayDataSearch(query, 1); //1 за МД
         }
 
 
@@ -403,6 +719,7 @@ namespace Veterinarna_Ambulanta_Milenici
 
             cbPrebarajMD.Items.Clear();
             cbPrebarajMD.Text = "Одберете миленик";
+            displayDataSearchMD(DBHelper.SELECTALLMILENICI);
             btnVnesiDijagnoza.Enabled = false;
             ClearLabelsMD();
         }
@@ -795,69 +1112,12 @@ namespace Veterinarna_Ambulanta_Milenici
             }
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            displayAppointments(DBHelper.getDate());
-        }
+        
+    
+       
 
-
-
-        private void displayAppointments(string selectQuery) { 
-                //прочитај ги информациите од датабазата во data view grid
-                DataTable dtTermini = new DataTable();
-                using (SqlConnection connection = new SqlConnection())
-                {
-                    connection.ConnectionString = DBHelper.ConnVal();
-                    using (SqlCommand cmd = new SqlCommand(selectQuery, connection))
-                    {
-                        connection.Open();
-                        SqlDataReader reader = cmd.ExecuteReader();
-                         dtTermini.Load(reader);
-                        connection.Close();
-                    }
-                }
-			    //dgvTermini == dataViewGridTermini
-                dgvTermini.AutoGenerateColumns = true;
-                dgvTermini.DataSource = dtTermini;
-                setColumnNamesTermini();
-            }
- 
-         private void setColumnNamesTermini()
-        {
-            dgvTermini.Columns[0].Visible = false;
-            dgvTermini.Columns[1].HeaderText = "Датум";
-            dgvTermini.Columns[2].HeaderText = "Час";
-            dgvTermini.Columns[3].HeaderText = "Име";
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Termin newTermin = new Termin();
-            DialogResult rezultat = newTermin.ShowDialog();
-            if(rezultat == DialogResult.OK)
-            {
-                displayAppointments(DBHelper.getDate());
-                MessageBox.Show("Терминот е успешно внесен!");
-            }
-         }
-
-        private void dgvNadvoresni_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void groupBox6_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void groupBox3_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-
-
+   
+        
 
 
         //За да стартува формата во Fullscreen-mode
