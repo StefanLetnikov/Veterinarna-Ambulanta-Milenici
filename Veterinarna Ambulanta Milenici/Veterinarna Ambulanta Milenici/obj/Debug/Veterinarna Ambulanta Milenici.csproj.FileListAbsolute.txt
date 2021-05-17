@@ -52,3 +52,14 @@ C:\Users\milos\Desktop\veterinarna v.10\Veterinarna Ambulanta Milenici\Veterinar
 C:\Users\milos\Desktop\veterinarna v.10\Veterinarna Ambulanta Milenici\Veterinarna Ambulanta Milenici\bin\Debug\Veterinarna Ambulanta Milenici.exe.config
 C:\Users\milos\Desktop\veterinarna v.10\Veterinarna Ambulanta Milenici\Veterinarna Ambulanta Milenici\bin\Debug\Veterinarna Ambulanta Milenici.exe
 C:\Users\milos\Desktop\veterinarna v.10\Veterinarna Ambulanta Milenici\Veterinarna Ambulanta Milenici\bin\Debug\Veterinarna Ambulanta Milenici.pdb
+C:\Users\letni\Source\Repos\Veterinarna-Ambulanta-Milenici5\Veterinarna Ambulanta Milenici\Veterinarna Ambulanta Milenici\bin\Debug\Veterinarna Ambulanta Milenici.exe.config
+C:\Users\letni\Source\Repos\Veterinarna-Ambulanta-Milenici5\Veterinarna Ambulanta Milenici\Veterinarna Ambulanta Milenici\bin\Debug\Veterinarna Ambulanta Milenici.exe
+C:\Users\letni\Source\Repos\Veterinarna-Ambulanta-Milenici5\Veterinarna Ambulanta Milenici\Veterinarna Ambulanta Milenici\bin\Debug\Veterinarna Ambulanta Milenici.pdb
+C:\Users\letni\Source\Repos\Veterinarna-Ambulanta-Milenici5\Veterinarna Ambulanta Milenici\Veterinarna Ambulanta Milenici\obj\Debug\Veterinarna Ambulanta Milenici.csprojAssemblyReference.cache
+C:\Users\letni\Source\Repos\Veterinarna-Ambulanta-Milenici5\Veterinarna Ambulanta Milenici\Veterinarna Ambulanta Milenici\obj\Debug\Veterinarna_Ambulanta_Milenici.Form1.resources
+C:\Users\letni\Source\Repos\Veterinarna-Ambulanta-Milenici5\Veterinarna Ambulanta Milenici\Veterinarna Ambulanta Milenici\obj\Debug\Veterinarna_Ambulanta_Milenici.Properties.Resources.resources
+C:\Users\letni\Source\Repos\Veterinarna-Ambulanta-Milenici5\Veterinarna Ambulanta Milenici\Veterinarna Ambulanta Milenici\obj\Debug\Veterinarna_Ambulanta_Milenici.Termin.resources
+C:\Users\letni\Source\Repos\Veterinarna-Ambulanta-Milenici5\Veterinarna Ambulanta Milenici\Veterinarna Ambulanta Milenici\obj\Debug\Veterinarna Ambulanta Milenici.csproj.GenerateResource.cache
+C:\Users\letni\Source\Repos\Veterinarna-Ambulanta-Milenici5\Veterinarna Ambulanta Milenici\Veterinarna Ambulanta Milenici\obj\Debug\Veterinarna Ambulanta Milenici.csproj.CoreCompileInputs.cache
+C:\Users\letni\Source\Repos\Veterinarna-Ambulanta-Milenici5\Veterinarna Ambulanta Milenici\Veterinarna Ambulanta Milenici\obj\Debug\Veterinarna Ambulanta Milenici.exe
+C:\Users\letni\Source\Repos\Veterinarna-Ambulanta-Milenici5\Veterinarna Ambulanta Milenici\Veterinarna Ambulanta Milenici\obj\Debug\Veterinarna Ambulanta Milenici.pdb
