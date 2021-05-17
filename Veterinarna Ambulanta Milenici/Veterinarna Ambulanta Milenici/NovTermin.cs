@@ -9,21 +9,15 @@ namespace Veterinarna_Ambulanta_Milenici
     public class NovTermin
     {
         public string ImeNaPacient { get; set; }
-        public string DateAndTime { get; set; }
-        public string Opis { get; set; }
+        public string Date { get; set; }
+        public string Time { get; set; }
 
         public NovTermin() { }
 
-        public NovTermin(string ImeNaPacient,string DateAndTime,string Opis)
-        {
-            this.ImeNaPacient = ImeNaPacient;
-            this.DateAndTime = DateAndTime;
-            this.Opis = Opis;
-        }
 
         public override string ToString()
         {
-            return string.Format("Име на пациент:{0}, Датум и час на преглед:{1}\nОпис за преглед:{2}",ImeNaPacient,DateAndTime,Opis);
+            return string.Format("Име на пациент:{0}, Датум и час на преглед:{1}", ImeNaPacient, Date + Time);
         }
     }
 }

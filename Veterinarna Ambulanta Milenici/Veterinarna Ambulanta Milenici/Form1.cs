@@ -797,40 +797,37 @@ namespace Veterinarna_Ambulanta_Milenici
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            //displayAppointments();
+            displayAppointments(DBHelper.getDate());
         }
 
 
-         
-        private void displayAppointments(string selectQuery)
-        {
-            //прочитај ги информациите од датабазата во data view grid
-            DataTable dtPatients = new DataTable();
-            using (SqlConnection connection = new SqlConnection())
-            {
-                connection.ConnectionString = DBHelper.ConnVal();
-                using (SqlCommand cmd = new SqlCommand(selectQuery, connection))
+
+        private void displayAppointments(string selectQuery) { 
+                //прочитај ги информациите од датабазата во data view grid
+                DataTable dtTermini = new DataTable();
+                using (SqlConnection connection = new SqlConnection())
                 {
-                    connection.Open();
-                    SqlDataReader reader = cmd.ExecuteReader();
-                    dtPatients.Load(reader);
-                    connection.Close();
+                    connection.ConnectionString = DBHelper.ConnVal();
+                    using (SqlCommand cmd = new SqlCommand(selectQuery, connection))
+                    {
+                        connection.Open();
+                        SqlDataReader reader = cmd.ExecuteReader();
+                         dtTermini.Load(reader);
+                        connection.Close();
+                    }
                 }
+			    //dgvTermini == dataViewGridTermini
+                dgvTermini.AutoGenerateColumns = true;
+                dgvTermini.DataSource = dtTermini;
+                //setColumnNamesTermini();
             }
-			//dgvTermini == dataViewGridTermini
-            dgvTermini.AutoGenerateColumns = true;
-            dgvInfoTabela.DataSource = dtPatients;
-            setColumnNamesTermini();
-        }
-
  
-        private void setColumnNamesTermini()
+         private void setColumnNamesTermini()
         {
             dgvInfoTabela.Columns[0].Visible = false;
             dgvInfoTabela.Columns[1].HeaderText = "Датум";
             dgvInfoTabela.Columns[2].HeaderText = "Час";
-            dgvInfoTabela.Columns[3].HeaderText = "Минути";
-            dgvInfoTabela.Columns[4].HeaderText = "Иme";
+            dgvInfoTabela.Columns[3].HeaderText = "Име";
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -839,17 +836,12 @@ namespace Veterinarna_Ambulanta_Milenici
             DialogResult rezultat = newTermin.ShowDialog();
             if(rezultat == DialogResult.OK)
             {
+                displayAppointments(DBHelper.getDate());
                 MessageBox.Show("Терминот е успешно внесен!");
             }
-            else
-            {
-                MessageBox.Show("Терминот не е успешно внесен! Обидете се повторно.");
-            }
-        }
+         }
 
-
-
-
+     
 
 
 

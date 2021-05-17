@@ -1,4 +1,6 @@
-﻿namespace Veterinarna_Ambulanta_Milenici
+﻿using System;
+
+namespace Veterinarna_Ambulanta_Milenici
 {
     public class DBHelper
     {
@@ -20,7 +22,21 @@
         {
             //Ова е стринг кој враќа конекција со датабазата
             //Подоцна треба да се промени
-            return "Data Source=DESKTOP-6ANAM7J;Initial Catalog=VeterinaryDB;Persist Security Info=True;User ID=sa;Password=letnikov11";
+            return "Data Source=DESKTOP-D3LRTE7\\SQLEXPRESS;Initial Catalog=VeterinaryDB;Persist Security Info=True;User ID=sa;Password=076999298";
+        }
+
+        public static string getDate()
+        {
+            //DateTime.Now.Date prikazuva vo ovoj format
+            //10/27/2020 12:00:00 AM
+
+            //"dd/MM/yyyy" format
+
+            string fullDate = DateTime.Now.Date.ToString();
+            string[] parts = fullDate.Split(null);
+            string date = parts[0];
+
+            return "SELECT * FROM Termini WHERE datum='" + date + "'";
         }
     }
 }

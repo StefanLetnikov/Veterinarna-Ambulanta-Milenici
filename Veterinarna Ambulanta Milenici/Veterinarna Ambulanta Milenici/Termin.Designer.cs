@@ -40,16 +40,18 @@ namespace Veterinarna_Ambulanta_Milenici
             // 
             // tbTerminImePacient
             // 
-            this.tbTerminImePacient.Location = new System.Drawing.Point(57, 64);
+            this.tbTerminImePacient.Location = new System.Drawing.Point(76, 79);
+            this.tbTerminImePacient.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbTerminImePacient.Name = "tbTerminImePacient";
-            this.tbTerminImePacient.Size = new System.Drawing.Size(219, 20);
+            this.tbTerminImePacient.Size = new System.Drawing.Size(291, 22);
             this.tbTerminImePacient.TabIndex = 0;
             // 
             // btnVnesi
             // 
-            this.btnVnesi.Location = new System.Drawing.Point(61, 264);
+            this.btnVnesi.Location = new System.Drawing.Point(81, 325);
+            this.btnVnesi.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnVnesi.Name = "btnVnesi";
-            this.btnVnesi.Size = new System.Drawing.Size(75, 23);
+            this.btnVnesi.Size = new System.Drawing.Size(100, 28);
             this.btnVnesi.TabIndex = 1;
             this.btnVnesi.Text = "Внеси";
             this.btnVnesi.UseVisualStyleBackColor = true;
@@ -58,34 +60,38 @@ namespace Veterinarna_Ambulanta_Milenici
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(55, 36);
+            this.label1.Location = new System.Drawing.Point(73, 44);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(118, 15);
+            this.label1.Size = new System.Drawing.Size(133, 17);
             this.label1.TabIndex = 2;
             this.label1.Text = "Име на пацинетот:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(58, 123);
+            this.label2.Location = new System.Drawing.Point(77, 151);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(146, 15);
+            this.label2.Size = new System.Drawing.Size(170, 17);
             this.label2.TabIndex = 3;
             this.label2.Text = "Датум и час на преглед:";
             // 
             // dtpDatum
             // 
             this.dtpDatum.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpDatum.Location = new System.Drawing.Point(57, 150);
+            this.dtpDatum.Location = new System.Drawing.Point(76, 185);
+            this.dtpDatum.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dtpDatum.Name = "dtpDatum";
-            this.dtpDatum.Size = new System.Drawing.Size(200, 20);
+            this.dtpDatum.Size = new System.Drawing.Size(265, 22);
             this.dtpDatum.TabIndex = 4;
             // 
             // btnOtkazi
             // 
-            this.btnOtkazi.Location = new System.Drawing.Point(201, 264);
+            this.btnOtkazi.Location = new System.Drawing.Point(268, 325);
+            this.btnOtkazi.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnOtkazi.Name = "btnOtkazi";
-            this.btnOtkazi.Size = new System.Drawing.Size(75, 23);
+            this.btnOtkazi.Size = new System.Drawing.Size(100, 28);
             this.btnOtkazi.TabIndex = 7;
             this.btnOtkazi.Text = "Откажи";
             this.btnOtkazi.UseVisualStyleBackColor = true;
@@ -94,17 +100,17 @@ namespace Veterinarna_Ambulanta_Milenici
             // dtpCas
             // 
             this.dtpCas.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dtpCas.Location = new System.Drawing.Point(58, 187);
-            this.dtpCas.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dtpCas.Location = new System.Drawing.Point(77, 230);
+            this.dtpCas.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dtpCas.Name = "dtpCas";
-            this.dtpCas.Size = new System.Drawing.Size(199, 20);
+            this.dtpCas.Size = new System.Drawing.Size(264, 22);
             this.dtpCas.TabIndex = 8;
             // 
             // Termin
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(378, 422);
+            this.ClientSize = new System.Drawing.Size(504, 519);
             this.Controls.Add(this.dtpCas);
             this.Controls.Add(this.btnOtkazi);
             this.Controls.Add(this.dtpDatum);
@@ -112,6 +118,7 @@ namespace Veterinarna_Ambulanta_Milenici
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnVnesi);
             this.Controls.Add(this.tbTerminImePacient);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Termin";
             this.Text = "Termin";
             this.Load += new System.EventHandler(this.Termin_Load);

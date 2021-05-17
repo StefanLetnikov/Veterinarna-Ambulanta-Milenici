@@ -13,6 +13,9 @@ namespace Veterinarna_Ambulanta_Milenici
 {
     public partial class Termin : Form
     {
+
+        public NovTermin termin = new NovTermin();
+
         public Termin()
         {
             InitializeComponent();
@@ -26,9 +29,7 @@ namespace Veterinarna_Ambulanta_Milenici
         
           private void addNewAppointment()
         {
-            string novdatum = dtpDatum.Value.ToString("dd-MM-yyyy");
-            string cas = dtpCas.Value.ToString("h");
-            string minuti = dtpCas.Value.ToString("m");
+            
 
             //Отворање на конекција со датабазата co string за конекција од помошната класа DBHelper
             SqlConnection connection = new SqlConnection();
@@ -37,16 +38,16 @@ namespace Veterinarna_Ambulanta_Milenici
  
             //sql query за додавање во табела
             string sql = "INSERT INTO Termini" +
-                "(Datum,HH,MM,Ime) " +
-                "VALUES(@datum,@hh,@mm,@ime)";
+                "(Datum,Cas,Ime) " +
+                "VALUES(@datum,@cas,@ime)";
  
             //додавање вредности во командата (од sql query и конекцијата) која се извршува за додавање на нов ред во табелата
             using (SqlCommand cmd = new SqlCommand(sql, connection))
             {
-                cmd.Parameters.AddWithValue("@datum", novdatum); //ovie tbdate tbhour tbminutes si gi pisuvas od kaj so gi zemas informaciite
-                cmd.Parameters.AddWithValue("@hh", cas);
-                cmd.Parameters.AddWithValue("@mm", minuti);
- 
+                cmd.Parameters.AddWithValue("@datum", termin.Date);
+                cmd.Parameters.AddWithValue("@cas", termin.Time);
+                cmd.Parameters.AddWithValue("@ime", termin.ImeNaPacient);
+
                 cmd.CommandType = CommandType.Text;
  
                 //пробај да ја извршиш командата, доколку е не е успешно прикажи порака
@@ -61,12 +62,12 @@ namespace Veterinarna_Ambulanta_Milenici
 
         private void btnVnesi_Click(object sender, EventArgs e)
         {
+            termin.Date = dtpDatum.Text;
+            termin.ImeNaPacient = tbTerminImePacient.Text;
+            termin.Time = dtpCas.Text;
             
-            NovTermin novTermin = new NovTermin();
-            novTermin.ImeNaPacient = tbTerminImePacient.Text;
-            novTermin.DateAndTime = dtpDatum.Text;
-            //novTermin.Opis = rtbKratokOpis.Text;
-            
+            addNewAppointment();
+
             DialogResult = DialogResult.OK;
         }
 
