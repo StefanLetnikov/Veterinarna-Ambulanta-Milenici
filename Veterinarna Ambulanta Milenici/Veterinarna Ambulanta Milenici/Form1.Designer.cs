@@ -226,18 +226,21 @@ namespace Veterinarna_Ambulanta_Milenici
             this.tabDoma.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
             this.tabDoma.Size = new System.Drawing.Size(1435, 626);
             this.tabDoma.TabIndex = 0;
-            this.tabDoma.Text = "Дома";
+            this.tabDoma.Text = "Термини";
             this.tabDoma.UseVisualStyleBackColor = true;
             // 
             // dgvTermini
             // 
+            this.dgvTermini.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvTermini.BackgroundColor = System.Drawing.Color.PaleTurquoise;
             this.dgvTermini.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvTermini.Location = new System.Drawing.Point(20, 20);
+            this.dgvTermini.Dock = System.Windows.Forms.DockStyle.Top;
+            this.dgvTermini.Location = new System.Drawing.Point(3, 3);
             this.dgvTermini.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dgvTermini.Name = "dgvTermini";
             this.dgvTermini.RowHeadersWidth = 51;
             this.dgvTermini.RowTemplate.Height = 24;
-            this.dgvTermini.Size = new System.Drawing.Size(407, 327);
+            this.dgvTermini.Size = new System.Drawing.Size(1429, 369);
             this.dgvTermini.TabIndex = 2;
             // 
             // label18
@@ -730,7 +733,7 @@ namespace Veterinarna_Ambulanta_Milenici
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox4.Controls.Add(this.groupBox7);
             this.groupBox4.Controls.Add(this.groupBox6);
-            this.groupBox4.Location = new System.Drawing.Point(818, 155);
+            this.groupBox4.Location = new System.Drawing.Point(873, 155);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(585, 566);
             this.groupBox4.TabIndex = 2;
