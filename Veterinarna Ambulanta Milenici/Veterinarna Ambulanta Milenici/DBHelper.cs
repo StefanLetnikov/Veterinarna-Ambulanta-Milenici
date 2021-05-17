@@ -20,7 +20,7 @@
         {
             //Ова е стринг кој враќа конекција со датабазата
             //Подоцна треба да се промени
-            return "Data Source=DESKTOP-D3LRTE7\\SQLEXPRESS;Initial Catalog=VeterinaryDB;Persist Security Info=True;User ID=sa;Password=076999298";
+            return "Data Source=DESKTOP-6ANAM7J;Initial Catalog=VeterinaryDB;Persist Security Info=True;User ID=sa;Password=letnikov11";
         }
     }
 }

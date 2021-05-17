@@ -135,6 +135,7 @@ namespace Veterinarna_Ambulanta_Milenici
             this.lbImeMD = new System.Windows.Forms.Label();
             this.label32 = new System.Windows.Forms.Label();
             this.groupBox12 = new System.Windows.Forms.GroupBox();
+            this.llbClear = new System.Windows.Forms.LinkLabel();
             this.cbPrebarajMD = new System.Windows.Forms.ComboBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.tbPrebarajMD = new System.Windows.Forms.TextBox();
@@ -149,7 +150,7 @@ namespace Veterinarna_Ambulanta_Milenici
             this.error_pol = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.error_mikrocip = new System.Windows.Forms.ErrorProvider(this.components);
-            this.llbClear = new System.Windows.Forms.LinkLabel();
+            this.dgvTermini = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.mainLogo)).BeginInit();
             this.mainTabControll.SuspendLayout();
             this.tabDoma.SuspendLayout();
@@ -194,6 +195,7 @@ namespace Veterinarna_Ambulanta_Milenici
             ((System.ComponentModel.ISupportInitialize)(this.error_pol)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.error_mikrocip)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTermini)).BeginInit();
             this.SuspendLayout();
             // 
             // mainLogo
@@ -225,6 +227,7 @@ namespace Veterinarna_Ambulanta_Milenici
             // 
             // tabDoma
             // 
+            this.tabDoma.Controls.Add(this.dgvTermini);
             this.tabDoma.Controls.Add(this.label18);
             this.tabDoma.Controls.Add(this.button1);
             this.tabDoma.Location = new System.Drawing.Point(4, 25);
@@ -255,6 +258,7 @@ namespace Veterinarna_Ambulanta_Milenici
             this.button1.TabIndex = 0;
             this.button1.Text = "Нов Термин";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // tabVnesiMilenik
             // 
@@ -1395,6 +1399,17 @@ namespace Veterinarna_Ambulanta_Milenici
             this.groupBox12.TabStop = false;
             this.groupBox12.Text = "Пребарај";
             // 
+            // llbClear
+            // 
+            this.llbClear.AutoSize = true;
+            this.llbClear.Location = new System.Drawing.Point(1748, 36);
+            this.llbClear.Name = "llbClear";
+            this.llbClear.Size = new System.Drawing.Size(41, 17);
+            this.llbClear.TabIndex = 4;
+            this.llbClear.TabStop = true;
+            this.llbClear.Text = "Clear";
+            this.llbClear.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llbClear_LinkClicked);
+            // 
             // cbPrebarajMD
             // 
             this.cbPrebarajMD.FormattingEnabled = true;
@@ -1469,16 +1484,15 @@ namespace Veterinarna_Ambulanta_Milenici
             // 
             this.error_mikrocip.ContainerControl = this;
             // 
-            // llbClear
+            // dgvTermini
             // 
-            this.llbClear.AutoSize = true;
-            this.llbClear.Location = new System.Drawing.Point(1748, 36);
-            this.llbClear.Name = "llbClear";
-            this.llbClear.Size = new System.Drawing.Size(41, 17);
-            this.llbClear.TabIndex = 4;
-            this.llbClear.TabStop = true;
-            this.llbClear.Text = "Clear";
-            this.llbClear.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llbClear_LinkClicked);
+            this.dgvTermini.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvTermini.Location = new System.Drawing.Point(27, 24);
+            this.dgvTermini.Name = "dgvTermini";
+            this.dgvTermini.RowHeadersWidth = 51;
+            this.dgvTermini.RowTemplate.Height = 24;
+            this.dgvTermini.Size = new System.Drawing.Size(543, 402);
+            this.dgvTermini.TabIndex = 2;
             // 
             // Form1
             // 
@@ -1493,6 +1507,7 @@ namespace Veterinarna_Ambulanta_Milenici
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.mainLogo)).EndInit();
             this.mainTabControll.ResumeLayout(false);
             this.tabDoma.ResumeLayout(false);
@@ -1546,6 +1561,7 @@ namespace Veterinarna_Ambulanta_Milenici
             ((System.ComponentModel.ISupportInitialize)(this.error_pol)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.error_mikrocip)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTermini)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1671,6 +1687,7 @@ namespace Veterinarna_Ambulanta_Milenici
         private System.Windows.Forms.DataGridView dgvDijagnostickiMetodi;
         private System.Windows.Forms.DataGridView dgvTerapija;
         private System.Windows.Forms.LinkLabel llbClear;
+        private System.Windows.Forms.DataGridView dgvTermini;
     }
 }
 

@@ -30,3 +30,14 @@ C:\Users\milos\Desktop\vet v1\Veterinarna Ambulanta Milenici\Veterinarna Ambulan
 C:\Users\milos\Desktop\vet v1\Veterinarna Ambulanta Milenici\Veterinarna Ambulanta Milenici\obj\Debug\Veterinarna Ambulanta Milenici.csproj.CoreCompileInputs.cache
 C:\Users\milos\Desktop\vet v1\Veterinarna Ambulanta Milenici\Veterinarna Ambulanta Milenici\obj\Debug\Veterinarna Ambulanta Milenici.exe
 C:\Users\milos\Desktop\vet v1\Veterinarna Ambulanta Milenici\Veterinarna Ambulanta Milenici\obj\Debug\Veterinarna Ambulanta Milenici.pdb
+D:\GitClone\Veterinarna Ambulanta Milenici\Veterinarna Ambulanta Milenici\bin\Debug\Veterinarna Ambulanta Milenici.exe.config
+D:\GitClone\Veterinarna Ambulanta Milenici\Veterinarna Ambulanta Milenici\bin\Debug\Veterinarna Ambulanta Milenici.exe
+D:\GitClone\Veterinarna Ambulanta Milenici\Veterinarna Ambulanta Milenici\bin\Debug\Veterinarna Ambulanta Milenici.pdb
+D:\GitClone\Veterinarna Ambulanta Milenici\Veterinarna Ambulanta Milenici\obj\Debug\Veterinarna Ambulanta Milenici.csprojAssemblyReference.cache
+D:\GitClone\Veterinarna Ambulanta Milenici\Veterinarna Ambulanta Milenici\obj\Debug\Veterinarna_Ambulanta_Milenici.Form1.resources
+D:\GitClone\Veterinarna Ambulanta Milenici\Veterinarna Ambulanta Milenici\obj\Debug\Veterinarna_Ambulanta_Milenici.Properties.Resources.resources
+D:\GitClone\Veterinarna Ambulanta Milenici\Veterinarna Ambulanta Milenici\obj\Debug\Veterinarna_Ambulanta_Milenici.Termin.resources
+D:\GitClone\Veterinarna Ambulanta Milenici\Veterinarna Ambulanta Milenici\obj\Debug\Veterinarna Ambulanta Milenici.csproj.GenerateResource.cache
+D:\GitClone\Veterinarna Ambulanta Milenici\Veterinarna Ambulanta Milenici\obj\Debug\Veterinarna Ambulanta Milenici.csproj.CoreCompileInputs.cache
+D:\GitClone\Veterinarna Ambulanta Milenici\Veterinarna Ambulanta Milenici\obj\Debug\Veterinarna Ambulanta Milenici.exe
+D:\GitClone\Veterinarna Ambulanta Milenici\Veterinarna Ambulanta Milenici\obj\Debug\Veterinarna Ambulanta Milenici.pdb
