@@ -34,6 +34,7 @@ namespace Veterinarna_Ambulanta_Milenici
             this.mainLogo = new System.Windows.Forms.PictureBox();
             this.mainTabControll = new System.Windows.Forms.TabControl();
             this.tabDoma = new System.Windows.Forms.TabPage();
+            this.dgvTermini = new System.Windows.Forms.DataGridView();
             this.label18 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.tabVnesiMilenik = new System.Windows.Forms.TabPage();
@@ -95,11 +96,6 @@ namespace Veterinarna_Ambulanta_Milenici
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Datum = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Vakcina1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.Vakcina2 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.gbPrebaraj = new System.Windows.Forms.GroupBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.cbPrebarajOOZ = new System.Windows.Forms.ComboBox();
@@ -150,10 +146,12 @@ namespace Veterinarna_Ambulanta_Milenici
             this.error_pol = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.error_mikrocip = new System.Windows.Forms.ErrorProvider(this.components);
-            this.dgvTermini = new System.Windows.Forms.DataGridView();
+            this.Datum = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Vakcina = new System.Windows.Forms.DataGridViewComboBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.mainLogo)).BeginInit();
             this.mainTabControll.SuspendLayout();
             this.tabDoma.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTermini)).BeginInit();
             this.tabVnesiMilenik.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInfoTabela)).BeginInit();
@@ -195,7 +193,6 @@ namespace Veterinarna_Ambulanta_Milenici
             ((System.ComponentModel.ISupportInitialize)(this.error_pol)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.error_mikrocip)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvTermini)).BeginInit();
             this.SuspendLayout();
             // 
             // mainLogo
@@ -238,6 +235,16 @@ namespace Veterinarna_Ambulanta_Milenici
             this.tabDoma.TabIndex = 0;
             this.tabDoma.Text = "Дома";
             this.tabDoma.UseVisualStyleBackColor = true;
+            // 
+            // dgvTermini
+            // 
+            this.dgvTermini.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvTermini.Location = new System.Drawing.Point(27, 24);
+            this.dgvTermini.Name = "dgvTermini";
+            this.dgvTermini.RowHeadersWidth = 51;
+            this.dgvTermini.RowTemplate.Height = 24;
+            this.dgvTermini.Size = new System.Drawing.Size(543, 402);
+            this.dgvTermini.TabIndex = 2;
             // 
             // label18
             // 
@@ -921,10 +928,7 @@ namespace Veterinarna_Ambulanta_Milenici
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Datum,
-            this.Vakcina1,
-            this.Vakcina2,
-            this.Column1,
-            this.Column2});
+            this.Vakcina});
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(4, 19);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
@@ -932,41 +936,6 @@ namespace Veterinarna_Ambulanta_Milenici
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.Size = new System.Drawing.Size(992, 674);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // Datum
-            // 
-            this.Datum.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Datum.HeaderText = "Датум";
-            this.Datum.MinimumWidth = 6;
-            this.Datum.Name = "Datum";
-            // 
-            // Vakcina1
-            // 
-            this.Vakcina1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Vakcina1.HeaderText = "Вакцина1";
-            this.Vakcina1.MinimumWidth = 6;
-            this.Vakcina1.Name = "Vakcina1";
-            // 
-            // Vakcina2
-            // 
-            this.Vakcina2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Vakcina2.HeaderText = "Вакцина2";
-            this.Vakcina2.MinimumWidth = 6;
-            this.Vakcina2.Name = "Vakcina2";
-            // 
-            // Column1
-            // 
-            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column1.HeaderText = "Вакцина3";
-            this.Column1.MinimumWidth = 6;
-            this.Column1.Name = "Column1";
-            // 
-            // Column2
-            // 
-            this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column2.HeaderText = "Вакцина4";
-            this.Column2.MinimumWidth = 6;
-            this.Column2.Name = "Column2";
             // 
             // gbPrebaraj
             // 
@@ -1484,15 +1453,25 @@ namespace Veterinarna_Ambulanta_Milenici
             // 
             this.error_mikrocip.ContainerControl = this;
             // 
-            // dgvTermini
+            // Datum
             // 
-            this.dgvTermini.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvTermini.Location = new System.Drawing.Point(27, 24);
-            this.dgvTermini.Name = "dgvTermini";
-            this.dgvTermini.RowHeadersWidth = 51;
-            this.dgvTermini.RowTemplate.Height = 24;
-            this.dgvTermini.Size = new System.Drawing.Size(543, 402);
-            this.dgvTermini.TabIndex = 2;
+            this.Datum.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Datum.HeaderText = "Датум";
+            this.Datum.MinimumWidth = 6;
+            this.Datum.Name = "Datum";
+            // 
+            // Vakcina
+            // 
+            this.Vakcina.HeaderText = "Вакцина";
+            this.Vakcina.Items.AddRange(new object[] {
+            "Вакцина 1",
+            "Вакцина 2",
+            "Вакцина 3",
+            "Ревакцинација",
+            "Беснило"});
+            this.Vakcina.MinimumWidth = 6;
+            this.Vakcina.Name = "Vakcina";
+            this.Vakcina.Width = 500;
             // 
             // Form1
             // 
@@ -1512,6 +1491,7 @@ namespace Veterinarna_Ambulanta_Milenici
             this.mainTabControll.ResumeLayout(false);
             this.tabDoma.ResumeLayout(false);
             this.tabDoma.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTermini)).EndInit();
             this.tabVnesiMilenik.ResumeLayout(false);
             this.tabVnesiMilenik.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -1561,7 +1541,6 @@ namespace Veterinarna_Ambulanta_Milenici
             ((System.ComponentModel.ISupportInitialize)(this.error_pol)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.error_mikrocip)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvTermini)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1630,11 +1609,6 @@ namespace Veterinarna_Ambulanta_Milenici
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Datum;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn Vakcina1;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn Vakcina2;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn Column2;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.GroupBox groupBox13;
         private System.Windows.Forms.ComboBox cbDijagnoza;
@@ -1688,6 +1662,8 @@ namespace Veterinarna_Ambulanta_Milenici
         private System.Windows.Forms.DataGridView dgvTerapija;
         private System.Windows.Forms.LinkLabel llbClear;
         private System.Windows.Forms.DataGridView dgvTermini;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Datum;
+        private System.Windows.Forms.DataGridViewComboBoxColumn Vakcina;
     }
 }
 

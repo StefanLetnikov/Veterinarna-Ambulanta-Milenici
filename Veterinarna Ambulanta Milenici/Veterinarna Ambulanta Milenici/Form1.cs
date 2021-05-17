@@ -819,15 +819,15 @@ namespace Veterinarna_Ambulanta_Milenici
 			    //dgvTermini == dataViewGridTermini
                 dgvTermini.AutoGenerateColumns = true;
                 dgvTermini.DataSource = dtTermini;
-                //setColumnNamesTermini();
+                setColumnNamesTermini();
             }
  
          private void setColumnNamesTermini()
         {
-            dgvInfoTabela.Columns[0].Visible = false;
-            dgvInfoTabela.Columns[1].HeaderText = "Датум";
-            dgvInfoTabela.Columns[2].HeaderText = "Час";
-            dgvInfoTabela.Columns[3].HeaderText = "Име";
+            dgvTermini.Columns[0].Visible = false;
+            dgvTermini.Columns[1].HeaderText = "Датум";
+            dgvTermini.Columns[2].HeaderText = "Час";
+            dgvTermini.Columns[3].HeaderText = "Име";
         }
 
         private void button1_Click(object sender, EventArgs e)

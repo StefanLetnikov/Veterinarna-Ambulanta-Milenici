@@ -19,11 +19,7 @@ namespace Veterinarna_Ambulanta_Milenici
         public Termin()
         {
             InitializeComponent();
-        }
-
-        private void Termin_Load(object sender, EventArgs e)
-        {
-            
+            dtpDatum.CustomFormat = "dd/MM/yyyy";
         }
 
         

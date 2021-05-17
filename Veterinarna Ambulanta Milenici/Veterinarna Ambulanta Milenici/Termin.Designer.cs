@@ -79,7 +79,7 @@ namespace Veterinarna_Ambulanta_Milenici
             // 
             // dtpDatum
             // 
-            this.dtpDatum.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpDatum.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpDatum.Location = new System.Drawing.Point(76, 185);
             this.dtpDatum.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dtpDatum.Name = "dtpDatum";
@@ -103,6 +103,7 @@ namespace Veterinarna_Ambulanta_Milenici
             this.dtpCas.Location = new System.Drawing.Point(77, 230);
             this.dtpCas.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dtpCas.Name = "dtpCas";
+            this.dtpCas.ShowUpDown = true;
             this.dtpCas.Size = new System.Drawing.Size(264, 22);
             this.dtpCas.TabIndex = 8;
             // 
@@ -121,7 +122,6 @@ namespace Veterinarna_Ambulanta_Milenici
             this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Termin";
             this.Text = "Termin";
-            this.Load += new System.EventHandler(this.Termin_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

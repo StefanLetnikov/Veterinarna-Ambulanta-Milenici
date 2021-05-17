@@ -32,7 +32,7 @@ namespace Veterinarna_Ambulanta_Milenici
 
             //"dd/MM/yyyy" format
 
-            string fullDate = DateTime.Now.Date.ToString();
+            string fullDate = DateTime.Now.Date.ToString("dd/MM/yyyy");
             string[] parts = fullDate.Split(null);
             string date = parts[0];
 
