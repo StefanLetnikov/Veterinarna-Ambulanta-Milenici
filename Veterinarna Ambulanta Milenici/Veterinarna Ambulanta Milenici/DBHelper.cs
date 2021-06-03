@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 
 namespace Veterinarna_Ambulanta_Milenici
 {
@@ -39,8 +40,14 @@ namespace Veterinarna_Ambulanta_Milenici
             //Подоцна треба да се промени
 
             //return "Data Source=DESKTOP-6ANAM7J;Initial Catalog=VeterinaryDB;Persist Security Info=True;User ID=sa;Password=letnikov11";
-            //return "Data Source=DESKTOP-D3LRTE7\\SQLEXPRESS;Initial Catalog=VeterinaryDB;Persist Security Info=True;User ID=sa;Password=076999298";
-            return "Data Source = (LocalDB)\\MSSQLLocalDB; AttachDbFilename = D:\\milenici\\Veterinarna Ambulanta Milenici\\Veterinarna Ambulanta Milenici\\Database1.mdf; Integrated Security = True";
+            return "Data Source=DESKTOP-D3LRTE7\\SQLEXPRESS;Initial Catalog=VeterinaryDB;Persist Security Info=True;User ID=sa;Password=076999298";
+            
+           // string path = Path.GetFullPath(Environment.CurrentDirectory);
+           // string dbName = "VeterinarnaDB.mdf";
+            
+            //return "Data Source = (LocalDB)\\MSSQLLocalDB; AttachDbFilename = " + path + "\\" + dbName + ";Integrated Security = True; Trusted_Connection = Yes;";
+        
+            //D:\milenici\Veterinarna Ambulanta Milenici\Veterinarna Ambulanta Milenici\Database1.mdf
         }
 
         public static string getDate()

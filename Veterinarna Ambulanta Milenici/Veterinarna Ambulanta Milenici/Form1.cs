@@ -738,6 +738,7 @@ namespace Veterinarna_Ambulanta_Milenici
 
             cbPrebarajMD.Items.Clear();
             cbPrebarajMD.Text = "Одберете миленик";
+            rtbDijagnoza.Clear();
             displayDataSearchMD(DBHelper.SELECTALLMILENICI);
             btnVnesiDijagnoza.Enabled = false;
             ClearLabelsMD();
