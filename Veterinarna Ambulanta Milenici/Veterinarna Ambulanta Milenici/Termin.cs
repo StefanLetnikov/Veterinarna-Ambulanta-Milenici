@@ -61,10 +61,14 @@ namespace Veterinarna_Ambulanta_Milenici
             termin.Date = dtpDatum.Text;
             termin.ImeNaPacient = tbTerminImePacient.Text;
             termin.Time = dtpCas.Text;
-            
-            addNewAppointment();
 
-            DialogResult = DialogResult.OK;
+            if (termin.Date.Length == 0 || termin.ImeNaPacient.Length == 0 || termin.Time.Length == 0)
+                MessageBox.Show("Задолжително потполнете ги сите полиња!", "", MessageBoxButtons.OK);
+            else
+            {
+                addNewAppointment();
+                DialogResult = DialogResult.OK;
+            }
         }
 
         private void btnOtkazi_Click(object sender, EventArgs e)

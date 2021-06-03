@@ -74,3 +74,20 @@ C:\Users\milos\Desktop\milenici v.14\Veterinarna Ambulanta Milenici\Veterinarna 
 C:\Users\milos\Desktop\milenici v.14\Veterinarna Ambulanta Milenici\Veterinarna Ambulanta Milenici\obj\Debug\Veterinarna Ambulanta Milenici.csproj.CoreCompileInputs.cache
 C:\Users\milos\Desktop\milenici v.14\Veterinarna Ambulanta Milenici\Veterinarna Ambulanta Milenici\obj\Debug\Veterinarna Ambulanta Milenici.exe
 C:\Users\milos\Desktop\milenici v.14\Veterinarna Ambulanta Milenici\Veterinarna Ambulanta Milenici\obj\Debug\Veterinarna Ambulanta Milenici.pdb
+D:\milenici\Veterinarna Ambulanta Milenici\Veterinarna Ambulanta Milenici\bin\Debug\Veterinarna Ambulanta Milenici.exe.config
+D:\milenici\Veterinarna Ambulanta Milenici\Veterinarna Ambulanta Milenici\bin\Debug\Veterinarna Ambulanta Milenici.exe
+D:\milenici\Veterinarna Ambulanta Milenici\Veterinarna Ambulanta Milenici\bin\Debug\Veterinarna Ambulanta Milenici.pdb
+D:\milenici\Veterinarna Ambulanta Milenici\Veterinarna Ambulanta Milenici\obj\Debug\Veterinarna Ambulanta Milenici.csprojAssemblyReference.cache
+D:\milenici\Veterinarna Ambulanta Milenici\Veterinarna Ambulanta Milenici\obj\Debug\Veterinarna_Ambulanta_Milenici.Form1.resources
+D:\milenici\Veterinarna Ambulanta Milenici\Veterinarna Ambulanta Milenici\obj\Debug\Veterinarna_Ambulanta_Milenici.Properties.Resources.resources
+D:\milenici\Veterinarna Ambulanta Milenici\Veterinarna Ambulanta Milenici\obj\Debug\Veterinarna_Ambulanta_Milenici.Termin.resources
+D:\milenici\Veterinarna Ambulanta Milenici\Veterinarna Ambulanta Milenici\obj\Debug\Veterinarna Ambulanta Milenici.csproj.GenerateResource.cache
+D:\milenici\Veterinarna Ambulanta Milenici\Veterinarna Ambulanta Milenici\obj\Debug\Veterinarna Ambulanta Milenici.csproj.CoreCompileInputs.cache
+D:\milenici\Veterinarna Ambulanta Milenici\Veterinarna Ambulanta Milenici\obj\Debug\Veterinarna Ambulanta Milenici.exe
+D:\milenici\Veterinarna Ambulanta Milenici\Veterinarna Ambulanta Milenici\obj\Debug\Veterinarna Ambulanta Milenici.pdb
+D:\milenici\Veterinarna Ambulanta Milenici\Veterinarna Ambulanta Milenici\bin\Debug\Database1.mdf
+D:\milenici\Veterinarna Ambulanta Milenici\Veterinarna Ambulanta Milenici\bin\Debug\Database1_log.ldf
+D:\milenici\Veterinarna Ambulanta Milenici\Veterinarna Ambulanta Milenici\bin\Debug\Veterinarna Ambulanta Milenici.exe.manifest
+D:\milenici\Veterinarna Ambulanta Milenici\Veterinarna Ambulanta Milenici\bin\Debug\Veterinarna Ambulanta Milenici.application
+D:\milenici\Veterinarna Ambulanta Milenici\Veterinarna Ambulanta Milenici\obj\Debug\Veterinarna Ambulanta Milenici.exe.manifest
+D:\milenici\Veterinarna Ambulanta Milenici\Veterinarna Ambulanta Milenici\obj\Debug\Veterinarna Ambulanta Milenici.application

@@ -4,17 +4,19 @@ namespace Veterinarna_Ambulanta_Milenici
 {
     public class DBHelper
     {
+        public static readonly string SELECTALLTERMINI = "SELECT * FROM Termini WHERE datum='" + getDate() + "'";
+
         public static readonly string SELECTALLMILENICI = "SELECT * FROM Milenici"; //ми е потребно како query string за да ги добијам сите миленици од датабазата
         public static readonly string SELECTTOP1 = "SELECT TOP 1 * FROM Milenici WHERE id="; //ми е потребно како query string за да го добијам селектираниот миленик преку пребарување
 
         public static readonly string SELECTALLANAMNEZA = "SELECT * FROM Anamneza WHERE milenikId=";
-        public static readonly string INSERTANAMNEZA = "INSERT INTO Anamneza (MilenikId, Anamneza) VALUES(@milenikId,@anamneza)";
+        public static readonly string INSERTANAMNEZA = "INSERT INTO Anamneza (MilenikId, Anamneza, Datum) VALUES(@milenikId,@anamneza,@datum)";
 
         public static readonly string SELECTALLDIJAGNOSTICKIMETODI = "SELECT * FROM DijagnostickiMetodi WHERE milenikId=";
-        public static readonly string INSERTDIJAGNOSTICKIMETODI = "INSERT INTO DijagnostickiMetodi (MilenikId, DijagnostickiMetodi) VALUES(@milenikId,@dijagnostickiMetodi)";
+        public static readonly string INSERTDIJAGNOSTICKIMETODI = "INSERT INTO DijagnostickiMetodi (MilenikId, DijagnostickiMetodi, Datum) VALUES(@milenikId,@dijagnostickiMetodi,@datum)";
 
         public static readonly string SELECTALLTERAPIJA = "SELECT * FROM Terapija WHERE milenikId=";
-        public static readonly string INSERTTERAPIJA = "INSERT INTO Terapija (MilenikId, Terapija) VALUES(@milenikId,@terapija)";
+        public static readonly string INSERTTERAPIJA = "INSERT INTO Terapija (MilenikId, Terapija, Datum) VALUES(@milenikId,@terapija,@datum)";
 
         public static readonly string SELECTALLVAKCINI = "SELECT * FROM Vakcini WHERE milenikId=";
 
@@ -23,8 +25,8 @@ namespace Veterinarna_Ambulanta_Milenici
         public static readonly string SELECTALLTABLETI = "SELECT * FROM Tableti WHERE milenikId=";
 
         public static readonly string INSERTMILENIK = "INSERT INTO Milenici" +
-                        "(ImeSopstvenik,PrezimeSopstvenik,Email,Kontakt,VidZivotno,RasaZivotno,ImeZivotno,StarostZivotno,Pol,Mikrocip) " +
-                        "VALUES(@imeSopstvenik,@prezimeSopstvenik,@email,@kontakt,@vidZivotno,@rasaZivotno,@imeZivotno,@starostZivotno,@pol,@mikrocip)";
+                        "(ImeSopstvenik,PrezimeSopstvenik,Email,Kontakt,VidZivotno,RasaZivotno,ImeZivotno,StarostZivotno,Pol,Mikrocip, Datum) " +
+                        "VALUES(@imeSopstvenik,@prezimeSopstvenik,@email,@kontakt,@vidZivotno,@rasaZivotno,@imeZivotno,@starostZivotno,@pol,@mikrocip,@datum)";
 
         public static readonly string INSERTVAKCINA = "INSERT INTO Vakcini (Datum,Vakcina,MilenikId) VALUES(@datum,@vakcina,@milenikId)";
         public static readonly string INSERTUSLUGA = "INSERT INTO Uslugi (Datum,Usluga,MilenikId) VALUES(@datum,@usluga,@milenikId)";
@@ -35,9 +37,10 @@ namespace Veterinarna_Ambulanta_Milenici
         {
             //Ова е стринг кој враќа конекција со датабазата
             //Подоцна треба да се промени
-            
+
             //return "Data Source=DESKTOP-6ANAM7J;Initial Catalog=VeterinaryDB;Persist Security Info=True;User ID=sa;Password=letnikov11";
-            return "Data Source=DESKTOP-D3LRTE7\\SQLEXPRESS;Initial Catalog=VeterinaryDB;Persist Security Info=True;User ID=sa;Password=076999298";
+            //return "Data Source=DESKTOP-D3LRTE7\\SQLEXPRESS;Initial Catalog=VeterinaryDB;Persist Security Info=True;User ID=sa;Password=076999298";
+            return "Data Source = (LocalDB)\\MSSQLLocalDB; AttachDbFilename = D:\\milenici\\Veterinarna Ambulanta Milenici\\Veterinarna Ambulanta Milenici\\Database1.mdf; Integrated Security = True";
         }
 
         public static string getDate()
@@ -50,8 +53,7 @@ namespace Veterinarna_Ambulanta_Milenici
             string fullDate = DateTime.Now.Date.ToString("dd/MM/yyyy");
             string[] parts = fullDate.Split(null);
             string date = parts[0];
-
-            return "SELECT * FROM Termini WHERE datum='" + date + "'";
+            return date; 
         }
     }
 }

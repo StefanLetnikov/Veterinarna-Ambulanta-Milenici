@@ -16,12 +16,14 @@ namespace Veterinarna_Ambulanta_Milenici
             InitializeComponent();
             btnVnesiDijagnoza.Enabled = false;
         }
+
+        //Кога ќе се вчита формата прикажи ги сите термини во денешниот ден
         private void Form1_Load(object sender, EventArgs e)
         {
-            displayAppointments(DBHelper.getDate());
+            displayAppointments(DBHelper.SELECTALLTERMINI);
         }
 
-        //При промена на таб лоадирај ги информациите од датабазата
+        //При промена на таб вчитај ги информациите од датабазата
         private void mainTabControll_SelectedIndexChanged(object sender, EventArgs e)
         {
             switch (mainTabControll.SelectedIndex)
@@ -43,12 +45,7 @@ namespace Veterinarna_Ambulanta_Milenici
             }
         }
 
-        private void disableButtonsOOZ()
-        {
-            btnVnesiVakciniOZZ.Enabled = false;
-            btnVnesiUsluga.Enabled = false;
-            btnVnesiTableti.Enabled = false;
-        }
+     
 
         //Приказ на податоци co Пребарувај
         private void displayDataSearch(string selectQuery, int tab)
@@ -104,7 +101,7 @@ namespace Veterinarna_Ambulanta_Milenici
             DialogResult rezultat = newTermin.ShowDialog();
             if (rezultat == DialogResult.OK)
             {
-                displayAppointments(DBHelper.getDate());
+                displayAppointments(DBHelper.SELECTALLTERMINI);
                 MessageBox.Show("Терминот е успешно внесен!");
             }
         }
@@ -191,11 +188,6 @@ namespace Veterinarna_Ambulanta_Milenici
             {
                 string pol = gbPol.Controls.OfType<RadioButton>().First(rb => rb.Checked).Text.ToString();
 
-                Sopstvenik novSopstvenik = new Sopstvenik(tbImeSopstvenik.Text, tbPrezimeSopstvenik.Text, tbEmailSopstvenik.Text, mtbKontakt.Text);
-                Milenik novMilenik = new Milenik(tbVidZivotno.Text, tbRasaZivotno.Text, tbImeZivotno.Text, Convert.ToInt32(nudStarostZivotno.Text), pol, tbMikroCip.Text, novSopstvenik);
-
-                novSopstvenik.addMilenik(novMilenik);
-
                 addNewAnimalToDatabase(pol);
                 displayDataMilenici(DBHelper.SELECTALLMILENICI);
 
@@ -227,6 +219,7 @@ namespace Veterinarna_Ambulanta_Milenici
                 cmd.Parameters.AddWithValue("@starostZivotno", nudStarostZivotno.Value);
                 cmd.Parameters.AddWithValue("@pol", pol);
                 cmd.Parameters.AddWithValue("@mikrocip", tbMikroCip.Text);
+                cmd.Parameters.AddWithValue("@datum", DBHelper.getDate());
 
                 cmd.CommandType = CommandType.Text;
 
@@ -370,10 +363,15 @@ namespace Veterinarna_Ambulanta_Milenici
             btnVnesiVakciniOZZ.Enabled = false;
             btnVnesiUsluga.Enabled = false;
             btnVnesiTableti.Enabled = false;
-            ClearLabelsMD();
+            ClearLabelsOOZ();
         }
 
-
+        private void disableButtonsOOZ()
+        {
+            btnVnesiVakciniOZZ.Enabled = false;
+            btnVnesiUsluga.Enabled = false;
+            btnVnesiTableti.Enabled = false;
+        }
 
 
         //----------------------------------------------ВАКЦИНИ---------------------------------------------
@@ -415,29 +413,36 @@ namespace Veterinarna_Ambulanta_Milenici
 
         private void addVakcinaToDatabase()
         {
-            //Отворање на конекција со датабазата co string за конекција од помошната класа DBHelper
-            SqlConnection connection = new SqlConnection();
-            connection.ConnectionString = DBHelper.ConnVal();
-            connection.Open();
-
-            //sql query за додавање во табела
-            string sql = DBHelper.INSERTVAKCINA;
-
-            //додавање вредности во командата (од sql query и конекцијата) која се извршува за додавање на нов ред во табелата
-            using (SqlCommand cmd = new SqlCommand(sql, connection))
+            if (cbVakcini.SelectedIndex == -1)
             {
-                cmd.Parameters.AddWithValue("@datum", DateTime.Now.Date.ToString("dd/MM/yyyy"));
-                cmd.Parameters.AddWithValue("@vakcina", cbVakcini.SelectedItem.ToString());
-                cmd.Parameters.AddWithValue("@milenikId", milenikId);
-
-                cmd.CommandType = CommandType.Text;
-
-                //пробај да ја извршиш командата, доколку е не е успешно прикажи порака
-                if (cmd.ExecuteNonQuery() == 0)
-                    MessageBox.Show("Додавањето на нов миленик во датабазата е неуспешно! Пробајте повторно.");
+                MessageBox.Show("Одберете вид на вакцина!", "", MessageBoxButtons.OK);
             }
-            //Затвори ја конекцијата
-            connection.Close();
+            else
+            {
+                //Отворање на конекција со датабазата co string за конекција од помошната класа DBHelper
+                SqlConnection connection = new SqlConnection();
+                connection.ConnectionString = DBHelper.ConnVal();
+                connection.Open();
+
+                //sql query за додавање во табела
+                string sql = DBHelper.INSERTVAKCINA;
+
+                //додавање вредности во командата (од sql query и конекцијата) која се извршува за додавање на нов ред во табелата
+                using (SqlCommand cmd = new SqlCommand(sql, connection))
+                {
+                    cmd.Parameters.AddWithValue("@datum", DBHelper.getDate());
+                    cmd.Parameters.AddWithValue("@vakcina", cbVakcini.SelectedItem.ToString());
+                    cmd.Parameters.AddWithValue("@milenikId", milenikId);
+
+                    cmd.CommandType = CommandType.Text;
+
+                    //пробај да ја извршиш командата, доколку е не е успешно прикажи порака
+                    if (cmd.ExecuteNonQuery() == 0)
+                        MessageBox.Show("Додавањето на нов миленик во датабазата е неуспешно! Пробајте повторно.");
+                }
+                //Затвори ја конекцијата
+                connection.Close();
+            }
         }
 
 
@@ -494,29 +499,36 @@ namespace Veterinarna_Ambulanta_Milenici
 
         private void addUslugaToDatabase()
         {
-            //Отворање на конекција со датабазата co string за конекција од помошната класа DBHelper
-            SqlConnection connection = new SqlConnection();
-            connection.ConnectionString = DBHelper.ConnVal();
-            connection.Open();
-
-            //sql query за додавање во табела
-            string sql = DBHelper.INSERTUSLUGA;
-
-            //додавање вредности во командата (од sql query и конекцијата) која се извршува за додавање на нов ред во табелата
-            using (SqlCommand cmd = new SqlCommand(sql, connection))
+            if (cbUslugi.SelectedIndex == -1)
             {
-                cmd.Parameters.AddWithValue("@datum", DateTime.Now.Date.ToString("dd/MM/yyyy"));
-                cmd.Parameters.AddWithValue("@usluga", cbUslugi.SelectedItem.ToString());
-                cmd.Parameters.AddWithValue("@milenikId", milenikId);
-
-                cmd.CommandType = CommandType.Text;
-
-                //пробај да ја извршиш командата, доколку е не е успешно прикажи порака
-                if (cmd.ExecuteNonQuery() == 0)
-                    MessageBox.Show("Додавањето на нов миленик во датабазата е неуспешно! Пробајте повторно.");
+                MessageBox.Show("Одберете вид на услуга!", "", MessageBoxButtons.OK);
             }
-            //Затвори ја конекцијата
-            connection.Close();
+            else
+            {
+                //Отворање на конекција со датабазата co string за конекција од помошната класа DBHelper
+                SqlConnection connection = new SqlConnection();
+                connection.ConnectionString = DBHelper.ConnVal();
+                connection.Open();
+
+                //sql query за додавање во табела
+                string sql = DBHelper.INSERTUSLUGA;
+
+                //додавање вредности во командата (од sql query и конекцијата) која се извршува за додавање на нов ред во табелата
+                using (SqlCommand cmd = new SqlCommand(sql, connection))
+                {
+                    cmd.Parameters.AddWithValue("@datum", DBHelper.getDate());
+                    cmd.Parameters.AddWithValue("@usluga", cbUslugi.SelectedItem.ToString());
+                    cmd.Parameters.AddWithValue("@milenikId", milenikId);
+
+                    cmd.CommandType = CommandType.Text;
+
+                    //пробај да ја извршиш командата, доколку е не е успешно прикажи порака
+                    if (cmd.ExecuteNonQuery() == 0)
+                        MessageBox.Show("Додавањето на нов миленик во датабазата е неуспешно! Пробајте повторно.");
+                }
+                //Затвори ја конекцијата
+                connection.Close();
+            }
         }
 
         private void btnVnesiUsluga_Click(object sender, EventArgs e)
@@ -570,29 +582,36 @@ namespace Veterinarna_Ambulanta_Milenici
 
         private void addTabletaToDatabase()
         {
-            //Отворање на конекција со датабазата co string за конекција од помошната класа DBHelper
-            SqlConnection connection = new SqlConnection();
-            connection.ConnectionString = DBHelper.ConnVal();
-            connection.Open();
-
-            //sql query за додавање во табела
-            string sql = DBHelper.INSERTABLETA;
-
-            //додавање вредности во командата (од sql query и конекцијата) која се извршува за додавање на нов ред во табелата
-            using (SqlCommand cmd = new SqlCommand(sql, connection))
+            if (tbTabletiVnatresni.Text.Trim().Length == 0)
             {
-                cmd.Parameters.AddWithValue("@datum", DateTime.Now.Date.ToString("dd/MM/yyyy"));
-                cmd.Parameters.AddWithValue("@tableta", tbTabletiVnatresni.Text);
-                cmd.Parameters.AddWithValue("@milenikId", milenikId);
-
-                cmd.CommandType = CommandType.Text;
-
-                //пробај да ја извршиш командата, доколку е не е успешно прикажи порака
-                if (cmd.ExecuteNonQuery() == 0)
-                    MessageBox.Show("Додавањето на нов миленик во датабазата е неуспешно! Пробајте повторно.");
+                MessageBox.Show("Внесете таблета!", "", MessageBoxButtons.OK);
             }
-            //Затвори ја конекцијата
-            connection.Close();
+            else
+            {
+                //Отворање на конекција со датабазата co string за конекција од помошната класа DBHelper
+                SqlConnection connection = new SqlConnection();
+                connection.ConnectionString = DBHelper.ConnVal();
+                connection.Open();
+
+                //sql query за додавање во табела
+                string sql = DBHelper.INSERTABLETA;
+
+                //додавање вредности во командата (од sql query и конекцијата) која се извршува за додавање на нов ред во табелата
+                using (SqlCommand cmd = new SqlCommand(sql, connection))
+                {
+                    cmd.Parameters.AddWithValue("@datum", DBHelper.getDate());
+                    cmd.Parameters.AddWithValue("@tableta", tbTabletiVnatresni.Text);
+                    cmd.Parameters.AddWithValue("@milenikId", milenikId);
+
+                    cmd.CommandType = CommandType.Text;
+
+                    //пробај да ја извршиш командата, доколку е не е успешно прикажи порака
+                    if (cmd.ExecuteNonQuery() == 0)
+                        MessageBox.Show("Додавањето на нов миленик во датабазата е неуспешно! Пробајте повторно.");
+                }
+                //Затвори ја конекцијата
+                connection.Close();
+            }
         }
 
         private void btnVnesiTableti_Click(object sender, EventArgs e)
@@ -764,6 +783,7 @@ namespace Veterinarna_Ambulanta_Milenici
                 {
                     cmd.Parameters.AddWithValue("@milenikId", milenikId);
                     cmd.Parameters.AddWithValue("@"+ diagnose, rtbDijagnoza.Text);
+                    cmd.Parameters.AddWithValue("@datum", DBHelper.getDate());
 
                     cmd.CommandType = CommandType.Text;
 
