@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Windows.Forms;
 
 namespace Veterinarna_Ambulanta_Milenici
 {
@@ -40,12 +41,14 @@ namespace Veterinarna_Ambulanta_Milenici
             //Подоцна треба да се промени
 
             //return "Data Source=DESKTOP-6ANAM7J;Initial Catalog=VeterinaryDB;Persist Security Info=True;User ID=sa;Password=letnikov11";
-            return "Data Source=DESKTOP-D3LRTE7\\SQLEXPRESS;Initial Catalog=VeterinaryDB;Persist Security Info=True;User ID=sa;Password=076999298";
+            //return "Data Source=DESKTOP-D3LRTE7\\SQLEXPRESS;Initial Catalog=VeterinaryDB;Persist Security Info=True;User ID=sa;Password=076999298";
+
+            // string path = Path.GetFullPath(Environment.CurrentDirectory);
+            var enviroment = System.Environment.CurrentDirectory;
+            string path = Directory.GetParent(enviroment).Parent.FullName;
+            string dbName = "VeterinarnaDB.mdf";
             
-           // string path = Path.GetFullPath(Environment.CurrentDirectory);
-           // string dbName = "VeterinarnaDB.mdf";
-            
-            //return "Data Source = (LocalDB)\\MSSQLLocalDB; AttachDbFilename = " + path + "\\" + dbName + ";Integrated Security = True; Trusted_Connection = Yes;";
+            return "Data Source = (LocalDB)\\MSSQLLocalDB; AttachDbFilename = " + path + "\\" + dbName + ";Integrated Security = True; Trusted_Connection = Yes; database=VeterinarnaDB.mdf;";
         
             //D:\milenici\Veterinarna Ambulanta Milenici\Veterinarna Ambulanta Milenici\Database1.mdf
         }
