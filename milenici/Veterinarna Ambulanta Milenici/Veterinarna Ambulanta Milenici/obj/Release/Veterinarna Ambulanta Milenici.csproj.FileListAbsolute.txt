@@ -1,0 +1,17 @@
+D:\milenici\Veterinarna Ambulanta Milenici\Veterinarna Ambulanta Milenici\bin\Release\VeterinarnaDB.mdf
+D:\milenici\Veterinarna Ambulanta Milenici\Veterinarna Ambulanta Milenici\bin\Release\VeterinarnaDB_log.ldf
+D:\milenici\Veterinarna Ambulanta Milenici\Veterinarna Ambulanta Milenici\bin\Release\Veterinarna Ambulanta Milenici.exe.config
+D:\milenici\Veterinarna Ambulanta Milenici\Veterinarna Ambulanta Milenici\bin\Release\Veterinarna Ambulanta Milenici.exe.manifest
+D:\milenici\Veterinarna Ambulanta Milenici\Veterinarna Ambulanta Milenici\bin\Release\Veterinarna Ambulanta Milenici.application
+D:\milenici\Veterinarna Ambulanta Milenici\Veterinarna Ambulanta Milenici\bin\Release\Veterinarna Ambulanta Milenici.exe
+D:\milenici\Veterinarna Ambulanta Milenici\Veterinarna Ambulanta Milenici\bin\Release\Veterinarna Ambulanta Milenici.pdb
+D:\milenici\Veterinarna Ambulanta Milenici\Veterinarna Ambulanta Milenici\obj\Release\Veterinarna Ambulanta Milenici.csprojAssemblyReference.cache
+D:\milenici\Veterinarna Ambulanta Milenici\Veterinarna Ambulanta Milenici\obj\Release\Veterinarna_Ambulanta_Milenici.Form1.resources
+D:\milenici\Veterinarna Ambulanta Milenici\Veterinarna Ambulanta Milenici\obj\Release\Veterinarna_Ambulanta_Milenici.Properties.Resources.resources
+D:\milenici\Veterinarna Ambulanta Milenici\Veterinarna Ambulanta Milenici\obj\Release\Veterinarna_Ambulanta_Milenici.Termin.resources
+D:\milenici\Veterinarna Ambulanta Milenici\Veterinarna Ambulanta Milenici\obj\Release\Veterinarna Ambulanta Milenici.csproj.GenerateResource.cache
+D:\milenici\Veterinarna Ambulanta Milenici\Veterinarna Ambulanta Milenici\obj\Release\Veterinarna Ambulanta Milenici.csproj.CoreCompileInputs.cache
+D:\milenici\Veterinarna Ambulanta Milenici\Veterinarna Ambulanta Milenici\obj\Release\Veterinarna Ambulanta Milenici.exe.manifest
+D:\milenici\Veterinarna Ambulanta Milenici\Veterinarna Ambulanta Milenici\obj\Release\Veterinarna Ambulanta Milenici.application
+D:\milenici\Veterinarna Ambulanta Milenici\Veterinarna Ambulanta Milenici\obj\Release\Veterinarna Ambulanta Milenici.exe
+D:\milenici\Veterinarna Ambulanta Milenici\Veterinarna Ambulanta Milenici\obj\Release\Veterinarna Ambulanta Milenici.pdb
